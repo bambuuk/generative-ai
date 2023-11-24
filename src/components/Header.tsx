@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IconButton, styled, Toolbar } from '@mui/material';
+import { IconButton, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { CustomContainer } from './CustomElements';
 import logo from '../assets/logo.svg';
@@ -10,8 +10,7 @@ const HeaderUI = styled('header')(({ theme }) => ({
   overflow: 'hidden',
   backgroundColor: theme.palette.otherColor?.darkGray,
   [theme.breakpoints.down(1024)]: {
-    height: 'auto',
-    maxHeight: '100px',
+    height: '85px',
   },
 }));
 
@@ -20,7 +19,8 @@ const HeaderWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
   padding: '16px 0',
   [theme.breakpoints.down('lg')]: {
-    padding: '10px 0',
+    padding: '15px 0',
+    height: '100%'
   },
 }));
 
