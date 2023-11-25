@@ -98,48 +98,6 @@ const LinkUI = styled('a')(({ theme }) => ({
   },
 }));
 
-// const LoginBtn = styled('button')(({ theme }) => ({
-//   width: '196px',
-//   padding: '20px 44px',
-//   borderRadius: '20px',
-//   background: `linear-gradient(100deg, #391F6F 15.2%, #CE1AFE 104.12%)`,
-//   position: 'relative',
-//   zIndex: 1,
-
-//   '&::before': {
-//     content: '""',
-//     position: 'absolute',
-//     left: '1px',
-//     right: '1px',
-//     top: '1px',
-//     bottom: '1px',
-//     borderRadius: '19px',
-//     backgroundColor: '#13171D',
-//     zIndex: '-1',
-//     transition: '500ms',
-//   },
-//   '&::after': {
-//     content: 'attr(data-call)',
-//     color: '#E2E2E2',
-//     fontFamily: 'Work Sans',
-//     fontSize: '20px',
-//     fontWeight: 400,
-//     lineHeight: '24px',
-//     WebkitBackgroundClip: 'text',
-//     transition: '500ms'
-//   },
-//   '&:hover::before': {
-//     backgroundColor: 'transparent',
-//   },
-
-//   [theme.breakpoints.down('lg')]: {
-//     width: '156px',
-//   },
-//   [theme.breakpoints.down(1024)]: {
-//     display: 'none',
-//   },
-// }));
-
 const CustomIconButton = styled(IconButton)(({ theme }) => ({
   display: 'none',
   color: "#A992DB",

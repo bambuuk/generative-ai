@@ -14,19 +14,30 @@ const HeroUI = styled('section')({
   height: '100%',
 });
 
-const HeroWrapper = styled('div')(() => ({
+const HeroWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   gap: '20px',
   paddingTop: '140px',
-
+  [theme.breakpoints.down(1024)]: {
+    flexDirection: 'column'
+  },
+  [theme.breakpoints.down('sm')]: {
+    paddingTop: '50px',
+  },
 }));
 
-const OverviewBlock = styled('div')({
+const OverviewBlock = styled('div')(({ theme }) => ({
   maxWidth: '610px',
   width: '100%',
   display: 'block',
   flexDirection: 'column',
-});
+  [theme.breakpoints.down('lg')]: {
+    maxWidth: '500px',
+  },
+  [theme.breakpoints.down(1024)]: {
+    maxWidth: '900px',
+  },
+}));
 
 const ImageBlock = styled('div')({
   display: 'flex',
@@ -37,29 +48,57 @@ const ImageBlock = styled('div')({
   position: 'relative',
 });
 
-const Picture = styled('img')({
+const Picture = styled('img')(({ theme }) => ({
   width: '100%',
   height: '100%',
   objectFit: 'contain',
-});
+  [theme.breakpoints.down(1024)]: {
+    width: '100%',
+    maxWidth: '500px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    maxWidth: '80%',
+  },
+}));
 
-const WaveImg = styled(Picture)({
-  width: '450px',
-  height: '522px',
+const WaveImg = styled(Picture)(({ theme }) => ({
+  maxWidth: '80%',
+  maxHeight: '522px',
+  width: '100%',
+  height: '100%',
   right: '0',
   position: 'absolute',
   zIndex: '-1',
-})
+  [theme.breakpoints.down('lg')]: {
+    maxHeight: '470px',
+    right: '0'
+  },
+  [theme.breakpoints.down('lg')]: {
+    maxHeight: '470px',
+    right: '15%'
+  },
+  [theme.breakpoints.down('md')]: {
+    maxWidth: '60%',
+    maxHeight: '440px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    right: '10%'
+  },
+}));
 
-const Title = styled('h1')(() => ({
+const Title = styled('h1')(({ theme }) => ({
   color: '#E2E2E2',
   fontFamily: 'Anton',
   fontSize: '88px',
   fontWeight: '400',
   lineHeight: '96px',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '30px',
+    lineHeight: '45px',
+  },
 }));
 
-const GradientTitle = styled('span')({
+const GradientTitle = styled('span')(({ theme }) => ({
   background: 'linear-gradient(100deg, #391F6F 15.2%, #CE1AFE 104.12%)',
   backgroundClip: 'text',
   WebkitBackgroundClip: 'text',
@@ -68,16 +107,24 @@ const GradientTitle = styled('span')({
   fontSize: '88px',
   fontWeight: '400',
   lineHeight: '96px',
-});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '30px',
+    lineHeight: '35px',
+  },
+}));
 
-const Description = styled('p')({
+const Description = styled('p')(({ theme }) => ({
   marginTop: '24px',
   color: '#E2E2E2',
   fontFamily: 'Work Sans',
   fontSize: '24px',
   fontWeight: '400',
   lineHeight: '32px',
-});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '18px',
+    lineHeight: '22px',
+  },
+}));
 
 const GradientsBlock = styled('div')({
   width: '657px',

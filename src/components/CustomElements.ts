@@ -9,7 +9,6 @@ export const CustomContainer = styled("div")({
 });
 
 export const TransparentToFullBtn = styled("button")(({ theme }) => ({
-  // width: "196px",
   padding: "20px 69px",
   borderRadius: "20px",
   background: `linear-gradient(100deg, #391F6F 15.2%, #CE1AFE 104.12%)`,
@@ -56,7 +55,7 @@ export const FullToTransparentBtn = styled("button")(({ theme }) => ({
   fontSize: "20px",
   fontWeight: 400,
   lineHeight: "24px",
-  transition: "all 500ms ease-in-out",
+  transition: "all 400ms ease-in-out",
 
   "&::before": {
     content: '""',
@@ -68,7 +67,7 @@ export const FullToTransparentBtn = styled("button")(({ theme }) => ({
     borderRadius: "19px",
     zIndex: "-1",
     opacity: "0",
-    transition: "all 500ms ease-in-out",
+    transition: "all 400ms ease-in-out",
     background: "linear-gradient(214deg, #482B8D 5.44%, #180C33 94.54%)",
   },
   "&:hover::before": {
