@@ -11,7 +11,6 @@ const FeaturesWrapper = styled('div')(({ }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  marginTop: '120px',
 }));
 
 const Title = styled('h2')(({ theme }) => ({
