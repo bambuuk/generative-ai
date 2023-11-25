@@ -3,6 +3,10 @@ import { CustomContainer } from './CustomElements';
 import { styled } from '@mui/material';
 import { FullToTransparentBtn } from './CustomElements';
 import picture from '../assets/pictures/hero-picture.svg';
+import wave from '../assets/pictures/wave-pattern.svg';
+import firstVector from '../assets/backgroundFigures/hero/1-vector.svg';
+import secondVector from '../assets/backgroundFigures/hero/2-vector.svg';
+import thirdVector from '../assets/backgroundFigures/hero/3-vector.svg';
 
 const HeroUI = styled('section')({
   width: '100%',
@@ -30,13 +34,22 @@ const ImageBlock = styled('div')({
   alignItems: 'center',
   padding: '5px',
   flex: '1',
+  position: 'relative',
 });
 
-const Picture = styled('img')(({ }) => ({
+const Picture = styled('img')({
   width: '100%',
   height: '100%',
-  objectFit: 'contain'
-}));
+  objectFit: 'contain',
+});
+
+const WaveImg = styled(Picture)({
+  width: '450px',
+  height: '522px',
+  right: '0',
+  position: 'absolute',
+  zIndex: '-1',
+})
 
 const Title = styled('h1')(() => ({
   color: '#E2E2E2',
@@ -64,6 +77,39 @@ const Description = styled('p')({
   fontSize: '24px',
   fontWeight: '400',
   lineHeight: '32px',
+});
+
+const GradientsBlock = styled('div')({
+  width: '657px',
+  height: '640px',
+  filter: 'blur(207px)',
+  position: 'absolute',
+  zIndex: '-10',
+  right: 0,
+  top: '163px'
+});
+
+const Vector = styled('img')({
+  display: 'block',
+  position: 'absolute',
+});
+
+const FirstVector = styled(Vector)({
+  fill: '#3D32F9',
+  top: '0',
+  right: '81.98px'
+});
+
+const SecondVector = styled(Vector)({
+  fill: '#391F6F',
+  bottom: 0,
+  right: 0,
+});
+
+const ThirdVector = styled(Vector)({
+  fill: '#CE1AFE',
+  bottom: 0,
+  left: 0,
 });
 
 const Hero: FC = () => {
@@ -95,10 +141,16 @@ const Hero: FC = () => {
             </FullToTransparentBtn>
           </OverviewBlock>
           <ImageBlock>
-            <Picture src={picture} alt="Picture" />
+            <Picture src={picture} alt="Abstract" />
+            <WaveImg src={wave} alt="Wave" />
           </ImageBlock>
         </HeroWrapper>
       </CustomContainer>
+      <GradientsBlock>
+        <FirstVector src={firstVector} />
+        <SecondVector src={secondVector} />
+        <ThirdVector src={thirdVector} />
+      </GradientsBlock>
     </HeroUI>
   )
 }
