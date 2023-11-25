@@ -127,33 +127,43 @@ const Description = styled('p')(({ theme }) => ({
 }));
 
 const GradientsBlock = styled('div')({
-  width: '657px',
-  height: '640px',
+  width: '100%',
+  height: '100%',
+  maxWidth: '657px',
+  maxHeight: '640px',
   filter: 'blur(207px)',
   position: 'absolute',
   zIndex: '-10',
   right: 0,
-  top: '163px'
+  top: '63px'
 });
 
 const Vector = styled('img')({
   display: 'block',
   position: 'absolute',
+  width: '100%',
+  height: '100%',
 });
 
 const FirstVector = styled(Vector)({
+  maxWidth: '340.545px',
+  maxHeight: '387.16px',
   fill: '#3D32F9',
   top: '0',
   right: '81.98px'
 });
 
 const SecondVector = styled(Vector)({
+  maxWidth: '370.666px',
+  maxHeight: '352.619px',
   fill: '#391F6F',
   bottom: 0,
   right: 0,
 });
 
 const ThirdVector = styled(Vector)({
+  maxWidth: '364.973px',
+  maxHeight: '390.004px',
   fill: '#CE1AFE',
   bottom: 0,
   left: 0,
@@ -162,7 +172,7 @@ const ThirdVector = styled(Vector)({
 const Hero: FC = () => {
   return (
     <HeroUI>
-      <CustomContainer>
+      <CustomContainer sx={{ position: "relative" }}>
         <HeroWrapper>
           <OverviewBlock>
             <Title>
@@ -191,12 +201,12 @@ const Hero: FC = () => {
             <WaveImg src={wave} alt="Wave" />
           </ImageBlock>
         </HeroWrapper>
+        <GradientsBlock>
+          <FirstVector src={firstVector} />
+          <SecondVector src={secondVector} />
+          <ThirdVector src={thirdVector} />
+        </GradientsBlock>
       </CustomContainer>
-      <GradientsBlock>
-        <FirstVector src={firstVector} />
-        <SecondVector src={secondVector} />
-        <ThirdVector src={thirdVector} />
-      </GradientsBlock>
     </HeroUI>
   )
 }
