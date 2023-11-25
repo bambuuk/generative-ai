@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { CustomContainer } from './CustomElements';
 import { styled } from '@mui/material';
+import { CustomContainer } from './CustomElements';
 import { FullToTransparentBtn } from './CustomElements';
 import picture from '../assets/pictures/hero-picture.svg';
 import wave from '../assets/pictures/wave-pattern.svg';
@@ -94,11 +94,11 @@ const Title = styled('h1')(({ theme }) => ({
   lineHeight: '96px',
   [theme.breakpoints.down('sm')]: {
     fontSize: '30px',
-    lineHeight: '45px',
+    lineHeight: '35px',
   },
 }));
 
-const GradientTitle = styled('span')(({ theme }) => ({
+const GradientTitle = styled('div')(({ theme }) => ({
   background: 'linear-gradient(100deg, #391F6F 15.2%, #CE1AFE 104.12%)',
   backgroundClip: 'text',
   WebkitBackgroundClip: 'text',
@@ -169,7 +169,6 @@ const Hero: FC = () => {
               Start your
               <br />
               <GradientTitle>Generative AI</GradientTitle>
-              <br />
               Business in Minutes
             </Title>
             <Description>

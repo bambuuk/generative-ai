@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from "./theme";
 import Hero from "./components/Hero";
+import Features from "./components/Features";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <main>
           <Hero />
+          <Features />
         </main>
       </ThemeProvider>
     </>
