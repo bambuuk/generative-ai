@@ -4,6 +4,7 @@ import { theme } from "./theme";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
+import Solution from "./components/Solution";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -20,6 +21,7 @@ function App() {
           <Hero />
           <Features />
           <HowItWorks />
+          <Solution />
         </MainContent>
       </ThemeProvider>
     </>

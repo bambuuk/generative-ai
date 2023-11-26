@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
-import { CustomContainer } from './CustomElements';
+import { CustomContainer, Title, Overview } from './CustomElements';
 import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from './FeatureImgComponents';
 import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/features/2-vector.svg';
@@ -17,19 +17,18 @@ const FeaturesWrapper = styled('div')(({ }) => ({
   alignItems: 'center',
 }));
 
-const Title = styled('h2')(({ theme }) => ({
+const CustomTitle = styled(Title)(({ theme }) => ({
   display: 'flex',
-  justifyContent: 'center',
-  flexWrap: 'wrap',
-  color: '#E2E2E2',
-  fontFamily: 'Anton',
-  fontSize: '32px',
-  fontWeight: '400',
-  lineHeight: '40px',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '32px',
+    lineHeight: '40px',
+  },
   [theme.breakpoints.down('sm')]: {
+    justifyContent: 'center',
+    flexWrap: 'wrap',
     fontSize: '26px',
     lineHeight: '35px',
-  }
+  },
 }));
 
 const GradientTitle = styled('div')(({ theme }) => ({
@@ -39,30 +38,16 @@ const GradientTitle = styled('div')(({ theme }) => ({
   WebkitTextFillColor: 'transparent',
   color: '#E2E2E2',
   fontFamily: 'Anton',
-  fontSize: '32px',
+  fontSize: '48px',
   fontWeight: '400',
-  lineHeight: '40px',
+  lineHeight: '60px',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '32px',
+    lineHeight: '40px',
+  },
   [theme.breakpoints.down('sm')]: {
     fontSize: '26px',
     lineHeight: '35px',
-  }
-}));
-
-const Subtitle = styled('p')(({ theme }) => ({
-  display: 'block',
-  maxWidth: '1040px',
-  width: '100%',
-  marginTop: '16px',
-  color: '#E2E2E2',
-  textAlign: 'center',
-  fontFamily: 'Work Sans',
-  fontSize: '24px',
-  fontWeight: '400',
-  lineHeight: '32px',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '20px',
-    lineHeight: '25px',
-    marginTop: '20px',
   }
 }));
 
@@ -229,11 +214,11 @@ const Features: FC = () => {
     <FeaturesUI>
       <CustomContainer sx={{ position: 'relative', overflow: { xs: 'hidden', sm: 'visible' }, }}>
         <FeaturesWrapper>
-          <Title>How&nbsp;<GradientTitle>AI GENIUS</GradientTitle>&nbsp;improve your business?</Title>
-          <Subtitle>
+          <CustomTitle>How&nbsp;<GradientTitle>AI GENIUS</GradientTitle>&nbsp;improve your business?</CustomTitle>
+          <Overview>
             Discover how we simplify the process of creating your own AI-as-a-service platform with its advanced,
             user friendly features
-          </Subtitle>
+          </Overview>
           <FeaturesCardList>
             <StarImg src={star} alt="star" />
             <FeatureCard>

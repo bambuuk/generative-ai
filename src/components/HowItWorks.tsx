@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
 import { nanoid } from 'nanoid';
-import { CustomContainer } from './CustomElements';
+import { CustomContainer, Title, Overview } from './CustomElements';
 import { descriptionList } from '../constants';
 
 const HowItWorksUI = styled('section')({
@@ -11,36 +11,6 @@ const HowItWorksUI = styled('section')({
 const MainWrapper = styled('div')(({ }) => ({
   display: 'flex',
   flexDirection: 'column',
-}));
-
-const Title = styled('h2')(({ theme }) => ({
-  color: '#E2E2E2',
-  textAlign: 'center',
-  fontFamily: 'Anton',
-  fontSize: '48px',
-  fontWeight: '400',
-  lineHeight: '60px',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '35px',
-    lineHeight: '40px',
-  }
-}));
-
-const Overview = styled('p')(({ theme }) => ({
-  margin: '0 auto',
-  maxWidth: '1040px',
-  width: '100%',
-  marginTop: '16px',
-  color: '#E2E2E2',
-  textAlign: 'center',
-  fontFamily: 'Work Sans',
-  fontSize: '24px',
-  fontWeight: '400',
-  lineHeight: '32px',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '18px',
-    lineHeight: '24px',
-  }
 }));
 
 const DescriptionList = styled('div')(({ }) => ({
