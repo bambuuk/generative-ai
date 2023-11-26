@@ -5,6 +5,7 @@ import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from
 import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/features/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/features/3-vector.svg';
+import star from '../assets/backgroundFigures/star.svg';
 
 const FeaturesUI = styled('section')({
   width: '100%',
@@ -66,6 +67,7 @@ const Subtitle = styled('p')(({ theme }) => ({
 }));
 
 const FeaturesCardList = styled('div')(({ theme }) => ({
+  position: 'relative',
   marginTop: '88px',
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 400px)',
@@ -156,9 +158,6 @@ const GradientsBlock = styled('div')(({ theme }) => ({
     maxWidth: '359px',
     maxHeight: '331px',
   },
-  // [theme.breakpoints.down('sm')]: {
-  //   overflow: 'hidden',
-  // },
 }));
 
 const SecondGradientsBlock = styled('div')(({ theme }) => ({
@@ -179,9 +178,6 @@ const SecondGradientsBlock = styled('div')(({ theme }) => ({
     maxWidth: '359px',
     maxHeight: '331px',
   },
-  // [theme.breakpoints.down('sm')]: {
-  //   overflow: 'hidden',
-  // },
 }));
 
 const Vector = styled('img')({
@@ -215,6 +211,19 @@ const ThirdVector = styled(Vector)({
   left: 0,
 });
 
+const StarImg = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  right: '-50px',
+  top: '50%',
+  transform: 'translateY(-50%) rotate(7.108deg)',
+  zIndex: '-1',
+  width: '121.909px',
+  height: '121.909px',
+  [theme.breakpoints.down('lg')]: {
+    display: 'none'
+  }
+}));
+
 const Features: FC = () => {
   return (
     <FeaturesUI>
@@ -226,6 +235,7 @@ const Features: FC = () => {
             user friendly features
           </Subtitle>
           <FeaturesCardList>
+            <StarImg src={star} alt="star" />
             <FeatureCard>
               <ImageWrapper>
                 <ChatImage />
