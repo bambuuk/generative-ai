@@ -3,11 +3,13 @@ import { styled } from "@mui/material";
 const Image = styled('svg')({
   position: 'absolute',
   top: '-88px',
+  left: '50%',
+  transform: 'translate(-50%)',
 });
 
 export const ChatImage = () => {
   return (
-    <Image sx={{ top: '-54px', left: '80px' }} xmlns="http://www.w3.org/2000/svg" width="241" height="242" viewBox="0 0 241 242" fill="none">
+    <Image sx={{ top: '-54px' }} xmlns="http://www.w3.org/2000/svg" width="241" height="242" viewBox="0 0 241 242" fill="none">
       <g filter="url(#filter0_f_510_402)">
         <path d="M121.383 88.5935C138.505 89.1453 152.328 103.248 152.499 120.312C152.556 126.56 150.821 132.394 147.774 137.352C147.343 138.05 147.261 138.902 147.522 139.673L150.511 148.599C151.537 151.674 148.475 154.538 145.461 153.321L136.232 149.589C135.515 149.296 134.709 149.305 134.017 149.629C129.903 151.56 125.317 152.656 120.479 152.672C103.138 152.753 88.6794 138.853 88.1744 121.586C87.6287 103.094 102.82 87.9931 121.391 88.5854L121.383 88.5935Z" fill="url(#paint0_linear_510_402)" />
       </g>
@@ -174,7 +176,7 @@ export const CPUImage = () => {
 
 export const TeamImage = () => {
   return (
-    <Image sx={{ top: '-72px', left: '85px' }} xmlns="http://www.w3.org/2000/svg" width="233" height="240" viewBox="0 0 233 240" fill="none">
+    <Image sx={{ top: '-72px', }} xmlns="http://www.w3.org/2000/svg" width="233" height="240" viewBox="0 0 233 240" fill="none">
       <g filter="url(#filter0_f_510_379)">
         <path d="M144.424 146.551C141.88 133.452 130.328 123.565 116.454 123.565C102.579 123.565 91.0274 133.452 88.4831 146.551C87.9315 149.378 90.1711 152 93.0529 152H139.846C142.736 152 144.967 149.387 144.416 146.551H144.424Z" fill="url(#paint0_linear_510_379)" />
         <path d="M116.453 116.884C124.266 116.884 130.599 110.563 130.599 102.766C130.599 94.9682 124.266 88.6472 116.453 88.6472C108.641 88.6472 102.308 94.9682 102.308 102.766C102.308 110.563 108.641 116.884 116.453 116.884Z" fill="url(#paint1_linear_510_379)" />
