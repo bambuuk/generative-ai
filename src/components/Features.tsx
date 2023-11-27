@@ -204,8 +204,11 @@ const StarImg = styled('img')(({ theme }) => ({
   zIndex: '-1',
   width: '121.909px',
   height: '121.909px',
+  [theme.breakpoints.down(1400)]: {
+    right: '-25px'
+  },
   [theme.breakpoints.down('lg')]: {
-    display: 'none'
+    right: '-50px',
   }
 }));
 

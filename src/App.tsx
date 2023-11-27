@@ -10,6 +10,7 @@ const MainContent = styled('main')({
   display: 'flex',
   flexDirection: 'column',
   gap: '120px',
+  overflow: 'hidden',
 });
 
 function App() {
