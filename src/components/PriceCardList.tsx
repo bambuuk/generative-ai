@@ -9,18 +9,25 @@ const PriceUI = styled('section')({
   width: '100%'
 });
 
-const MainWrapper = styled('div')(({ }) => ({
-  marginTop: '120px',
+const MainWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   gap: '88px',
+  [theme.breakpoints.down('lg')]: {
+    gap: '60px',
+  },
 }));
 
-const PriceCardListUI = styled('div')(({ }) => ({
+const PriceCardListUI = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, auto)',
   alignItems: 'center',
+  [theme.breakpoints.down(1024)]: {
+    gridTemplateColumns: 'auto',
+    justifyContent: 'center',
+    gap: '40px'
+  }
 }));
 
 const PriceCardList: FC = () => {

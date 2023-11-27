@@ -115,6 +115,12 @@ const LogoImage = styled('img')(({ theme }) => ({
   },
 }));
 
+const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
+  [theme.breakpoints.down(1024)]: {
+    display: 'none'
+  }
+}));
+
 const Header: FC = () => {
 
   return (
@@ -140,7 +146,7 @@ const Header: FC = () => {
             <LinkUI href="#">Testimonials</LinkUI>
             <LinkUI href="#">Contacts</LinkUI>
           </Navigation>
-          <TransparentToFullBtn>Log In</TransparentToFullBtn>
+          <TransparentButton>Log In</TransparentButton>
         </HeaderWrapper>
       </CustomContainer>
     </HeaderUI>
