@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
 import Solution from "./components/Solution";
+import PriceCardList from "./components/PriceCardList";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -23,6 +24,7 @@ function App() {
           <Features />
           <HowItWorks />
           <Solution />
+          <PriceCardList />
         </MainContent>
       </ThemeProvider>
     </>
