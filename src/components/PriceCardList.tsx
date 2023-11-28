@@ -38,7 +38,7 @@ const FirstBackgroundBlock = styled('div')(({ theme }) => ({
   position: 'absolute',
   zIndex: '-10',
   top: '-147px',
-  right: '-141px',
+  left: '-141px',
   maxWidth: '588px',
   maxHeight: '569px',
   width: '100%',
@@ -57,7 +57,7 @@ const SecondBackgroundBlock = styled('div')(({ theme }) => ({
   position: 'absolute',
   zIndex: '-10',
   top: '181px',
-  right: '-416px',
+  left: '-416px',
   maxWidth: '588px',
   maxHeight: '569px',
   width: '100%',
@@ -75,18 +75,16 @@ const SecondBackgroundBlock = styled('div')(({ theme }) => ({
 const Vector = styled('img')({
   display: 'block',
   position: 'absolute',
+  width: '100%',
+  height: '100%',
 });
 
 const FirstVector = styled(Vector)({
   fill: "#3D32F9",
-  width: '588.737px',
-  height: '569.293px',
 });
 
 const SecondVector = styled(Vector)({
   fill: '#391F6F',
-  width: '588.737px',
-  height: '569.293px',
 });
 
 const PriceCardList: FC = () => {

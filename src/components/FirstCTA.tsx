@@ -2,12 +2,15 @@ import { FC } from 'react';
 import { styled } from '@mui/material';
 import { CustomContainer, FullToTransparentBtn } from './CustomElements';
 import cube from '../assets/pictures/cube.svg';
+import backgroundImg from '../assets/pictures/cta/background-img.svg';
+import vector from '../assets/backgroundFigures/solution/1-vector.svg';
 
-const CTA_UI = styled('section')({
+const CTA_UI = styled('section')(({ }) => ({
   width: '100%',
-});
+}));
 
 const MainWrapper = styled('div')(({ theme }) => ({
+  position: 'relative',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -29,13 +32,17 @@ const MainWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
-const CubeImage = styled('img')(({ }) => ({
+const CubeImage = styled('img')(({ theme }) => ({
   display: 'block',
   width: '100%',
   height: '100%',
   maxWidth: '330px',
   maxHeight: '330px',
-  objectFit: 'contain'
+  objectFit: 'contain',
+  [theme.breakpoints.down('sm')]: {
+    maxWidth: '200px',
+    maxHeight: '200px',
+  },
 }));
 
 const DescriptionWrapper = styled('div')(({ }) => ({
@@ -80,11 +87,50 @@ const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
   }
 }));
 
+const BackgroundImg = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  display: 'block',
+  width: '123.528px',
+  height: '106.048px',
+  objectFit: 'cover',
+  top: '196px',
+  right: '-55px',
+  [theme.breakpoints.down('lg')]: {
+    top: '250px',
+    right: '-35px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    display: 'none'
+  },
+}));
+
+const BackgroundBlock = styled('div')(({ theme }) => ({
+  display: 'block',
+  position: 'absolute',
+  zIndex: '-10',
+  maxWidth: '569.293px',
+  maxHeight: '569.293px',
+  width: '100%',
+  height: '100%',
+  filter: 'blur(377px)',
+  right: '-552px',
+  [theme.breakpoints.down('sm')]: {
+    right: '-200px',
+  },
+}));
+
+const Vector = styled('img')({
+  display: 'block',
+  position: 'absolute',
+  fill: "#3D32F9",
+});
+
 const FirstCTA: FC = () => {
   return (
     <CTA_UI>
       <CustomContainer>
         <MainWrapper>
+          <BackgroundImg src={backgroundImg} />
           <CubeImage src={cube} alt='Cube' />
           <DescriptionWrapper>
             <Title>Ready to Unlock the Power of AI for Your Business ?</Title>
@@ -94,6 +140,10 @@ const FirstCTA: FC = () => {
             </DescriptionText>
             <FillButton>Sign Up</FillButton>
           </DescriptionWrapper>
+
+          <BackgroundBlock>
+            <Vector src={vector} />
+          </BackgroundBlock>
         </MainWrapper>
       </CustomContainer>
     </CTA_UI>
