@@ -275,7 +275,7 @@ const Features: FC = () => {
                   Workspace
                 </CardTitle>
                 <CardDescrText>
-                  Your customers can form teams and shared workspace to colaborate seamlessly
+                  Your customers can form teams and shared workspace to collaborate seamlessly
                 </CardDescrText>
               </CardDescription>
             </FeatureCard>
@@ -289,7 +289,7 @@ const Features: FC = () => {
                   Easy payment
                 </CardTitle>
                 <CardDescrText>
-                  Production ready and hassle-free payments with using powerfool tools
+                  Production ready and hassle-free payments with using powerful tools
                 </CardDescrText>
               </CardDescription>
             </FeatureCard>

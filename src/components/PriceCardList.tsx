@@ -4,9 +4,12 @@ import { nanoid } from 'nanoid';
 import { CustomContainer, Title } from './CustomElements';
 import PriceCard from './PriceCard';
 import { ITariffPlane } from '../types/ITariffPlane';
+import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
+import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
 
 const PriceUI = styled('section')({
-  width: '100%'
+  width: '100%',
+  position: 'relative',
 });
 
 const MainWrapper = styled('div')(({ theme }) => ({
@@ -14,6 +17,7 @@ const MainWrapper = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   gap: '88px',
+  position: 'relative',
   [theme.breakpoints.down('lg')]: {
     gap: '60px',
   },
@@ -29,6 +33,61 @@ const PriceCardListUI = styled('div')(({ theme }) => ({
     gap: '40px'
   }
 }));
+
+const FirstBackgroundBlock = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  zIndex: '-10',
+  top: '-147px',
+  right: '-141px',
+  maxWidth: '588px',
+  maxHeight: '569px',
+  width: '100%',
+  height: '100%',
+  filter: 'blur(377px)',
+  [theme.breakpoints.down('md')]: {
+    maxWidth: '359px',
+    maxHeight: '331px',
+  },
+  [theme.breakpoints.down('md')]: {
+    right: '0',
+  },
+}));
+
+const SecondBackgroundBlock = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  zIndex: '-10',
+  top: '181px',
+  right: '-416px',
+  maxWidth: '588px',
+  maxHeight: '569px',
+  width: '100%',
+  height: '100%',
+  filter: 'blur(262px)',
+  [theme.breakpoints.down('md')]: {
+    maxWidth: '359px',
+    maxHeight: '331px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    right: '0',
+  },
+}));
+
+const Vector = styled('img')({
+  display: 'block',
+  position: 'absolute',
+});
+
+const FirstVector = styled(Vector)({
+  fill: "#3D32F9",
+  width: '588.737px',
+  height: '569.293px',
+});
+
+const SecondVector = styled(Vector)({
+  fill: '#391F6F',
+  width: '588.737px',
+  height: '569.293px',
+});
 
 const PriceCardList: FC = () => {
   const priceList: ITariffPlane[] = [
@@ -85,6 +144,12 @@ const PriceCardList: FC = () => {
               );
             })}
           </PriceCardListUI>
+          <FirstBackgroundBlock>
+            <FirstVector src={firstVector} />
+          </FirstBackgroundBlock>
+          <SecondBackgroundBlock>
+            <SecondVector src={secondVector} />
+          </SecondBackgroundBlock>
         </MainWrapper>
       </CustomContainer>
     </PriceUI>
