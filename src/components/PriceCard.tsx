@@ -176,18 +176,24 @@ const CheckBoxImg = styled('img')(({ }) => ({
   zIndex: 2
 }));
 
-const TransparentButton = styled(TransparentToFullBtn)(({ }) => ({
+const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
   padding: '20px 40px',
   maxWidth: '286px',
   width: '100%',
   marginBottom: '50px',
+  [theme.breakpoints.down('sm')]: {
+    padding: '15px 30px',
+  }
 }));
 
-const FillButton = styled(FullToTransparentBtn)(({ }) => ({
+const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
   padding: '20px 40px',
   maxWidth: '286px',
   width: '100%',
   marginBottom: '50px',
+  [theme.breakpoints.down('sm')]: {
+    padding: '15px 30px',
+  }
 }));
 
 interface PriceCardProps extends ITariffPlane { };

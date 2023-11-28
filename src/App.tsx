@@ -6,6 +6,7 @@ import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
 import Solution from "./components/Solution";
 import PriceCardList from "./components/PriceCardList";
+import FirstCTA from "./components/FirstCTA";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -25,6 +26,7 @@ function App() {
           <HowItWorks />
           <Solution />
           <PriceCardList />
+          <FirstCTA />
         </MainContent>
       </ThemeProvider>
     </>
