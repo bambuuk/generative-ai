@@ -29,15 +29,12 @@ export const TransparentToFullBtn = styled("button")(({}) => ({
     top: "1px",
     bottom: "1px",
     borderRadius: "19px",
-    backgroundColor: "#13171D",
+    background: "#13171D",
     zIndex: "-1",
     transition: "500ms",
   },
-  "&::after": {
-    content: '""',
-  },
   "&:hover::before": {
-    backgroundColor: "transparent",
+    background: "transparent",
   },
 }));
 

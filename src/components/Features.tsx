@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
-import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from './FeatureImgComponents';
+import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from './ImgComponents';
 import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/features/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/features/3-vector.svg';

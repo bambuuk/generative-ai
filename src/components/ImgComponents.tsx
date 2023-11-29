@@ -424,3 +424,34 @@ export const ScopImage = () => {
     </Image>
   );
 }
+
+export const LeftArrow = () => {
+  return (
+    <svg className='leftArrow' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="Frame">
+        <path id="Vector" d="M19 12H5" stroke="#E2E2E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path id="Vector_2" d="M12 19L5 12L12 5" stroke="#E2E2E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+    </svg>
+  );
+};
+
+export const RightArrow = () => {
+  return (
+    <svg className='rightArrow' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12H19" stroke="#E2E2E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 5L19 12L12 19" stroke="#E2E2E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export const PinkBackgroundFigure = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="553" height="625" viewBox="0 0 553 625" fill="none">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d={`M57.412 153.458C82.9762 120.799 135.362 126.427 169.157 102.384C207.75 74.9262 222.674 15.3001 268.489 3.28528C312.842 -8.34623 360.957 16.0644 398.629 42.2058C434.146 66.8521 452.678 108.155 473.894 145.822C491.936 177.853 506.02 211.185 514.019 247.067C521.671 281.391 515.719 316.146 519.654 351.091C524.942 398.057 574.857 456.126 541.309 489.416C503.926 526.511 431.223 458.411 385.379 484.331C339.573 510.23 358.229 600.668 309.485 620.488C267.8 637.438 224.936 590.867 188.576 564.356C156.676 541.097 141.129 502.529 111.664 476.253C78.3637 446.557 19.7326 441.411 3.92194 399.688C-11.5842 358.769 25.6665 316.589 34.9557 273.828C43.7303 233.436 31.9344 186.006 57.412 153.458Z`} fill="#CE1AFE" />
+    </svg>
+  )
+}
