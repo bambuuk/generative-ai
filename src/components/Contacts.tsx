@@ -1,9 +1,9 @@
-import { FC, useMemo, useState, forwardRef } from 'react';
-import { styled, Box, Snackbar } from '@mui/material';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { FC } from 'react';
+import { styled, Box } from '@mui/material';
 import { CustomContainer, FullToTransparentBtn, Title, Overview } from './CustomElements';
+import useGetValidationInfo from '../hooks/useGetValidationInfo';
+import useSnackbarControl from '../hooks/useSnackbarControl';
+import CustomSnackbar from './CustomSnackbar';
 import abstractImg from '../assets/pictures/contacts/abstract-img.svg';
 
 const ContactsUI = styled('section')(({ }) => ({
@@ -147,74 +147,11 @@ const ValidationErrorMessage = styled('div')(({ theme }) => ({
   },
 }));
 
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref,
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 const Contacts: FC = () => {
-  const [open, setOpen] = useState(false);
+  const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  const initialValue = useMemo(
-    () => ({
-      name: '',
-      loginEmail: '',
-      message: '',
-    }),
-    []
-  );
-
-  const {
-    handleSubmit,
-    handleBlur,
-    handleChange,
-    values,
-    errors,
-    touched,
-    isSubmitting,
-  } = useFormik({
-    enableReinitialize: true,
-    initialValues: initialValue,
-    validationSchema: Yup.object().shape({
-      loginEmail: Yup.string()
-        .email('Invalid email')
-        .matches(
-          /^[A-Z0-9_%+-]+(\.[A-Z0-9_%+-]+)*@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-          'Invalid email'
-        )
-        .required("Required"),
-      name: Yup.string()
-        .min(2, 'Enter a message of 2 characters or more')
-        .max(20, 'The message should not contain more than 20 characters')
-        .matches(
-          /^((?:([a-zA-Z]+[\s'.-]*)+))$/,
-          'Latin, space, hyphen, apostrophe, period allowed'
-        )
-        .required("Required"),
-      message: Yup.string()
-        .min(8, 'Enter a message of 8 characters or more')
-        .max(255, 'The message should not contain more than 255 characters')
-        .required("Required"),
-    }),
-    onSubmit: (_, actions) => {
-      console.log('Sent');
-      actions.resetForm();
-      handleClick();
-    },
+  const { handleSubmit, handleBlur, handleChange, values, errors, touched, isSubmitting } = useGetValidationInfo({
+    openSnackbar,
   });
 
   return (
@@ -273,11 +210,7 @@ const Contacts: FC = () => {
             <SubmitButton type="submit" disabled={isSubmitting}>Send</SubmitButton>
           </CustomForm>
           <Image src={abstractImg} alt="Abstract image" />
-          <Snackbar open={open} autoHideDuration={5000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
-            <Alert onClose={handleClose} severity="success" sx={{ width: { xs: '80%', sm: '100%' } }}>
-              This is a success message!
-            </Alert>
-          </Snackbar>
+          <CustomSnackbar isOpenSnackbar={isOpenSnackbar} closeSnackbar={closeSnackbar} message={'Sent Successfully'} />
         </MainWrapper>
       </CustomContainer>
     </ContactsUI>
