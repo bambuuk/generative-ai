@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { styled, Box } from '@mui/material';
-import { CustomContainer, FullToTransparentBtn, Title, Overview } from './CustomElements';
-import useGetValidationInfo from '../hooks/useGetValidationInfo';
-import useSnackbarControl from '../hooks/useSnackbarControl';
-import CustomSnackbar from './CustomSnackbar';
+import { styled, Link } from '@mui/material';
+import { CustomContainer, Title, Overview } from './CustomElements';
+import firstVector from '../assets/backgroundFigures/contacts/1-vector.svg';
+import secondVector from '../assets/backgroundFigures/contacts/2-vector.svg';
+import thirdVector from '../assets/backgroundFigures/contacts/3-vector.svg';
 import abstractImg from '../assets/pictures/contacts/abstract-img.svg';
 
 const ContactsUI = styled('section')(({ }) => ({
@@ -16,205 +16,197 @@ const MainWrapper = styled('div')(({ }) => ({
   position: 'relative',
 }));
 
-const CustomForm = styled('form')(({ theme }) => ({
-  margin: '0 auto',
+const DepartmentsContactsList = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
   marginTop: '64px',
-  maxWidth: '683px',
-  width: '100%',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
-  columnGap: '19px',
-  [theme.breakpoints.down(768)]: {
-    gridTemplateColumns: '1fr',
+  gap: '100px',
+  [theme.breakpoints.down('lg')]: {
+    justifyContent: 'center'
+  },
+  [theme.breakpoints.down('md')]: {
+    gap: '70px',
+  },
+  [theme.breakpoints.down('sm')]: {
     gap: '50px',
   },
 }));
 
-const CustomInput = styled('input')(({ }) => ({
+const ContactItem = styled('div')(({ theme }) => ({
+  maxWidth: '327px',
   width: '100%',
-  padding: '8px 20px',
-  borderRadius: '20px',
-  border: '1px solid #333',
-  outline: 'none',
-  backgroundColor: 'transparent',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '24px',
+  [theme.breakpoints.down('md')]: {
+    gap: '10px',
+  },
+}));
 
-  color: '#E2E2E2',
+const ContactSubtitle = styled('h5')(({ theme }) => ({
+  color: '#CE1AFE',
   fontFamily: 'Work Sans',
-  fontSize: '20px',
-  fontWeight: '500',
+  fontSize: '32px',
+  fontWeight: '600',
   lineHeight: '48px',
-  transition: 'all 0.3s ease-in-out',
-
-  // '&:-webkit-autofill, &:-webkit-autofill:focus': {
-  //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
-  // },
-
-  '&:hover': {
-    border: '1px solid #CE1AFE',
-  },
-  '&:focus': {
-    border: '1px solid #E2E2E2',
-  },
-  '&:disabled': {
-    background: '#4F4F4F',
-    color: '#333333',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '25px',
+    lineHeight: '30px',
   },
 }));
 
-const CustomTextarea = styled('textarea')(({ theme }) => ({
-  marginTop: '48px',
-  width: '100%',
-  height: '146px',
-  padding: '8px 20px',
-  borderRadius: '20px',
-  border: '1px solid #333',
-  outline: 'none',
-  backgroundColor: 'transparent',
-  resize: 'none',
-
+const ContactInfo = styled('li')(({ theme }) => ({
+  marginLeft: '25px',
+  listStyle: 'inherit',
   color: '#E2E2E2',
   fontFamily: 'Work Sans',
   fontSize: '20px',
-  fontWeight: '500',
-  lineHeight: '25px',
-  transition: 'all 0.3s ease-in-out',
-
-  // '&:-webkit-autofill, &:-webkit-autofill:focus': {
-  //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
-  // },
-
-  '&:hover': {
-    border: '1px solid #CE1AFE',
-  },
-  '&:focus': {
-    border: '1px solid #E2E2E2',
-  },
-  '&:disabled': {
-    background: '#4F4F4F',
-    color: '#333333',
-  },
-  [theme.breakpoints.down(768)]: {
-    marginTop: 0,
+  fontWeight: '400',
+  lineHeight: '28px',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '16px',
+    lineHeight: '20px',
   },
 }));
 
-const TextareaWrapper = styled(Box)(({ theme }) => ({
-  gridColumn: '1 / 3',
-  [theme.breakpoints.down(768)]: {
-    gridColumn: '1 / 2',
-  },
+const AddressInfo = styled(ContactInfo)(({ }) => ({
+  listStyle: 'none',
+  marginLeft: 0,
 }));
 
-const SubmitButton = styled(FullToTransparentBtn)(({ theme }) => ({
-  margin: '0 auto',
-  marginTop: '67px',
-  padding: '20px 40px',
-  maxWidth: '300px',
-  width: '100%',
-  [theme.breakpoints.down(768)]: {
-    margin: '10px 0 0 0',
-  },
+const CustomLink = styled(Link)(({ }) => ({
+  color: '#E2E2E2',
 }));
 
-const Image = styled('img')(({ theme }) => ({
+const GradientsBlock = styled('div')(({ theme }) => ({
   position: 'absolute',
   zIndex: '-10',
-  bottom: '32px',
-  left: 0,
-  width: '170px',
-  height: '145px',
-  objectFit: 'contain',
+  top: '-239px',
+  right: '-178px',
+  width: '692.442px',
+  height: '675.338px',
+  transform: 'rotate(-55.229deg)',
+  filter: 'blur(347px)',
   [theme.breakpoints.down('lg')]: {
-    display: 'none'
+    width: '659px',
+    height: '631px',
+  },
+  [theme.breakpoints.down('md')]: {
+    width: '359px',
+    height: '331px',
   },
 }));
 
-const ValidationErrorMessage = styled('div')(({ theme }) => ({
+const Vector = styled('img')({
+  display: 'block',
   position: 'absolute',
-  maxWidth: '300px',
-  width: '100%',
-  margin: '5px 20px 0 20px',
-  color: '#EB5757',
-  fontFamily: 'Work Sans',
-  fontSize: '16px',
-  fontWeight: '400',
-  lineHeight: '16px',
-  [theme.breakpoints.down(768)]: {
-    maxWidth: 'none',
-  },
+});
+const FirstVector = styled(Vector)({
+  top: '0',
+  right: '-182px',
+  width: '515.075px',
+  height: '585.58px',
+});
+
+const SecondVector = styled(Vector)({
+  bottom: '-411px',
+  right: '-411px',
+  width: '560.633px',
+  height: '533.336px',
+});
+
+const ThirdVector = styled(Vector)({
+  bottom: '-45%',
+  left: 0,
+  width: '552.022px',
+  height: '589.882px',
+});
+
+const AbstractImage = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  zIndex: -10,
+  display: 'block',
+  width: '140.515px',
+  height: '120.052px',
+  top: '-51px',
+  right: '-31px',
   [theme.breakpoints.down('sm')]: {
-    width: 'calc(100% - 20px)',
+    gap: '10px',
+    top: '-121px',
+    width: '120.515px',
+    height: '100.052px',
   },
 }));
 
 const Contacts: FC = () => {
-  const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
-
-  const { handleSubmit, handleBlur, handleChange, values, errors, touched, isSubmitting } = useGetValidationInfo({
-    openSnackbar,
-  });
-
   return (
     <ContactsUI>
       <CustomContainer>
         <MainWrapper>
-          <Title>Contact us</Title>
+          <Title>Our contacts</Title>
           <Overview>
-            Not quite ready? Have questions or need more information?
-            Our team is here to assist you. Contact us for a personalized consultation:
+            Connect with us via email or phone. We're available to assist you with any questions,
+            provide personalized consultations, and help you get the most out of our AI service.
+            Join us on the journey toward data-driven success!
           </Overview>
-          <CustomForm onSubmit={handleSubmit} autoComplete="off">
-            <Box>
-              <CustomInput
-                autoComplete="off"
-                role="presentation"
-                name='name'
-                placeholder='Name'
-                type='text'
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.name && touched.name ? (
-                <ValidationErrorMessage>{errors.name}</ValidationErrorMessage>
-              ) : null}
-            </Box>
-            <Box>
-              <CustomInput
-                autoComplete="off"
-                role="presentation"
-                name='loginEmail'
-                placeholder='Email'
-                type='email'
-                value={values.loginEmail}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.loginEmail && touched.loginEmail ? (
-                <ValidationErrorMessage>{errors.loginEmail}</ValidationErrorMessage>
-              ) : null}
-            </Box>
-            <TextareaWrapper>
-              <CustomTextarea
-                autoComplete="false"
-                placeholder='Message'
-                value={values.message}
-                name='message'
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.message && touched.message ? (
-                <ValidationErrorMessage>{errors.message}</ValidationErrorMessage>
-              ) : null}
-            </TextareaWrapper>
-            <SubmitButton type="submit" disabled={isSubmitting}>Send</SubmitButton>
-          </CustomForm>
-          <Image src={abstractImg} alt="Abstract image" />
-          <CustomSnackbar isOpenSnackbar={isOpenSnackbar} closeSnackbar={closeSnackbar} message={'Sent Successfully'} />
+          <DepartmentsContactsList>
+            <ContactItem>
+              <ContactSubtitle>Customer Support:</ContactSubtitle>
+              <ul>
+                <ContactInfo>
+                  Email:
+                  <CustomLink href="mailto:support@aigenius.com" underline="none">
+                    &nbsp;support@aigenius.com
+                  </CustomLink></ContactInfo>
+                <ContactInfo>
+                  Phone:
+                  <CustomLink href="tel:+15551234567" underline="none">
+                    +1-555-123-4567
+                  </CustomLink>
+                </ContactInfo>
+              </ul>
+            </ContactItem>
+
+            <ContactItem>
+              <ContactSubtitle>Sales and Inquiries:</ContactSubtitle>
+              <ul>
+                <ContactInfo>
+                  Email:
+                  <CustomLink href="mailto:support@aigenius.com" underline="none">
+                    &nbsp;support@aigenius.com
+                  </CustomLink>
+                </ContactInfo>
+                <ContactInfo>
+                  Phone:
+                  <CustomLink href="tel:+15557890123" underline="none">
+                    +1-555-789-0123
+                  </CustomLink>
+                </ContactInfo>
+              </ul>
+            </ContactItem>
+
+            <ContactItem>
+              <ContactSubtitle>Office Address:</ContactSubtitle>
+              <ul>
+                <AddressInfo>123 AI Avenue</AddressInfo>
+                <AddressInfo>TechCity, AI 56789</AddressInfo>
+                <AddressInfo>United States</AddressInfo>
+              </ul>
+            </ContactItem>
+          </DepartmentsContactsList>
+
+          <GradientsBlock>
+            <FirstVector src={firstVector} />
+            <SecondVector src={secondVector} />
+            <ThirdVector src={thirdVector} />
+          </GradientsBlock>
+
+          <AbstractImage src={abstractImg} />
         </MainWrapper>
       </CustomContainer>
     </ContactsUI>
   )
 }
 
-export default Contacts
+export default Contacts;

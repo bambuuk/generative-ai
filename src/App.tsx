@@ -9,6 +9,7 @@ import PriceCardList from "./components/PriceCardList";
 import FirstCTA from "./components/FirstCTA";
 import Testimonials from "./components/Testimonials";
 import SecondCTA from "./components/SecondCTA";
+import ContactUs from "./components/ContactUs";
 import Contacts from "./components/Contacts";
 
 const MainContent = styled('main')({
@@ -32,6 +33,7 @@ function App() {
           <FirstCTA />
           <Testimonials />
           <SecondCTA />
+          <ContactUs />
           <Contacts />
         </MainContent>
       </ThemeProvider>
