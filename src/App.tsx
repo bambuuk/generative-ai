@@ -9,6 +9,7 @@ import PriceCardList from "./components/PriceCardList";
 import FirstCTA from "./components/FirstCTA";
 import Testimonials from "./components/Testimonials";
 import SecondCTA from "./components/SecondCTA";
+import Contacts from "./components/Contacts";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -31,6 +32,7 @@ function App() {
           <FirstCTA />
           <Testimonials />
           <SecondCTA />
+          <Contacts />
         </MainContent>
       </ThemeProvider>
     </>
