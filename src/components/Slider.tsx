@@ -7,7 +7,8 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { nanoid } from 'nanoid';
 import ReviewCard from './ReviewCard';
 import { reviewersList } from '../constants';
-import { LeftArrow, PinkBackgroundFigure, RightArrow } from './ImgComponents';
+import { LeftArrow, RightArrow } from './ImgComponents';
+import backgroundGradient from '../assets/backgroundFigures/features/3-vector.svg';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -29,7 +30,7 @@ const SliderWrapper = styled('div')(({ theme }) => ({
   maxWidth: '1130px',
   width: '100%',
   position: 'relative',
-  [theme.breakpoints.down(1300)]: {
+  [theme.breakpoints.down('lg')]: {
     maxWidth: '753.3px',
     width: '100%',
   },
@@ -116,7 +117,7 @@ const BackgroundBlock = styled('div')(({ }) => ({
 
 const Slider: FC = () => {
   const theme = useTheme();
-  const isLessLargeScreen = useMediaQuery(theme.breakpoints.down(1300));
+  const isLessLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
   const isLessMediumScreen = useMediaQuery(theme.breakpoints.down(800));
   const viewSlides = isLessMediumScreen ? 1 : isLessLargeScreen ? 2 : 3;
 
@@ -159,7 +160,7 @@ const Slider: FC = () => {
             </Swiper>
           </SliderWrapper>
           <BackgroundBlock>
-            <PinkBackgroundFigure />
+            <img src={backgroundGradient} />
           </BackgroundBlock>
         </MainWrapper>
       </CustomContainer>

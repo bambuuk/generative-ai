@@ -8,6 +8,7 @@ import Solution from "./components/Solution";
 import PriceCardList from "./components/PriceCardList";
 import FirstCTA from "./components/FirstCTA";
 import Slider from "./components/Slider";
+import SecondCTA from "./components/SecondCTA";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -29,6 +30,7 @@ function App() {
           <PriceCardList />
           <FirstCTA />
           <Slider />
+          <SecondCTA />
         </MainContent>
       </ThemeProvider>
     </>
