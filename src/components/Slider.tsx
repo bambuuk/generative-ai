@@ -1,29 +1,16 @@
 import { FC } from 'react';
 import { styled, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { CustomContainer, Title } from './CustomElements';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { nanoid } from 'nanoid';
 import ReviewCard from './ReviewCard';
 import { reviewersList } from '../constants';
 import { LeftArrow, RightArrow } from './ImgComponents';
-import backgroundGradient from '../assets/backgroundFigures/features/3-vector.svg';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
-const SliderUI = styled('div')(({ }) => ({
-  width: '100%'
-}));
-
-const MainWrapper = styled('div')(({ }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '16px',
-  position: 'relative',
-}));
 
 const SliderWrapper = styled('div')(({ theme }) => ({
   margin: '0 auto',
@@ -102,69 +89,45 @@ const SliderWrapper = styled('div')(({ theme }) => ({
   }
 }));
 
-const BackgroundBlock = styled('div')(({ }) => ({
-  display: 'block',
-  position: 'absolute',
-  zIndex: '-10',
-  maxWidth: '588.737px',
-  maxHeight: '569.293px',
-  width: '100%',
-  height: '100%',
-  filter: 'blur(417px)',
-  left: '38px',
-  top: '-177px',
-}));
-
 const Slider: FC = () => {
   const theme = useTheme();
   const isLessLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
   const isLessMediumScreen = useMediaQuery(theme.breakpoints.down(800));
   const viewSlides = isLessMediumScreen ? 1 : isLessLargeScreen ? 2 : 3;
-
   return (
-    <SliderUI>
-      <CustomContainer>
-        <MainWrapper>
-          <Title>What clients say about us</Title>
-          <SliderWrapper>
-            <Swiper
-              navigation={{
-                prevEl: '.prevBtn',
-                nextEl: '.nextBtn',
-              }}
-              slidesPerView={viewSlides}
-              spaceBetween={20}
-              slidesPerGroup={1}
-              modules={[Navigation, Pagination]}
-              pagination={{
-                clickable: true,
-              }}
-              grabCursor
-              speed={300}
-              style={{ width: '100%', height: '100%' }}
-            >
-              {reviewersList.map((item) => {
-                return (
-                  <SwiperSlide key={nanoid()}>
-                    <ReviewCard reviewerInfo={item} />
-                  </SwiperSlide>
-                );
-              })}
+    <SliderWrapper>
+      <Swiper
+        navigation={{
+          prevEl: '.prevBtn',
+          nextEl: '.nextBtn',
+        }}
+        slidesPerView={viewSlides}
+        spaceBetween={20}
+        slidesPerGroup={1}
+        modules={[Navigation, Pagination]}
+        pagination={{
+          clickable: true,
+        }}
+        grabCursor
+        speed={300}
+        style={{ width: '100%', height: '100%' }}
+      >
+        {reviewersList.map((item) => {
+          return (
+            <SwiperSlide key={nanoid()}>
+              <ReviewCard reviewerInfo={item} />
+            </SwiperSlide>
+          );
+        })}
 
-              <button className='prevBtn'>
-                <LeftArrow />
-              </button>
-              <button className='nextBtn'>
-                <RightArrow />
-              </button>
-            </Swiper>
-          </SliderWrapper>
-          <BackgroundBlock>
-            <img src={backgroundGradient} />
-          </BackgroundBlock>
-        </MainWrapper>
-      </CustomContainer>
-    </SliderUI>
+        <button className='prevBtn'>
+          <LeftArrow />
+        </button>
+        <button className='nextBtn'>
+          <RightArrow />
+        </button>
+      </Swiper>
+    </SliderWrapper>
   )
 }
 
