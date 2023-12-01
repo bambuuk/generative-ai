@@ -125,7 +125,7 @@ const PriceCardList: FC = () => {
     },
   ];
   return (
-    <PriceUI>
+    <PriceUI id="price">
       <CustomContainer>
         <MainWrapper>
           <Title>Customized prices for you</Title>

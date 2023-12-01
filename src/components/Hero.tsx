@@ -171,7 +171,7 @@ const ThirdVector = styled(Vector)({
 
 const Hero: FC = () => {
   return (
-    <HeroUI>
+    <HeroUI id="home">
       <CustomContainer sx={{ position: "relative" }}>
         <HeroWrapper>
           <OverviewBlock>

@@ -242,7 +242,7 @@ const ThirdVector = styled(Vector)({
 
 const Solution: FC = () => {
   return (
-    <SolutionUI>
+    <SolutionUI id="solution">
       <LightningImage src={lightningImg} />
       <CustomContainer>
         <MainWrapper>

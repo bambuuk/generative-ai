@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { styled } from '@mui/material';
+import { styled, Box } from '@mui/material';
 import logo from '../assets/logo.svg';
+import { scrollToSection } from '../utils/scrollToSection';
 
 
 const LogoBox = styled('div')(({ theme }) => ({
@@ -42,10 +43,12 @@ const LogoImage = styled('img')(({ theme }) => ({
 
 const Logo: FC = () => {
   return (
-    <LogoBox>
-      <LogoImage src={logo} alt="Logo" />
-      <LogoTitle>AI Genius</LogoTitle>
-    </LogoBox>
+    <Box sx={{ textDecoration: 'none', cursor: 'pointer' }} onClick={() => scrollToSection('home')}>
+      <LogoBox>
+        <LogoImage src={logo} alt="Logo" />
+        <LogoTitle>AI Genius</LogoTitle>
+      </LogoBox>
+    </Box>
   )
 }
 

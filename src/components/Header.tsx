@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { CustomContainer } from './CustomElements';
 import { TransparentToFullBtn } from './CustomElements';
 import Logo from './Logo';
+import { scrollToSection } from '../utils/scrollToSection';
 
 const HeaderUI = styled('header')(({ theme }) => ({
   width: '100%',
@@ -37,7 +38,9 @@ const Navigation = styled('nav')(({ theme }) => ({
   },
 }));
 
-const LinkUI = styled('a')(({ theme }) => ({
+const LinkUI = styled('button')(({ theme }) => ({
+  outline: 'none',
+  background: 'transparent',
   position: 'relative',
   color: '#FFF',
   textAlign: 'center',
@@ -87,7 +90,7 @@ const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
 const Header: FC = () => {
 
   return (
-    <HeaderUI>
+    <HeaderUI id="header">
       <CustomContainer>
         <HeaderWrapper>
           <Logo />
@@ -99,12 +102,12 @@ const Header: FC = () => {
             <MenuIcon style={{ fontSize: '40px' }} />
           </CustomIconButton>
           <Navigation>
-            <LinkUI href="#">Home</LinkUI>
-            <LinkUI href="#">Features</LinkUI>
-            <LinkUI href="#">Solution</LinkUI>
-            <LinkUI href="#">Price</LinkUI>
-            <LinkUI href="#">Testimonials</LinkUI>
-            <LinkUI href="#">Contacts</LinkUI>
+            <LinkUI onClick={() => scrollToSection('home')}>Home</LinkUI>
+            <LinkUI onClick={() => scrollToSection('features')}>Features</LinkUI>
+            <LinkUI onClick={() => scrollToSection('solution')}>Solution</LinkUI>
+            <LinkUI onClick={() => scrollToSection('price')}>Price</LinkUI>
+            <LinkUI onClick={() => scrollToSection('testimonials')}>Testimonials</LinkUI>
+            <LinkUI onClick={() => scrollToSection('contacts')}>Contacts</LinkUI>
           </Navigation>
           <TransparentButton>Log In</TransparentButton>
         </HeaderWrapper>

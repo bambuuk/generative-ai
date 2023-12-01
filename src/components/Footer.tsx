@@ -3,6 +3,7 @@ import { styled, Link } from '@mui/material';
 import { CustomContainer } from './CustomElements';
 import Logo from './Logo';
 import { Facebook, Instagram, Linkedin, Telegram, Youtube } from './ImgComponents';
+import { scrollToSection } from '../utils/scrollToSection';
 
 const FooterUI = styled('footer')(({ }) => ({
   width: '100%',
@@ -106,7 +107,9 @@ const Navigation = styled('nav')(({ theme }) => ({
   },
 }));
 
-const LinkUI = styled('a')(({ theme }) => ({
+const LinkUI = styled('button')(({ theme }) => ({
+  outline: 'none',
+  background: 'transparent',
   position: 'relative',
   color: '#FFF',
   textAlign: 'center',
@@ -157,12 +160,12 @@ const Footer: FC = () => {
             </LogoWrapper>
 
             <Navigation>
-              <LinkUI href="#">Home</LinkUI>
-              <LinkUI href="#">Features</LinkUI>
-              <LinkUI href="#">Solution</LinkUI>
-              <LinkUI href="#">Price</LinkUI>
-              <LinkUI href="#">Testimonials</LinkUI>
-              <LinkUI href="#">Contacts</LinkUI>
+              <LinkUI onClick={() => scrollToSection('home')}>Home</LinkUI>
+              <LinkUI onClick={() => scrollToSection('features')}>Features</LinkUI>
+              <LinkUI onClick={() => scrollToSection('solution')}>Solution</LinkUI>
+              <LinkUI onClick={() => scrollToSection('price')}>Price</LinkUI>
+              <LinkUI onClick={() => scrollToSection('testimonials')}>Testimonials</LinkUI>
+              <LinkUI onClick={() => scrollToSection('contacts')}>Contacts</LinkUI>
             </Navigation>
           </MainFooterPart>
           <BrandName>Copyright © 2023 Genius AI</BrandName>

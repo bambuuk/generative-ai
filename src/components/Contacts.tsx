@@ -141,7 +141,7 @@ const AbstractImage = styled('img')(({ theme }) => ({
 
 const Contacts: FC = () => {
   return (
-    <ContactsUI>
+    <ContactsUI id="contacts">
       <CustomContainer>
         <MainWrapper>
           <Title>Our contacts</Title>

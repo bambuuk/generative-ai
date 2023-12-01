@@ -30,7 +30,7 @@ const BackgroundBlock = styled('div')(({ }) => ({
 
 const Testimonials: FC = () => {
   return (
-    <SliderUI>
+    <SliderUI id="testimonials">
       <CustomContainer>
         <MainWrapper>
           <Title>What clients say about us</Title>
