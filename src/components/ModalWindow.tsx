@@ -3,23 +3,32 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import { styled, IconButton } from '@mui/material';
+import { styled, IconButton, Link, Divider } from '@mui/material';
 import { CloseIcon } from './ImgComponents';
 import { FullToTransparentBtn } from './CustomElements';
 import google from '../assets/icons/google-icon.svg';
 import facebook from '../assets/icons/facebook-icon.svg';
+import backgroundGradient from '../assets/backgroundFigures/solution/3-vector.svg';
 
-const style = {
+const MainWrapper = styled(Box)(({ theme }) => ({
+  overflow: 'hidden',
   maxWidth: '598px',
   width: '100%',
   position: 'absolute' as 'absolute',
-  top: '50%',
   left: '50%',
+  top: '50%',
   transform: 'translate(-50%, -50%)',
-  p: '94px 86px 67px 86px',
+  padding: '94px 86px 64px 86px',
   borderRadius: '50px',
   background: '#13171D',
-};
+  [theme.breakpoints.down('sm')]: {
+    minHeight: '100vh',
+    borderRadius: '0',
+    padding: '50px 15px 50px 15px',
+    top: '0',
+    transform: 'translateX(-50%)',
+  },
+}));
 
 const Title = styled('h3')(({ }) => ({
   color: '#E2E2E2',
@@ -39,11 +48,15 @@ const Subtitle = styled('div')(({ }) => ({
   fontWeight: '400',
 }));
 
-const CloseIconButton = styled('button')(({ }) => ({
+const CloseIconButton = styled('button')(({ theme }) => ({
   position: 'absolute',
   top: '36px',
   right: '36px',
   backgroundColor: 'transparent',
+  [theme.breakpoints.down('sm')]: {
+    top: '15px',
+    right: '15px',
+  }
 }));
 
 const Form = styled('form')(({ }) => ({
@@ -53,18 +66,33 @@ const Form = styled('form')(({ }) => ({
   flexDirection: 'column',
 }));
 
-const CustomInput = styled('input')(({ }) => ({
+const CustomInput = styled('input')(({ theme }) => ({
   width: '100%',
   padding: '8px 20px',
   borderRadius: '20px',
   border: '1px solid #333',
   backgroundColor: 'transparent',
+  transition: 'all 0.3s ease-in-out',
 
   color: '#E2E2E2',
   fontFamily: 'Work Sans',
   fontSize: '20px',
   fontWeight: '500',
   lineHeight: '48px',
+  [theme.breakpoints.down('sm')]: {
+    lineHeight: '38px'
+  },
+
+  '&:hover': {
+    border: '1px solid #CE1AFE',
+  },
+  '&:focus': {
+    border: '1px solid #E2E2E2',
+  },
+  '&:disabled': {
+    background: '#4F4F4F',
+    color: '#333333',
+  },
 }));
 
 const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
@@ -75,8 +103,8 @@ const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
   }
 }));
 
-const CustomDivider = styled('div')(({ }) => ({
-  position: 'relative',
+const CustomDivider = styled(Divider)(({ }) => ({
+  display: 'flex',
   marginTop: '47px',
   color: '#E2E2E2',
   textAlign: 'center',
@@ -84,27 +112,8 @@ const CustomDivider = styled('div')(({ }) => ({
   fontSize: '16px',
   fontWeight: '500',
   lineHeight: '28px',
-  '&:before': {
-    content: '""',
-    maxWidth: '140px',
-    width: '100%',
-    height: '1px',
-    background: '#333',
-    display: 'block',
-    position: 'absolute',
-    top: '50%',
-    left: '0'
-  },
-  '&:after': {
-    content: '""',
-    maxWidth: '140px',
-    width: '100%',
-    height: '1px',
-    background: '#333',
-    display: 'block',
-    position: 'absolute',
-    top: '50%',
-    right: '0'
+  '&:before, &:after': {
+    borderTop: 'thin solid #333'
   }
 }));
 
@@ -132,12 +141,27 @@ const AuthImg = styled('img')(({ }) => ({
   objectFit: 'contain'
 }));
 
-const Registration = styled('div')(({ }) => ({
+const Registration = styled('div')(({ theme }) => ({
+  display: 'flex',
   color: '#E2E2E2',
   fontFamily: 'Work Sans',
   fontSize: '20px',
   fontWeight: '500',
   lineHeight: '28px',
+  [theme.breakpoints.down('sm')]: {
+    alignItems: 'center',
+    flexDirection: 'column',
+  }
+}));
+
+const BackgroundGradient = styled('img')(({ }) => ({
+  display: 'block',
+  position: 'absolute',
+  bottom: '-411px',
+  right: '-170px',
+  width: '588.737px',
+  height: '569.293px',
+  filter: 'blur(512px)',
 }));
 
 interface IModalWindowProps {
@@ -149,6 +173,7 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
   return (
     <div>
       <Modal
+        sx={{ overflow: 'auto' }}
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={isModalOpen}
@@ -162,7 +187,7 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
         }}
       >
         <Fade in={isModalOpen}>
-          <Box sx={style}>
+          <MainWrapper>
             <CloseIconButton>
               <CloseIcon />
             </CloseIconButton>
@@ -189,9 +214,11 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
             </OtherAuthVariants>
 
             <Registration>
-              Don't have an account? Create an account
+              Don't have an account?&nbsp;<Link href="#" underline="always" sx={{ color: '#3D32F9' }}>Create an account</Link>
             </Registration>
-          </Box>
+
+            <BackgroundGradient src={backgroundGradient} />
+          </MainWrapper>
         </Fade>
       </Modal>
     </div>
