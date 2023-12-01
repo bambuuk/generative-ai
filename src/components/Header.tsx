@@ -3,7 +3,7 @@ import { IconButton, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { CustomContainer } from './CustomElements';
 import { TransparentToFullBtn } from './CustomElements';
-import logo from '../assets/logo.svg';
+import Logo from './Logo';
 
 const HeaderUI = styled('header')(({ theme }) => ({
   width: '100%',
@@ -25,33 +25,7 @@ const HeaderWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
-const LogoBox = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  width: '149px',
-  [theme.breakpoints.down(1024)]: {
-    justifyContent: 'center',
-    width: 'auto',
-  },
-}));
 
-const LogoTitle = styled('div')(({ theme }) => ({
-  color: '#A992DB',
-  textAlign: 'center',
-  fontFamily: 'Work Sans',
-  fontSize: '24px',
-  fontWeight: '700',
-  lineHeight: '28px',
-  [theme.breakpoints.down('lg')]: {
-    fontSize: '20px',
-    lineHeight: '24px',
-  },
-  [theme.breakpoints.down(1024)]: {
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-}));
 
 const Navigation = styled('nav')(({ theme }) => ({
   display: 'flex',
@@ -106,14 +80,7 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const LogoImage = styled('img')(({ theme }) => ({
-  width: 'auto',
-  height: 'auto',
-  objectFit: 'fill',
-  [theme.breakpoints.down(1024)]: {
-    width: '90px',
-  },
-}));
+
 
 const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
   [theme.breakpoints.down(1024)]: {
@@ -127,10 +94,7 @@ const Header: FC = () => {
     <HeaderUI>
       <CustomContainer>
         <HeaderWrapper>
-          <LogoBox>
-            <LogoImage src={logo} alt="Logo" />
-            <LogoTitle>AI Genius</LogoTitle>
-          </LogoBox>
+          <Logo />
           <CustomIconButton
             size="medium"
             edge="start"

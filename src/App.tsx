@@ -11,6 +11,7 @@ import Testimonials from "./components/Testimonials";
 import SecondCTA from "./components/SecondCTA";
 import ContactUs from "./components/ContactUs";
 import Contacts from "./components/Contacts";
+import Footer from "./components/Footer";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -35,6 +36,7 @@ function App() {
           <SecondCTA />
           <ContactUs />
           <Contacts />
+          <Footer />
         </MainContent>
       </ThemeProvider>
     </>
