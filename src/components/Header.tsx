@@ -25,8 +25,6 @@ const HeaderWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
-
-
 const Navigation = styled('nav')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -79,8 +77,6 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
     display: 'block',
   },
 }));
-
-
 
 const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
   [theme.breakpoints.down(1024)]: {
