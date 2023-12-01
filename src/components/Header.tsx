@@ -5,6 +5,8 @@ import { CustomContainer } from './CustomElements';
 import { TransparentToFullBtn } from './CustomElements';
 import Logo from './Logo';
 import { scrollToSection } from '../utils/scrollToSection';
+import useModalControl from '../hooks/useModalControl';
+import ModalWindow from './ModalWindow';
 
 const HeaderUI = styled('header')(({ theme }) => ({
   width: '100%',
@@ -88,6 +90,7 @@ const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
 }));
 
 const Header: FC = () => {
+  const { isModalOpen, openModal, closeModal } = useModalControl();
 
   return (
     <HeaderUI id="header">
@@ -109,7 +112,8 @@ const Header: FC = () => {
             <LinkUI onClick={() => scrollToSection('testimonials')}>Testimonials</LinkUI>
             <LinkUI onClick={() => scrollToSection('contacts')}>Contacts</LinkUI>
           </Navigation>
-          <TransparentButton>Log In</TransparentButton>
+          <TransparentButton onClick={openModal}>Log In</TransparentButton>
+          <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />
         </HeaderWrapper>
       </CustomContainer>
     </HeaderUI>

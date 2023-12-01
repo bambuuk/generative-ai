@@ -532,3 +532,23 @@ export const Linkedin = () => {
     </SocialNetworkPath>
   )
 }
+
+const CustomCloseIconSVG = styled('svg')(({ }) => ({
+  width: '32px',
+  height: '32px',
+  '& path': {
+    transition: 'all 0.3s linear',
+  },
+  '&:hover path': {
+    stroke: 'red',
+  }
+}));
+
+export const CloseIcon = () => {
+  return (
+    <CustomCloseIconSVG xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+      <path d="M16.3524 16.1431L29.7855 29.1045" stroke="#E2E2E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M29.5496 15.9072L16.5882 29.3403" stroke="#E2E2E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </CustomCloseIconSVG>
+  );
+}
