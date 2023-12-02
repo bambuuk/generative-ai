@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { styled, IconButton, Divider, Box, Backdrop, Fade, Modal } from '@mui/material';
 import { CloseIcon } from './ImgComponents';
 import { FullToTransparentBtn } from './CustomElements';
+import { IModalType } from "../types/IModalType";
+
 import google from '../assets/icons/google-icon.svg';
 import facebook from '../assets/icons/facebook-icon.svg';
 import backgroundGradient from '../assets/backgroundFigures/solution/3-vector.svg';
@@ -158,8 +160,9 @@ const AuthImg = styled('img')(({ }) => ({
   objectFit: 'contain'
 }));
 
-const Registration = styled('div')(({ theme }) => ({
+const AlternativeAction = styled('div')(({ theme }) => ({
   display: 'flex',
+  justifyContent: 'center',
   color: '#E2E2E2',
   fontFamily: 'Work Sans',
   fontSize: '20px',
@@ -185,9 +188,11 @@ const BackgroundGradient = styled('img')(({ }) => ({
 interface IModalWindowProps {
   isModalOpen: boolean;
   closeModal: () => void;
+  modalType: string;
+  changeModalType: (type: IModalType) => void;
 }
 
-const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
+const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType, changeModalType }) => {
   return (
     <div>
       <Modal
@@ -211,14 +216,16 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
                 <CloseIcon />
               </CloseIconButton>
 
-              <Title>Log in</Title>
+              <Title>{modalType === 'logIn' ? 'Log in' : 'Sign Up'}</Title>
 
-              <Subtitle>Enter your information below to log in</Subtitle>
+              <Subtitle>
+                {`Enter your information below to ${modalType === 'logIn' ? 'log in' : 'sign up'}`}
+              </Subtitle>
 
               <Form>
                 <CustomInput type='email' placeholder='Email' />
                 <CustomInput type='password' placeholder='Password' sx={{ marginTop: '24px' }} />
-                <FillButton>Log In</FillButton>
+                <FillButton>{modalType === 'logIn' ? "Log In" : 'Sign Up'}</FillButton>
               </Form>
 
               <CustomDivider>or continue with</CustomDivider>
@@ -232,9 +239,31 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
                 </AuthButton>
               </OtherAuthVariants>
 
-              <Registration>
-                Don't have an account?&nbsp;<Box sx={{ color: '#3D32F9', textDecoration: 'underline', cursor: 'pointer' }}>Create an account</Box>
-              </Registration>
+              <AlternativeAction>
+                {
+                  modalType === 'logIn' ? (
+                    <>
+                      Don't have an account?&nbsp;
+                      <Box
+                        sx={{ color: '#3D32F9', textDecoration: 'underline', cursor: 'pointer' }}
+                        onClick={() => changeModalType('signUp')}
+                      >
+                        Create an account
+                      </Box>
+                    </>
+                  ) : (
+                    <>
+                      Do you have an account?&nbsp;
+                      <Box
+                        sx={{ color: '#3D32F9', textDecoration: 'underline', cursor: 'pointer' }}
+                        onClick={() => changeModalType('logIn')}
+                      >
+                        Log In
+                      </Box>
+                    </>
+                  )
+                }
+              </AlternativeAction>
 
               <BackgroundGradient src={backgroundGradient} />
             </ContentWrapper>

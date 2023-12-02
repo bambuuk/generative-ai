@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { IModalType } from "../types/IModalType";
 
 const useModalControl = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState<string>("logIn");
+  const [modalType, setModalType] = useState<IModalType>("logIn");
 
   const openModal = (value: string) => {
     setIsModalOpen(true);
@@ -11,10 +12,13 @@ const useModalControl = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setModalType("logIn");
   };
 
-  return { isModalOpen, openModal, closeModal, modalType };
+  const changeModalType = (type: IModalType) => {
+    setModalType(type);
+  };
+
+  return { isModalOpen, openModal, closeModal, modalType, changeModalType };
 };
 
 export default useModalControl;

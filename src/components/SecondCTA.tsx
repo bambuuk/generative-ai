@@ -103,7 +103,7 @@ const AbstractImage = styled('img')(({ theme }) => ({
 }));
 
 const SecondCTA: FC = () => {
-  const { openModal, isModalOpen, closeModal } = useModalControl();
+  const { openModal, isModalOpen, closeModal, modalType, changeModalType } = useModalControl();
 
   return (
     <SecondCTA_UI>
@@ -119,7 +119,13 @@ const SecondCTA: FC = () => {
           </SubscriptionWrapper>
           <HeartImg src={heart} />
           <AbstractImage src={abstractImg} />
-          <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />
+
+          <ModalWindow
+            isModalOpen={isModalOpen}
+            closeModal={closeModal}
+            modalType={modalType}
+            changeModalType={changeModalType}
+          />
         </MainWrapper>
       </CustomContainer>
     </SecondCTA_UI>

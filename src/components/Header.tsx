@@ -90,7 +90,7 @@ const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
 }));
 
 const Header: FC = () => {
-  const { isModalOpen, openModal, closeModal } = useModalControl();
+  const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
 
   return (
     <HeaderUI id="header">
@@ -115,7 +115,12 @@ const Header: FC = () => {
           <TransparentButton onClick={() => openModal('logIn')}>Log In</TransparentButton>
         </HeaderWrapper>
       </CustomContainer>
-      <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />
+      <ModalWindow
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        modalType={modalType}
+        changeModalType={changeModalType}
+      />
     </HeaderUI>
   )
 }

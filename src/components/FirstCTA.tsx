@@ -128,7 +128,7 @@ const Vector = styled('img')({
 });
 
 const FirstCTA: FC = () => {
-  const { openModal, isModalOpen, closeModal } = useModalControl();
+  const { openModal, isModalOpen, closeModal, modalType, changeModalType } = useModalControl();
 
   return (
     <CTA_UI>
@@ -145,7 +145,12 @@ const FirstCTA: FC = () => {
             <FillButton onClick={() => openModal('signUp')}>Sign Up</FillButton>
           </DescriptionWrapper>
 
-          <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />
+          <ModalWindow
+            isModalOpen={isModalOpen}
+            closeModal={closeModal}
+            modalType={modalType}
+            changeModalType={changeModalType}
+          />
 
           <BackgroundBlock>
             <Vector src={vector} />
