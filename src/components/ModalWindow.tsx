@@ -1,9 +1,5 @@
 import { FC } from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import { styled, IconButton, Link, Divider } from '@mui/material';
+import { styled, IconButton, Divider, Box, Backdrop, Fade, Modal } from '@mui/material';
 import { CloseIcon } from './ImgComponents';
 import { FullToTransparentBtn } from './CustomElements';
 import google from '../assets/icons/google-icon.svg';
@@ -11,22 +7,44 @@ import facebook from '../assets/icons/facebook-icon.svg';
 import backgroundGradient from '../assets/backgroundFigures/solution/3-vector.svg';
 
 const MainWrapper = styled(Box)(({ theme }) => ({
-  overflow: 'hidden',
+  '&::-webkit-scrollbar': {
+    display: 'none',  /* Safari and Chrome */
+  },
+  MsOverflowStyle: 'none',
+  scrollbarWidth: 'none',
+  overflowY: 'auto',
+  display: 'flex',
+  alignItems: 'center',
   maxWidth: '598px',
   width: '100%',
+  height: '100%',
   position: 'absolute' as 'absolute',
   left: '50%',
+  top: 0,
+  transform: 'translateX(-50%)',
+  borderRadius: '50px',
+  [theme.breakpoints.down('sm')]: {
+    borderRadius: '0',
+    top: '0',
+    transform: 'translateX(-50%)',
+  },
+}));
+
+const ContentWrapper = styled('div')(({ theme }) => ({
+  width: '100%',
+  position: 'absolute',
   top: '50%',
-  transform: 'translate(-50%, -50%)',
-  padding: '94px 86px 64px 86px',
+  transform: 'translateY(-50%)',
+  overflow: 'hidden',
+  padding: '60px 86px 60px 86px',
   borderRadius: '50px',
   background: '#13171D',
   [theme.breakpoints.down('sm')]: {
+    top: 0,
+    transform: 'none',
     minHeight: '100vh',
     borderRadius: '0',
     padding: '50px 15px 50px 15px',
-    top: '0',
-    transform: 'translateX(-50%)',
   },
 }));
 
@@ -36,7 +54,6 @@ const Title = styled('h3')(({ }) => ({
   fontFamily: 'Work Sans',
   fontSize: '32px',
   fontWeight: '600',
-  lineHeight: '48px',
 }));
 
 const Subtitle = styled('div')(({ }) => ({
@@ -60,7 +77,7 @@ const CloseIconButton = styled('button')(({ theme }) => ({
 }));
 
 const Form = styled('form')(({ }) => ({
-  marginTop: '47px',
+  marginTop: '27px',
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -105,7 +122,7 @@ const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
 
 const CustomDivider = styled(Divider)(({ }) => ({
   display: 'flex',
-  marginTop: '47px',
+  marginTop: '37px',
   color: '#E2E2E2',
   textAlign: 'center',
   fontFamily: 'Work Sans',
@@ -157,6 +174,7 @@ const Registration = styled('div')(({ theme }) => ({
 const BackgroundGradient = styled('img')(({ }) => ({
   display: 'block',
   position: 'absolute',
+  zIndex: '-10',
   bottom: '-411px',
   right: '-170px',
   width: '588.737px',
@@ -188,36 +206,38 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal }) => {
       >
         <Fade in={isModalOpen}>
           <MainWrapper>
-            <CloseIconButton>
-              <CloseIcon />
-            </CloseIconButton>
+            <ContentWrapper>
+              <CloseIconButton onClick={closeModal}>
+                <CloseIcon />
+              </CloseIconButton>
 
-            <Title>Log in</Title>
+              <Title>Log in</Title>
 
-            <Subtitle>Enter your information below to log in</Subtitle>
+              <Subtitle>Enter your information below to log in</Subtitle>
 
-            <Form>
-              <CustomInput type='email' placeholder='Email' />
-              <CustomInput type='password' placeholder='Password' sx={{ marginTop: '24px' }} />
-              <FillButton>Log In</FillButton>
-            </Form>
+              <Form>
+                <CustomInput type='email' placeholder='Email' />
+                <CustomInput type='password' placeholder='Password' sx={{ marginTop: '24px' }} />
+                <FillButton>Log In</FillButton>
+              </Form>
 
-            <CustomDivider>or continue with</CustomDivider>
+              <CustomDivider>or continue with</CustomDivider>
 
-            <OtherAuthVariants>
-              <AuthButton size='medium'>
-                <AuthImg src={google} alt="Google" />
-              </AuthButton>
-              <AuthButton size='medium'>
-                <AuthImg src={facebook} alt="Facebook" />
-              </AuthButton>
-            </OtherAuthVariants>
+              <OtherAuthVariants>
+                <AuthButton size='medium'>
+                  <AuthImg src={google} alt="Google" />
+                </AuthButton>
+                <AuthButton size='medium'>
+                  <AuthImg src={facebook} alt="Facebook" />
+                </AuthButton>
+              </OtherAuthVariants>
 
-            <Registration>
-              Don't have an account?&nbsp;<Link href="#" underline="always" sx={{ color: '#3D32F9' }}>Create an account</Link>
-            </Registration>
+              <Registration>
+                Don't have an account?&nbsp;<Box sx={{ color: '#3D32F9', textDecoration: 'underline', cursor: 'pointer' }}>Create an account</Box>
+              </Registration>
 
-            <BackgroundGradient src={backgroundGradient} />
+              <BackgroundGradient src={backgroundGradient} />
+            </ContentWrapper>
           </MainWrapper>
         </Fade>
       </Modal>

@@ -4,6 +4,8 @@ import { CustomContainer, FullToTransparentBtn } from './CustomElements';
 import cube from '../assets/pictures/cube.svg';
 import backgroundImg from '../assets/pictures/cta/background-img.svg';
 import vector from '../assets/backgroundFigures/solution/1-vector.svg';
+import useModalControl from '../hooks/useModalControl';
+import ModalWindow from './ModalWindow';
 
 const CTA_UI = styled('section')(({ }) => ({
   width: '100%',
@@ -126,6 +128,8 @@ const Vector = styled('img')({
 });
 
 const FirstCTA: FC = () => {
+  const { openModal, isModalOpen, closeModal } = useModalControl();
+
   return (
     <CTA_UI>
       <CustomContainer>
@@ -138,8 +142,10 @@ const FirstCTA: FC = () => {
               Understanding the inner workings of our AI service is key to realizing its potential.
               Here's a step-by-step guide to demystify the magic behind our cutting-edge technology
             </DescriptionText>
-            <FillButton>Sign Up</FillButton>
+            <FillButton onClick={() => openModal('signUp')}>Sign Up</FillButton>
           </DescriptionWrapper>
+
+          <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />
 
           <BackgroundBlock>
             <Vector src={vector} />

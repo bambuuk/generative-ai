@@ -112,7 +112,7 @@ const Header: FC = () => {
             <LinkUI onClick={() => scrollToSection('testimonials')}>Testimonials</LinkUI>
             <LinkUI onClick={() => scrollToSection('contacts')}>Contacts</LinkUI>
           </Navigation>
-          <TransparentButton onClick={openModal}>Log In</TransparentButton>
+          <TransparentButton onClick={() => openModal('logIn')}>Log In</TransparentButton>
         </HeaderWrapper>
       </CustomContainer>
       <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />

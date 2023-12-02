@@ -3,6 +3,8 @@ import { styled } from '@mui/material';
 import { CustomContainer, FullToTransparentBtn } from './CustomElements';
 import heart from '../assets/pictures/heart.svg';
 import abstractImg from '../assets/pictures/cta/abstract-img.svg';
+import useModalControl from '../hooks/useModalControl';
+import ModalWindow from './ModalWindow';
 
 const SecondCTA_UI = styled('section')(({ }) => ({
   width: '100%',
@@ -101,6 +103,8 @@ const AbstractImage = styled('img')(({ theme }) => ({
 }));
 
 const SecondCTA: FC = () => {
+  const { openModal, isModalOpen, closeModal } = useModalControl();
+
   return (
     <SecondCTA_UI>
       <CustomContainer>
@@ -111,10 +115,11 @@ const SecondCTA: FC = () => {
               Subscription will give you the opportunity to receive all the latest and most relevant news,
               as well as special offers and unique prices
             </Overview>
-            <SubscriptionButton>Sign Up</SubscriptionButton>
+            <SubscriptionButton onClick={() => openModal('signUp')}>Sign Up</SubscriptionButton>
           </SubscriptionWrapper>
           <HeartImg src={heart} />
           <AbstractImage src={abstractImg} />
+          <ModalWindow isModalOpen={isModalOpen} closeModal={closeModal} />
         </MainWrapper>
       </CustomContainer>
     </SecondCTA_UI>

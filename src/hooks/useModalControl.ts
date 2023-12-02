@@ -2,10 +2,19 @@ import { useState } from "react";
 
 const useModalControl = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const [modalType, setModalType] = useState<string>("logIn");
 
-  return { isModalOpen, openModal, closeModal };
+  const openModal = (value: string) => {
+    setIsModalOpen(true);
+    setModalType(value === "logIn" ? "logIn" : "signUp");
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalType("logIn");
+  };
+
+  return { isModalOpen, openModal, closeModal, modalType };
 };
 
 export default useModalControl;
