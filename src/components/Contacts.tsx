@@ -87,7 +87,6 @@ const GradientsBlock = styled('div')(({ theme }) => ({
   width: '692.442px',
   height: '675.338px',
   transform: 'rotate(-55.229deg)',
-  filter: 'blur(347px)',
   [theme.breakpoints.down('lg')]: {
     width: '659px',
     height: '631px',
@@ -96,6 +95,12 @@ const GradientsBlock = styled('div')(({ theme }) => ({
     width: '359px',
     height: '331px',
   },
+}));
+
+const RepeatedBlurBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(87px)'
 }));
 
 const Vector = styled('img')({
@@ -197,9 +202,17 @@ const Contacts: FC = () => {
           </DepartmentsContactsList>
 
           <GradientsBlock>
-            <FirstVector src={firstVector} />
-            <SecondVector src={secondVector} />
-            <ThirdVector src={thirdVector} />
+            <RepeatedBlurBlock>
+              <RepeatedBlurBlock>
+                <RepeatedBlurBlock>
+                  <RepeatedBlurBlock sx={{ position: 'relative' }}>
+                    <FirstVector src={firstVector} />
+                    <SecondVector src={secondVector} />
+                    <ThirdVector src={thirdVector} />
+                  </RepeatedBlurBlock>
+                </RepeatedBlurBlock>
+              </RepeatedBlurBlock>
+            </RepeatedBlurBlock>
           </GradientsBlock>
 
           <AbstractImage src={abstractImg} />
