@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { styled } from '@mui/material';
+import { Box, styled } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
 import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from './ImgComponents';
 import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
@@ -130,7 +130,6 @@ const GradientsBlock = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
   transform: 'rotate(-55.229deg)',
-  filter: 'blur(327px)',
   [theme.breakpoints.down(1300)]: {
     maxWidth: '893px',
     maxHeight: '872px',
@@ -156,7 +155,7 @@ const SecondGradientsBlock = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
   transform: 'rotate(-55.229deg)',
-  filter: 'blur(327px)',
+  // filter: 'blur(110px)',
   [theme.breakpoints.down('md')]: {
     display: 'block',
     position: 'absolute',
@@ -164,6 +163,12 @@ const SecondGradientsBlock = styled('div')(({ theme }) => ({
     maxHeight: '331px',
   },
 }));
+
+const RepeatedBlurBlock = styled(Box)(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(110px)'
+}))
 
 const Vector = styled('img')({
   display: 'block',
@@ -311,14 +316,30 @@ const Features: FC = () => {
           </FeaturesCardList>
         </FeaturesWrapper>
         <GradientsBlock>
-          <FirstVector src={firstVector} />
-          <SecondVector src={secondVector} />
-          <ThirdVector src={thirdVector} />
+          <RepeatedBlurBlock>
+            <RepeatedBlurBlock>
+              <RepeatedBlurBlock sx={{
+                position: 'relative',
+              }}>
+                <FirstVector src={firstVector} />
+                <SecondVector src={secondVector} />
+                <ThirdVector src={thirdVector} />
+              </RepeatedBlurBlock>
+            </RepeatedBlurBlock>
+          </RepeatedBlurBlock>
         </GradientsBlock>
         <SecondGradientsBlock>
-          <FirstVector src={firstVector} />
-          <SecondVector src={secondVector} />
-          <ThirdVector src={thirdVector} />
+          <RepeatedBlurBlock>
+            <RepeatedBlurBlock>
+              <RepeatedBlurBlock sx={{
+                position: 'relative',
+              }}>
+                <FirstVector src={firstVector} />
+                <SecondVector src={secondVector} />
+                <ThirdVector src={thirdVector} />
+              </RepeatedBlurBlock>
+            </RepeatedBlurBlock>
+          </RepeatedBlurBlock>
         </SecondGradientsBlock>
       </CustomContainer>
     </FeaturesUI>
