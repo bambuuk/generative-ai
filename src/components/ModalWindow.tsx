@@ -24,7 +24,7 @@ const MainWrapper = styled(Box)(({ theme }) => ({
   top: 0,
   transform: 'translateX(-50%)',
   borderRadius: '50px',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down(1550)]: {
     maxWidth: '550px',
   },
   [theme.breakpoints.down('sm')]: {
@@ -253,7 +253,7 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType
                     <>
                       Don't have an account?&nbsp;
                       <Box
-                        sx={{ color: '#3D32F9', textDecoration: 'underline', cursor: 'pointer' }}
+                        sx={{ color: '#3D32F9', cursor: 'pointer' }}
                         onClick={() => changeModalType('signUp')}
                       >
                         Create an account
@@ -263,7 +263,7 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType
                     <>
                       Do you have an account?&nbsp;
                       <Box
-                        sx={{ color: '#3D32F9', textDecoration: 'underline', cursor: 'pointer' }}
+                        sx={{ color: '#3D32F9', cursor: 'pointer' }}
                         onClick={() => changeModalType('logIn')}
                       >
                         Log In

@@ -22,9 +22,6 @@ const HeroWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.down(1024)]: {
     flexDirection: 'column'
   },
-  [theme.breakpoints.down('sm')]: {
-    paddingTop: '50px',
-  },
 }));
 
 const OverviewBlock = styled('div')(({ theme }) => ({
