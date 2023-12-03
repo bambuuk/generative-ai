@@ -5,7 +5,7 @@ import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from
 import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/features/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/features/3-vector.svg';
-import star from '../assets/backgroundFigures/star.svg';
+import star from '../assets/backgroundFigures/star.png';
 
 const FeaturesUI = styled('section')({
   width: '100%',

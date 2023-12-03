@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
-import circleImg from '../assets/pictures/solution/main-picture.svg';
-import lightningImg from '../assets/pictures/solution/lightning.svg';
-import diamondImg from '../assets/pictures/solution/diamond.svg';
+import circleImg from '../assets/pictures/solution/main-picture.png';
+import lightningImg from '../assets/pictures/solution/lightning.png';
+import diamondImg from '../assets/pictures/solution/diamond.png';
 import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/solution/3-vector.svg';
