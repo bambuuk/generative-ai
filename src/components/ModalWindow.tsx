@@ -135,9 +135,6 @@ const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
     fontSize: '18px',
     padding: '15px 30px',
   },
-  [theme.breakpoints.down('sm')]: {
-    padding: '15px 30px',
-  }
 }));
 
 const CustomDivider = styled(Divider)(({ }) => ({

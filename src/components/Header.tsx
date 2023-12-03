@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { IconButton, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { CustomContainer } from './CustomElements';
@@ -7,8 +7,11 @@ import Logo from './Logo';
 import { scrollToSection } from '../utils/scrollToSection';
 import useModalControl from '../hooks/useModalControl';
 import ModalWindow from './ModalWindow';
+import BurgerMenu from './BurgerMenu';
 
 const HeaderUI = styled('header')(({ theme }) => ({
+  position: 'fixed',
+  zIndex: '1000',
   width: '100%',
   height: '100px',
   overflow: 'hidden',
@@ -91,9 +94,19 @@ const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
 
 const Header: FC = () => {
   const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
+
+  const closeBurgerMenu = () => {
+    setIsBurgerMenuOpen(false);
+  }
+
+  const openBurgerMenu = () => {
+    setIsBurgerMenuOpen(true);
+  }
 
   return (
     <HeaderUI id="header">
+      <BurgerMenu isBurgerMenuOpen={isBurgerMenuOpen} closeBurgerMenu={closeBurgerMenu} />
       <CustomContainer>
         <HeaderWrapper>
           <Logo />
@@ -101,6 +114,7 @@ const Header: FC = () => {
             size="medium"
             edge="start"
             aria-label="menu"
+            onClick={openBurgerMenu}
           >
             <MenuIcon style={{ fontSize: '40px' }} />
           </CustomIconButton>
