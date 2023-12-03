@@ -6,7 +6,6 @@ import { IModalType } from "../types/IModalType";
 
 import google from '../assets/icons/google-icon.svg';
 import facebook from '../assets/icons/facebook-icon.svg';
-import backgroundGradient from '../assets/backgroundFigures/solution/3-vector.svg';
 
 const MainWrapper = styled(Box)(({ theme }) => ({
   '&::-webkit-scrollbar': {
@@ -17,7 +16,7 @@ const MainWrapper = styled(Box)(({ theme }) => ({
   overflowY: 'auto',
   display: 'flex',
   alignItems: 'center',
-  maxWidth: '598px',
+  maxWidth: '550px',
   width: '100%',
   height: '100%',
   position: 'absolute' as 'absolute',
@@ -29,6 +28,7 @@ const MainWrapper = styled(Box)(({ theme }) => ({
     borderRadius: '0',
     top: '0',
     transform: 'translateX(-50%)',
+    maxWidth: 'none',
   },
 }));
 
@@ -38,9 +38,12 @@ const ContentWrapper = styled('div')(({ theme }) => ({
   top: '50%',
   transform: 'translateY(-50%)',
   overflow: 'hidden',
-  padding: '60px 86px 60px 86px',
+  padding: '94px 86px 64px 86px',
   borderRadius: '50px',
-  background: '#13171D',
+  background: 'linear-gradient(130deg, rgba(23,23,23,1) 0%, rgba(55,23,72,1) 100%)',
+  [theme.breakpoints.down(1550)]: {
+    padding: '60px 56px 60px 56px',
+  },
   [theme.breakpoints.down('sm')]: {
     top: 0,
     transform: 'none',
@@ -50,21 +53,28 @@ const ContentWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
-const Title = styled('h3')(({ }) => ({
+const Title = styled('h3')(({ theme }) => ({
   color: '#E2E2E2',
   textAlign: 'center',
   fontFamily: 'Work Sans',
   fontSize: '32px',
   fontWeight: '600',
+  lineHeight: '48px',
+  [theme.breakpoints.down(1550)]: {
+    lineHeight: '1',
+  },
 }));
 
-const Subtitle = styled('div')(({ }) => ({
-  marginTop: '32px',
+const Subtitle = styled('div')(({ theme }) => ({
   color: '#E2E2E2',
   textAlign: 'center',
   fontFamily: 'Work Sans',
   fontSize: '20px',
   fontWeight: '400',
+  [theme.breakpoints.down(1550)]: {
+    marginTop: '20px',
+    fontSize: '18px',
+  },
 }));
 
 const CloseIconButton = styled('button')(({ theme }) => ({
@@ -87,7 +97,7 @@ const Form = styled('form')(({ }) => ({
 
 const CustomInput = styled('input')(({ theme }) => ({
   width: '100%',
-  padding: '8px 20px',
+  padding: '15px 20px',
   borderRadius: '20px',
   border: '1px solid #333',
   backgroundColor: 'transparent',
@@ -97,9 +107,9 @@ const CustomInput = styled('input')(({ theme }) => ({
   fontFamily: 'Work Sans',
   fontSize: '20px',
   fontWeight: '500',
-  lineHeight: '48px',
-  [theme.breakpoints.down('sm')]: {
-    lineHeight: '38px'
+  lineHeight: '15px',
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '16px',
   },
 
   '&:hover': {
@@ -117,6 +127,11 @@ const CustomInput = styled('input')(({ theme }) => ({
 const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
   marginTop: '45px',
   maxWidth: 'none',
+  [theme.breakpoints.down(1550)]: {
+    marginTop: '30px',
+    fontSize: '18px',
+    padding: '15px 30px',
+  },
   [theme.breakpoints.down('sm')]: {
     padding: '15px 30px',
   }
@@ -137,7 +152,7 @@ const CustomDivider = styled(Divider)(({ }) => ({
 }));
 
 const OtherAuthVariants = styled('div')(({ }) => ({
-  padding: '36px',
+  padding: '20px 36px',
   display: 'flex',
   justifyContent: 'center',
   gap: '44px',
@@ -168,21 +183,14 @@ const AlternativeAction = styled('div')(({ theme }) => ({
   fontSize: '20px',
   fontWeight: '500',
   lineHeight: '28px',
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '18px',
+    lineHeight: '24px',
+  },
   [theme.breakpoints.down('sm')]: {
     alignItems: 'center',
     flexDirection: 'column',
   }
-}));
-
-const BackgroundGradient = styled('img')(({ }) => ({
-  display: 'block',
-  position: 'absolute',
-  zIndex: '-10',
-  bottom: '-411px',
-  right: '-170px',
-  width: '588.737px',
-  height: '569.293px',
-  filter: 'blur(512px)',
 }));
 
 interface IModalWindowProps {
@@ -265,7 +273,7 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType
                 }
               </AlternativeAction>
 
-              <BackgroundGradient src={backgroundGradient} />
+              {/* <BackgroundGradient src={backgroundGradient} /> */}
             </ContentWrapper>
           </MainWrapper>
         </Fade>
