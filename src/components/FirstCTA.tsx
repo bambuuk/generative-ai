@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
 import { CustomContainer, FullToTransparentBtn } from './CustomElements';
-import cube from '../assets/pictures/cube.svg';
-import backgroundImg from '../assets/pictures/cta/background-img.svg';
+import cube from '../assets/pictures/cta/cube.png';
+import backgroundImg from '../assets/pictures/cta/background-img.png';
 import vector from '../assets/backgroundFigures/solution/1-vector.svg';
 import useModalControl from '../hooks/useModalControl';
 import ModalWindow from './ModalWindow';

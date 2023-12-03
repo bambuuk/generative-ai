@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
 import { CustomContainer, FullToTransparentBtn } from './CustomElements';
-import heart from '../assets/pictures/heart.svg';
-import abstractImg from '../assets/pictures/cta/abstract-img.svg';
+import heart from '../assets/pictures/cta/heart.svg';
+import abstractImg from '../assets/pictures/cta/abstract-img.png';
 import useModalControl from '../hooks/useModalControl';
 import ModalWindow from './ModalWindow';
 import { beat } from '../assets/keyframes/keyframes';
