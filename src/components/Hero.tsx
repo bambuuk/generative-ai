@@ -134,7 +134,7 @@ const GradientsBlock = styled('div')({
   height: '100%',
   maxWidth: '657px',
   maxHeight: '640px',
-  filter: 'blur(207px)',
+  filter: 'blur(107px)',
   position: 'absolute',
   zIndex: '-10',
   right: 0,
@@ -200,14 +200,16 @@ const Hero: FC = () => {
             </FullToTransparentBtn>
           </OverviewBlock>
           <ImageBlock>
-            <Picture src={picture} alt="Abstract" />
-            <WaveImg src={wave} alt="Wave" />
+            <Picture src={picture} />
+            <WaveImg src={wave} />
           </ImageBlock>
         </HeroWrapper>
         <GradientsBlock>
-          <FirstVector src={firstVector} />
-          <SecondVector src={secondVector} />
-          <ThirdVector src={thirdVector} />
+          <GradientsBlock>
+            <FirstVector src={firstVector} />
+            <SecondVector src={secondVector} />
+            <ThirdVector src={thirdVector} />
+          </GradientsBlock>
         </GradientsBlock>
       </CustomContainer>
     </HeroUI>
