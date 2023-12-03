@@ -43,7 +43,6 @@ const FirstBackgroundBlock = styled('div')(({ theme }) => ({
   maxHeight: '569px',
   width: '100%',
   height: '100%',
-  filter: 'blur(377px)',
   [theme.breakpoints.down('md')]: {
     maxWidth: '359px',
     maxHeight: '331px',
@@ -70,6 +69,18 @@ const SecondBackgroundBlock = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     right: '0',
   },
+}));
+
+const FirstRepeatedBlurBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(85px)'
+}));
+
+const SecondRepeatedBlurBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(90px)'
 }));
 
 const Vector = styled('img')({
@@ -143,10 +154,24 @@ const PriceCardList: FC = () => {
             })}
           </PriceCardListUI>
           <FirstBackgroundBlock>
-            <FirstVector src={firstVector} />
+            <FirstRepeatedBlurBlock>
+              <FirstRepeatedBlurBlock>
+                <FirstRepeatedBlurBlock>
+                  <FirstRepeatedBlurBlock>
+                    <FirstVector src={firstVector} />
+                  </FirstRepeatedBlurBlock>
+                </FirstRepeatedBlurBlock>
+              </FirstRepeatedBlurBlock>
+            </FirstRepeatedBlurBlock>
           </FirstBackgroundBlock>
           <SecondBackgroundBlock>
-            <SecondVector src={secondVector} />
+            <SecondRepeatedBlurBlock>
+              <SecondRepeatedBlurBlock>
+                <SecondRepeatedBlurBlock>
+                  <SecondVector src={secondVector} />
+                </SecondRepeatedBlurBlock>
+              </SecondRepeatedBlurBlock>
+            </SecondRepeatedBlurBlock>
           </SecondBackgroundBlock>
         </MainWrapper>
       </CustomContainer>
