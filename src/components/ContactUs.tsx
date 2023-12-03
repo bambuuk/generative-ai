@@ -4,7 +4,7 @@ import { CustomContainer, FullToTransparentBtn, Title, Overview } from './Custom
 import useGetValidationInfo from '../hooks/useGetValidationInfo';
 import useSnackbarControl from '../hooks/useSnackbarControl';
 import CustomSnackbar from './CustomSnackbar';
-import abstractImg from '../assets/pictures/contactUs/abstract-img.svg';
+import abstractImg from '../assets/pictures/contactUs/abstract-img.png';
 
 const ContactUsUI = styled('section')(({ }) => ({
   width: '100%',

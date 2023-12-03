@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { styled, Box } from '@mui/material';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import { scrollToSection } from '../utils/scrollToSection';
 
 

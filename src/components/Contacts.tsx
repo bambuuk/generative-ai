@@ -4,7 +4,7 @@ import { CustomContainer, Title, Overview } from './CustomElements';
 import firstVector from '../assets/backgroundFigures/contacts/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/contacts/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/contacts/3-vector.svg';
-import abstractImg from '../assets/pictures/contacts/abstract-img.svg';
+import abstractImg from '../assets/pictures/contacts/abstract-img.png';
 
 const ContactsUI = styled('section')(({ }) => ({
   width: '100%',
