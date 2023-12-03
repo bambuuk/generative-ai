@@ -114,11 +114,16 @@ const BackgroundBlock = styled('div')(({ theme }) => ({
   maxHeight: '569.293px',
   width: '100%',
   height: '100%',
-  filter: 'blur(377px)',
   right: '-552px',
   [theme.breakpoints.down('sm')]: {
     right: '-200px',
   },
+}));
+
+const RepeatedBlurBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(95px)'
 }));
 
 const Vector = styled('img')({
@@ -153,7 +158,15 @@ const FirstCTA: FC = () => {
           />
 
           <BackgroundBlock>
-            <Vector src={vector} />
+            <RepeatedBlurBlock>
+              <RepeatedBlurBlock>
+                <RepeatedBlurBlock>
+                  <RepeatedBlurBlock sx={{ position: 'relative' }}>
+                    <Vector src={vector} />
+                  </RepeatedBlurBlock>
+                </RepeatedBlurBlock>
+              </RepeatedBlurBlock>
+            </RepeatedBlurBlock>
           </BackgroundBlock>
         </MainWrapper>
       </CustomContainer>

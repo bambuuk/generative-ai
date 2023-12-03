@@ -23,9 +23,14 @@ const BackgroundBlock = styled('div')(({ }) => ({
   maxHeight: '569.293px',
   width: '100%',
   height: '100%',
-  filter: 'blur(417px)',
   left: '38px',
   top: '-177px',
+}));
+
+const RepeatedBlurBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(105px)'
 }));
 
 const Testimonials: FC = () => {
@@ -36,7 +41,15 @@ const Testimonials: FC = () => {
           <Title>What clients say about us</Title>
           <Slider />
           <BackgroundBlock>
-            <img src={backgroundGradient} />
+            <RepeatedBlurBlock>
+              <RepeatedBlurBlock>
+                <RepeatedBlurBlock>
+                  <RepeatedBlurBlock>
+                    <img src={backgroundGradient} />
+                  </RepeatedBlurBlock>
+                </RepeatedBlurBlock>
+              </RepeatedBlurBlock>
+            </RepeatedBlurBlock>
           </BackgroundBlock>
         </MainWrapper>
       </CustomContainer>

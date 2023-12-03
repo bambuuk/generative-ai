@@ -157,7 +157,7 @@ const PriceCardList: FC = () => {
             <FirstRepeatedBlurBlock>
               <FirstRepeatedBlurBlock>
                 <FirstRepeatedBlurBlock>
-                  <FirstRepeatedBlurBlock>
+                  <FirstRepeatedBlurBlock sx={{ position: 'relative' }}>
                     <FirstVector src={firstVector} />
                   </FirstRepeatedBlurBlock>
                 </FirstRepeatedBlurBlock>
@@ -167,7 +167,7 @@ const PriceCardList: FC = () => {
           <SecondBackgroundBlock>
             <SecondRepeatedBlurBlock>
               <SecondRepeatedBlurBlock>
-                <SecondRepeatedBlurBlock>
+                <SecondRepeatedBlurBlock sx={{ position: 'relative' }}>
                   <SecondVector src={secondVector} />
                 </SecondRepeatedBlurBlock>
               </SecondRepeatedBlurBlock>
