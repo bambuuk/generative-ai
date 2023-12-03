@@ -160,7 +160,7 @@ const Contacts: FC = () => {
                     &nbsp;support@aigenius.com
                   </CustomLink></ContactInfo>
                 <ContactInfo>
-                  Phone:
+                  Phone:&nbsp;
                   <CustomLink href="tel:+15551234567" underline="none">
                     +1-555-123-4567
                   </CustomLink>
@@ -178,7 +178,7 @@ const Contacts: FC = () => {
                   </CustomLink>
                 </ContactInfo>
                 <ContactInfo>
-                  Phone:
+                  Phone:&nbsp;
                   <CustomLink href="tel:+15557890123" underline="none">
                     +1-555-789-0123
                   </CustomLink>

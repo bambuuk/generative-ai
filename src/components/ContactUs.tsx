@@ -30,7 +30,7 @@ const CustomForm = styled('form')(({ theme }) => ({
   },
 }));
 
-const CustomInput = styled('input')(({ }) => ({
+const CustomInput = styled('input')(({ theme }) => ({
   width: '100%',
   padding: '8px 20px',
   borderRadius: '20px',
@@ -44,6 +44,12 @@ const CustomInput = styled('input')(({ }) => ({
   fontWeight: '500',
   lineHeight: '48px',
   transition: 'all 0.3s ease-in-out',
+
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '18px',
+    lineHeight: '24px',
+    padding: '15px 20px',
+  },
 
   // '&:-webkit-autofill, &:-webkit-autofill:focus': {
   //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
@@ -79,6 +85,12 @@ const CustomTextarea = styled('textarea')(({ theme }) => ({
   lineHeight: '25px',
   transition: 'all 0.3s ease-in-out',
 
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '18px',
+    lineHeight: '24px',
+    padding: '15px 20px',
+  },
+
   // '&:-webkit-autofill, &:-webkit-autofill:focus': {
   //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
   // },
@@ -112,6 +124,10 @@ const SubmitButton = styled(FullToTransparentBtn)(({ theme }) => ({
   padding: '20px 40px',
   maxWidth: '300px',
   width: '100%',
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '18px',
+    padding: '15px 30px',
+  },
   [theme.breakpoints.down(768)]: {
     marginTop: '10px',
     gridColumn: '1 / 2',

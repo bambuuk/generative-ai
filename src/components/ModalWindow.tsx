@@ -16,7 +16,7 @@ const MainWrapper = styled(Box)(({ theme }) => ({
   overflowY: 'auto',
   display: 'flex',
   alignItems: 'center',
-  maxWidth: '550px',
+  maxWidth: '600px',
   width: '100%',
   height: '100%',
   position: 'absolute' as 'absolute',
@@ -24,6 +24,9 @@ const MainWrapper = styled(Box)(({ theme }) => ({
   top: 0,
   transform: 'translateX(-50%)',
   borderRadius: '50px',
+  [theme.breakpoints.down('sm')]: {
+    maxWidth: '550px',
+  },
   [theme.breakpoints.down('sm')]: {
     borderRadius: '0',
     top: '0',
