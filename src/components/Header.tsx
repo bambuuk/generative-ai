@@ -16,7 +16,7 @@ const HeaderUI = styled('header')(({ theme }) => ({
   height: '100px',
   overflow: 'hidden',
   backgroundColor: theme.palette.otherColor?.darkGray,
-  [theme.breakpoints.down(1024)]: {
+  [theme.breakpoints.down(1550)]: {
     height: '85px',
   },
 }));
@@ -25,9 +25,9 @@ const HeaderWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   padding: '16px 0',
-  [theme.breakpoints.down('lg')]: {
-    padding: '15px 0',
-    height: '100%'
+  height: '100%',
+  [theme.breakpoints.down(1550)]: {
+    padding: '10px 0',
   },
 }));
 
@@ -72,7 +72,7 @@ const LinkUI = styled('button')(({ theme }) => ({
   //   width: '100%',
   //   left: 0,
   // }
-  [theme.breakpoints.down('lg')]: {
+  [theme.breakpoints.down(1550)]: {
     fontSize: '18px',
     lineHeight: '20px',
   },
@@ -87,6 +87,10 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
+  [theme.breakpoints.down(1550)]: {
+    fontSize: '18px',
+    padding: '10px 60px',
+  },
   [theme.breakpoints.down(1024)]: {
     display: 'none'
   }

@@ -22,7 +22,7 @@ const LogoTitle = styled('div')(({ theme }) => ({
   fontSize: '24px',
   fontWeight: '700',
   lineHeight: '28px',
-  [theme.breakpoints.down('lg')]: {
+  [theme.breakpoints.down(1550)]: {
     fontSize: '20px',
     lineHeight: '24px',
   },
@@ -36,7 +36,7 @@ const LogoImage = styled('img')(({ theme }) => ({
   width: 'auto',
   height: 'auto',
   objectFit: 'fill',
-  [theme.breakpoints.down(1024)]: {
+  [theme.breakpoints.down(1550)]: {
     width: '90px',
   },
 }));
