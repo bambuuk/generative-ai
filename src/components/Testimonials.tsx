@@ -40,7 +40,7 @@ const Testimonials: FC = () => {
         <MainWrapper>
           <Title>What clients say about us</Title>
           <Slider />
-          <BackgroundBlock>
+          {/* <BackgroundBlock>
             <RepeatedBlurBlock>
               <RepeatedBlurBlock>
                 <RepeatedBlurBlock>
@@ -50,7 +50,7 @@ const Testimonials: FC = () => {
                 </RepeatedBlurBlock>
               </RepeatedBlurBlock>
             </RepeatedBlurBlock>
-          </BackgroundBlock>
+          </BackgroundBlock> */}
         </MainWrapper>
       </CustomContainer>
     </SliderUI>

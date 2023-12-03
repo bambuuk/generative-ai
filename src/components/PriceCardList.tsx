@@ -153,7 +153,7 @@ const PriceCardList: FC = () => {
               );
             })}
           </PriceCardListUI>
-          <FirstBackgroundBlock>
+          {/* <FirstBackgroundBlock>
             <FirstRepeatedBlurBlock>
               <FirstRepeatedBlurBlock>
                 <FirstRepeatedBlurBlock>
@@ -172,7 +172,7 @@ const PriceCardList: FC = () => {
                 </SecondRepeatedBlurBlock>
               </SecondRepeatedBlurBlock>
             </SecondRepeatedBlurBlock>
-          </SecondBackgroundBlock>
+          </SecondBackgroundBlock> */}
         </MainWrapper>
       </CustomContainer>
     </PriceUI>

@@ -315,7 +315,7 @@ const Features: FC = () => {
 
           </FeaturesCardList>
         </FeaturesWrapper>
-        <GradientsBlock>
+        {/* <GradientsBlock>
           <RepeatedBlurBlock>
             <RepeatedBlurBlock>
               <RepeatedBlurBlock sx={{
@@ -340,7 +340,7 @@ const Features: FC = () => {
               </RepeatedBlurBlock>
             </RepeatedBlurBlock>
           </RepeatedBlurBlock>
-        </SecondGradientsBlock>
+        </SecondGradientsBlock> */}
       </CustomContainer>
     </FeaturesUI>
   )

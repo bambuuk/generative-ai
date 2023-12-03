@@ -157,7 +157,7 @@ const FirstCTA: FC = () => {
             changeModalType={changeModalType}
           />
 
-          <BackgroundBlock>
+          {/* <BackgroundBlock>
             <RepeatedBlurBlock>
               <RepeatedBlurBlock>
                 <RepeatedBlurBlock>
@@ -167,7 +167,7 @@ const FirstCTA: FC = () => {
                 </RepeatedBlurBlock>
               </RepeatedBlurBlock>
             </RepeatedBlurBlock>
-          </BackgroundBlock>
+          </BackgroundBlock> */}
         </MainWrapper>
       </CustomContainer>
     </CTA_UI>

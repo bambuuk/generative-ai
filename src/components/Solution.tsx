@@ -284,7 +284,7 @@ const Solution: FC = () => {
             <ECommerce>E-commerce</ECommerce>
             <Healthcare>Healthcare</Healthcare>
           </CirclesWrapper>
-          <GradientsBlock>
+          {/* <GradientsBlock>
             <RepeatedBlurBlock>
               <RepeatedBlurBlock sx={{ position: 'relative' }}>
                 <FirstVector src={firstVector} />
@@ -292,7 +292,7 @@ const Solution: FC = () => {
                 <ThirdVector src={thirdVector} />
               </RepeatedBlurBlock>
             </RepeatedBlurBlock>
-          </GradientsBlock>
+          </GradientsBlock> */}
         </MainWrapper>
       </CustomContainer>
       <DiamondImage src={diamondImg} />

@@ -201,7 +201,7 @@ const Contacts: FC = () => {
             </ContactItem>
           </DepartmentsContactsList>
 
-          <GradientsBlock>
+          {/* <GradientsBlock>
             <RepeatedBlurBlock>
               <RepeatedBlurBlock>
                 <RepeatedBlurBlock>
@@ -213,7 +213,7 @@ const Contacts: FC = () => {
                 </RepeatedBlurBlock>
               </RepeatedBlurBlock>
             </RepeatedBlurBlock>
-          </GradientsBlock>
+          </GradientsBlock> */}
 
           <AbstractImage src={abstractImg} />
         </MainWrapper>

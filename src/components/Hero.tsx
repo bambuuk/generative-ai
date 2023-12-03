@@ -201,13 +201,13 @@ const Hero: FC = () => {
             <WaveImg src={wave} />
           </ImageBlock>
         </HeroWrapper>
-        <GradientsBlock>
+        {/* <GradientsBlock>
           <GradientsBlock>
             <FirstVector src={firstVector} />
             <SecondVector src={secondVector} />
             <ThirdVector src={thirdVector} />
           </GradientsBlock>
-        </GradientsBlock>
+        </GradientsBlock> */}
       </CustomContainer>
     </HeroUI>
   )
