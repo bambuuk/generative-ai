@@ -217,7 +217,6 @@ const GradientsBlock = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
   transform: 'rotate(-55.229deg)',
-  filter: 'blur(207px)',
   [theme.breakpoints.down('lg')]: {
     maxWidth: '659px',
     maxHeight: '631px',
@@ -226,6 +225,12 @@ const GradientsBlock = styled('div')(({ theme }) => ({
     maxWidth: '359px',
     maxHeight: '331px',
   },
+}));
+
+const RepeatedBlurBlock = styled('div')(({ }) => ({
+  width: '100%',
+  height: '100%',
+  filter: 'blur(103px)'
 }));
 
 const Vector = styled('img')({
@@ -280,9 +285,13 @@ const Solution: FC = () => {
             <Healthcare>Healthcare</Healthcare>
           </CirclesWrapper>
           <GradientsBlock>
-            <FirstVector src={firstVector} />
-            <SecondVector src={secondVector} />
-            <ThirdVector src={thirdVector} />
+            <RepeatedBlurBlock>
+              <RepeatedBlurBlock sx={{ position: 'relative' }}>
+                <FirstVector src={firstVector} />
+                <SecondVector src={secondVector} />
+                <ThirdVector src={thirdVector} />
+              </RepeatedBlurBlock>
+            </RepeatedBlurBlock>
           </GradientsBlock>
         </MainWrapper>
       </CustomContainer>

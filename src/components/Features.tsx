@@ -168,7 +168,7 @@ const RepeatedBlurBlock = styled(Box)(({ }) => ({
   width: '100%',
   height: '100%',
   filter: 'blur(110px)'
-}))
+}));
 
 const Vector = styled('img')({
   display: 'block',
