@@ -7,6 +7,7 @@ import wave from '../assets/pictures/wave-pattern.svg';
 import firstVector from '../assets/backgroundFigures/hero/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/hero/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/hero/3-vector.svg';
+import { rotate, zeroRotate } from '../assets/keyframes/keyframes';
 
 const HeroUI = styled('section')({
   width: '100%',
@@ -49,6 +50,7 @@ const ImageBlock = styled('div')({
 });
 
 const Picture = styled('img')(({ theme }) => ({
+  animation: `${rotate} 10s linear infinite`,
   width: '100%',
   height: '100%',
   objectFit: 'contain',
@@ -62,6 +64,7 @@ const Picture = styled('img')(({ theme }) => ({
 }));
 
 const WaveImg = styled(Picture)(({ theme }) => ({
+  animation: `${zeroRotate} 10s linear infinite`,
   maxWidth: '80%',
   maxHeight: '522px',
   width: '100%',

@@ -7,6 +7,7 @@ import diamondImg from '../assets/pictures/solution/diamond.svg';
 import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
 import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
 import thirdVector from '../assets/backgroundFigures/solution/3-vector.svg';
+import { rotate, reverseRotate } from '../assets/keyframes/keyframes';
 
 const SolutionUI = styled('section')({
   width: '100%',
@@ -21,9 +22,10 @@ const MainWrapper = styled('div')(({ }) => ({
 }));
 
 const CirclesWrapper = styled('div')(({ theme }) => ({
+  animation: `${rotate} 10s linear infinite`,
   margin: '0 auto',
   marginTop: '100px',
-  padding: '0 42px 0 84px',
+  padding: '0 42px 0 42px',
   position: 'relative',
   [theme.breakpoints.down('sm')]: {
     marginTop: '60px',
@@ -33,7 +35,7 @@ const CirclesWrapper = styled('div')(({ theme }) => ({
 
 const FirstCircle = styled('div')(({ theme }) => ({
   width: '625px',
-  height: '639px',
+  height: '625px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -52,7 +54,7 @@ const FirstCircle = styled('div')(({ theme }) => ({
 
 const SecondCircle = styled('div')(({ theme }) => ({
   width: '424px',
-  height: '434px',
+  height: '424px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -70,6 +72,7 @@ const SecondCircle = styled('div')(({ theme }) => ({
 }));
 
 const CircleImg = styled('img')(({ theme }) => ({
+  animation: `${reverseRotate} 10s linear infinite`,
   display: 'block',
   width: '303px',
   height: '259px',
@@ -97,14 +100,24 @@ const LightningImage = styled('img')(({ theme }) => ({
 
 const DiamondImage = styled('img')(({ theme }) => ({
   position: 'absolute',
-  left: '150px',
+  left: '173px',
   bottom: '90px',
+  [theme.breakpoints.down('lg')]: {
+    left: '0',
+    bottom: '0',
+  },
+  [theme.breakpoints.down('md')]: {
+    width: '121px',
+    height: '111px',
+    bottom: '-80px',
+  },
   [theme.breakpoints.down('sm')]: {
     display: 'none'
   },
 }));
 
 const SolutionFeature = styled('div')(({ theme }) => ({
+  animation: `${reverseRotate} 10s linear infinite`,
   position: 'absolute',
   color: '#E2E2E2',
   textAlign: 'center',

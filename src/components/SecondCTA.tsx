@@ -5,6 +5,8 @@ import heart from '../assets/pictures/heart.svg';
 import abstractImg from '../assets/pictures/cta/abstract-img.svg';
 import useModalControl from '../hooks/useModalControl';
 import ModalWindow from './ModalWindow';
+import { beat } from '../assets/keyframes/keyframes';
+
 
 const SecondCTA_UI = styled('section')(({ }) => ({
   width: '100%',
@@ -78,6 +80,7 @@ const SubscriptionButton = styled(FullToTransparentBtn)(({ theme }) => ({
 }));
 
 const HeartImg = styled('img')(({ theme }) => ({
+  animation: `2s ease 0s infinite ${beat}`,
   maxWidth: '368px',
   width: '100%',
   height: '100%',
