@@ -12,6 +12,7 @@ import SecondCTA from "./components/SecondCTA";
 import ContactUs from "./components/ContactUs";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const MainContent = styled('main')({
   display: 'flex',
@@ -37,6 +38,7 @@ function App() {
           <ContactUs />
           <Contacts />
           <Footer />
+          <ScrollToTopButton />
         </MainContent>
       </ThemeProvider>
     </>

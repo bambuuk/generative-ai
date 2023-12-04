@@ -36,8 +36,13 @@ export const TransparentToFullBtn = styled(Button)(({}) => ({
     transition: "500ms",
   },
   "&:hover::before": {
-    background: "transparent",
+    "@media (hover: hover) and (pointer: fine)": {
+      background: "transparent",
+    },
   },
+  // "&:hover::before": {
+  //   background: "transparent",
+  // },
 }));
 
 export const FullToTransparentBtn = styled(Button)(({}) => ({
@@ -69,7 +74,9 @@ export const FullToTransparentBtn = styled(Button)(({}) => ({
     background: "linear-gradient(214deg, #482B8D 5.44%, #180C33 94.54%)",
   },
   "&:hover::before": {
-    opacity: "1",
+    "@media (hover: hover) and (pointer: fine)": {
+      opacity: "1",
+    },
   },
 }));
 

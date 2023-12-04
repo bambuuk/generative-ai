@@ -10,7 +10,7 @@ export const scrollToSection = (id: string) => {
   }
 };
 
-export const scrollOnTop = () => {
+export const scrollToTop = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
