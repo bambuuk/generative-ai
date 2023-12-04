@@ -4,8 +4,8 @@ import { nanoid } from 'nanoid';
 import { CustomContainer, Title } from './CustomElements';
 import PriceCard from './PriceCard';
 import { ITariffPlane } from '../types/ITariffPlane';
-import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
-import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
+// import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
+// import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
 
 const PriceUI = styled('section')({
   width: '100%',
@@ -34,69 +34,69 @@ const PriceCardListUI = styled('div')(({ theme }) => ({
   }
 }));
 
-const FirstBackgroundBlock = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  zIndex: '-10',
-  top: '-147px',
-  left: '-141px',
-  maxWidth: '588px',
-  maxHeight: '569px',
-  width: '100%',
-  height: '100%',
-  [theme.breakpoints.down('md')]: {
-    maxWidth: '359px',
-    maxHeight: '331px',
-  },
-  [theme.breakpoints.down('md')]: {
-    right: '0',
-  },
-}));
+// const FirstBackgroundBlock = styled('div')(({ theme }) => ({
+//   position: 'absolute',
+//   zIndex: '-10',
+//   top: '-147px',
+//   left: '-141px',
+//   maxWidth: '588px',
+//   maxHeight: '569px',
+//   width: '100%',
+//   height: '100%',
+//   [theme.breakpoints.down('md')]: {
+//     maxWidth: '359px',
+//     maxHeight: '331px',
+//   },
+//   [theme.breakpoints.down('md')]: {
+//     right: '0',
+//   },
+// }));
 
-const SecondBackgroundBlock = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  zIndex: '-10',
-  top: '181px',
-  left: '-416px',
-  maxWidth: '588px',
-  maxHeight: '569px',
-  width: '100%',
-  height: '100%',
-  filter: 'blur(262px)',
-  [theme.breakpoints.down('md')]: {
-    maxWidth: '359px',
-    maxHeight: '331px',
-  },
-  [theme.breakpoints.down('sm')]: {
-    right: '0',
-  },
-}));
+// const SecondBackgroundBlock = styled('div')(({ theme }) => ({
+//   position: 'absolute',
+//   zIndex: '-10',
+//   top: '181px',
+//   left: '-416px',
+//   maxWidth: '588px',
+//   maxHeight: '569px',
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(262px)',
+//   [theme.breakpoints.down('md')]: {
+//     maxWidth: '359px',
+//     maxHeight: '331px',
+//   },
+//   [theme.breakpoints.down('sm')]: {
+//     right: '0',
+//   },
+// }));
 
-const FirstRepeatedBlurBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(85px)'
-}));
+// const FirstRepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(85px)'
+// }));
 
-const SecondRepeatedBlurBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(90px)'
-}));
+// const SecondRepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(90px)'
+// }));
 
-const Vector = styled('img')({
-  display: 'block',
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-});
+// const Vector = styled('img')({
+//   display: 'block',
+//   position: 'absolute',
+//   width: '100%',
+//   height: '100%',
+// });
 
-const FirstVector = styled(Vector)({
-  fill: "#3D32F9",
-});
+// const FirstVector = styled(Vector)({
+//   fill: "#3D32F9",
+// });
 
-const SecondVector = styled(Vector)({
-  fill: '#391F6F',
-});
+// const SecondVector = styled(Vector)({
+//   fill: '#391F6F',
+// });
 
 const PriceCardList: FC = () => {
   const priceList: ITariffPlane[] = [

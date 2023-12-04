@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { Box, styled } from '@mui/material';
+import { styled } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
 import { CPUImage, CardImage, ChatImage, PlantImage, ScopImage, TeamImage } from './ImgComponents';
-import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
-import secondVector from '../assets/backgroundFigures/features/2-vector.svg';
-import thirdVector from '../assets/backgroundFigures/features/3-vector.svg';
+// import firstVector from '../assets/backgroundFigures/features/1-vector.svg';
+// import secondVector from '../assets/backgroundFigures/features/2-vector.svg';
+// import thirdVector from '../assets/backgroundFigures/features/3-vector.svg';
 import star from '../assets/backgroundFigures/star.png';
 
 const FeaturesUI = styled('section')({
@@ -120,86 +120,86 @@ const CardDescrText = styled('p')(({ }) => ({
   lineHeight: '24px',
 }));
 
-const GradientsBlock = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  zIndex: '-10',
-  top: '380px',
-  left: '100px',
-  maxWidth: '992.516px',
-  maxHeight: '968px',
-  width: '100%',
-  height: '100%',
-  transform: 'rotate(-55.229deg)',
-  [theme.breakpoints.down(1300)]: {
-    maxWidth: '893px',
-    maxHeight: '872px',
-  },
-  [theme.breakpoints.down('lg')]: {
-    maxWidth: '659px',
-    maxHeight: '631px',
-  },
-  [theme.breakpoints.down('md')]: {
-    maxWidth: '359px',
-    maxHeight: '331px',
-  },
-}));
+// const GradientsBlock = styled('div')(({ theme }) => ({
+//   position: 'absolute',
+//   zIndex: '-10',
+//   top: '380px',
+//   left: '100px',
+//   maxWidth: '992.516px',
+//   maxHeight: '968px',
+//   width: '100%',
+//   height: '100%',
+//   transform: 'rotate(-55.229deg)',
+//   [theme.breakpoints.down(1300)]: {
+//     maxWidth: '893px',
+//     maxHeight: '872px',
+//   },
+//   [theme.breakpoints.down('lg')]: {
+//     maxWidth: '659px',
+//     maxHeight: '631px',
+//   },
+//   [theme.breakpoints.down('md')]: {
+//     maxWidth: '359px',
+//     maxHeight: '331px',
+//   },
+// }));
 
-const SecondGradientsBlock = styled('div')(({ theme }) => ({
-  display: 'none',
-  position: 'static',
-  zIndex: '-10',
-  top: '1780px',
-  left: '100px',
-  maxWidth: '992.516px',
-  maxHeight: '968px',
-  width: '100%',
-  height: '100%',
-  transform: 'rotate(-55.229deg)',
-  // filter: 'blur(110px)',
-  [theme.breakpoints.down('md')]: {
-    display: 'block',
-    position: 'absolute',
-    maxWidth: '359px',
-    maxHeight: '331px',
-  },
-}));
+// const SecondGradientsBlock = styled('div')(({ theme }) => ({
+//   display: 'none',
+//   position: 'static',
+//   zIndex: '-10',
+//   top: '1780px',
+//   left: '100px',
+//   maxWidth: '992.516px',
+//   maxHeight: '968px',
+//   width: '100%',
+//   height: '100%',
+//   transform: 'rotate(-55.229deg)',
+//   // filter: 'blur(110px)',
+//   [theme.breakpoints.down('md')]: {
+//     display: 'block',
+//     position: 'absolute',
+//     maxWidth: '359px',
+//     maxHeight: '331px',
+//   },
+// }));
 
-const RepeatedBlurBlock = styled(Box)(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(110px)'
-}));
+// const RepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(110px)'
+// }));
 
-const Vector = styled('img')({
-  display: 'block',
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-});
+// const Vector = styled('img')({
+//   display: 'block',
+//   position: 'absolute',
+//   width: '100%',
+//   height: '100%',
+// });
 
-const FirstVector = styled(Vector)({
-  maxWidth: '515.075px',
-  maxHeight: '585.58px',
-  fill: "#3D32F9",
-  top: 0,
-  right: '110px'
-});
+// const FirstVector = styled(Vector)({
+//   maxWidth: '515.075px',
+//   maxHeight: '585.58px',
+//   fill: "#3D32F9",
+//   top: 0,
+//   right: '110px'
+// });
 
-const SecondVector = styled(Vector)({
-  maxWidth: '560.633px',
-  maxHeight: '533.336px',
-  fill: '#391F6F',
-  bottom: 0,
-  right: 0,
-});
+// const SecondVector = styled(Vector)({
+//   maxWidth: '560.633px',
+//   maxHeight: '533.336px',
+//   fill: '#391F6F',
+//   bottom: 0,
+//   right: 0,
+// });
 
-const ThirdVector = styled(Vector)({
-  maxWidth: '552.022px',
-  maxHeight: '589.882px',
-  fill: '#CE1AFE',
-  bottom: 0,
-  left: 0,
-});
+// const ThirdVector = styled(Vector)({
+//   maxWidth: '552.022px',
+//   maxHeight: '589.882px',
+//   fill: '#CE1AFE',
+//   bottom: 0,
+//   left: 0,
+// });
 
 const StarImg = styled('img')(({ theme }) => ({
   position: 'absolute',

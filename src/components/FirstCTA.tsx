@@ -3,9 +3,9 @@ import { styled } from '@mui/material';
 import { CustomContainer, FullToTransparentBtn } from './CustomElements';
 import cube from '../assets/pictures/cta/cube.png';
 import backgroundImg from '../assets/pictures/cta/background-img.png';
-import vector from '../assets/backgroundFigures/solution/1-vector.svg';
 import useModalControl from '../hooks/useModalControl';
 import ModalWindow from './ModalWindow';
+// import vector from '../assets/backgroundFigures/solution/1-vector.svg';
 
 const CTA_UI = styled('section')(({ }) => ({
   width: '100%',
@@ -106,31 +106,31 @@ const BackgroundImg = styled('img')(({ theme }) => ({
   },
 }));
 
-const BackgroundBlock = styled('div')(({ theme }) => ({
-  display: 'block',
-  position: 'absolute',
-  zIndex: '-10',
-  maxWidth: '569.293px',
-  maxHeight: '569.293px',
-  width: '100%',
-  height: '100%',
-  right: '-552px',
-  [theme.breakpoints.down('sm')]: {
-    right: '-200px',
-  },
-}));
+// const BackgroundBlock = styled('div')(({ theme }) => ({
+//   display: 'block',
+//   position: 'absolute',
+//   zIndex: '-10',
+//   maxWidth: '569.293px',
+//   maxHeight: '569.293px',
+//   width: '100%',
+//   height: '100%',
+//   right: '-552px',
+//   [theme.breakpoints.down('sm')]: {
+//     right: '-200px',
+//   },
+// }));
 
-const RepeatedBlurBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(95px)'
-}));
+// const RepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(95px)'
+// }));
 
-const Vector = styled('img')({
-  display: 'block',
-  position: 'absolute',
-  fill: "#3D32F9",
-});
+// const Vector = styled('img')({
+//   display: 'block',
+//   position: 'absolute',
+//   fill: "#3D32F9",
+// });
 
 const FirstCTA: FC = () => {
   const { openModal, isModalOpen, closeModal, modalType, changeModalType } = useModalControl();

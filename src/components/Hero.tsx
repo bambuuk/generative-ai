@@ -4,9 +4,9 @@ import { CustomContainer } from './CustomElements';
 import { FullToTransparentBtn } from './CustomElements';
 import picture from '../assets/pictures/hero/hero-picture.png';
 import wave from '../assets/pictures/hero/wave-pattern.png';
-import firstVector from '../assets/backgroundFigures/hero/1-vector.svg';
-import secondVector from '../assets/backgroundFigures/hero/2-vector.svg';
-import thirdVector from '../assets/backgroundFigures/hero/3-vector.svg';
+// import firstVector from '../assets/backgroundFigures/hero/1-vector.svg';
+// import secondVector from '../assets/backgroundFigures/hero/2-vector.svg';
+// import thirdVector from '../assets/backgroundFigures/hero/3-vector.svg';
 import { rotate, zeroRotate } from '../assets/keyframes/keyframes';
 
 const HeroUI = styled('section')({
@@ -126,48 +126,48 @@ const Description = styled('p')(({ theme }) => ({
   },
 }));
 
-const GradientsBlock = styled('div')({
-  width: '100%',
-  height: '100%',
-  maxWidth: '657px',
-  maxHeight: '640px',
-  filter: 'blur(107px)',
-  position: 'absolute',
-  zIndex: '-10',
-  right: 0,
-  top: '63px'
-});
+// const GradientsBlock = styled('div')({
+//   width: '100%',
+//   height: '100%',
+//   maxWidth: '657px',
+//   maxHeight: '640px',
+//   filter: 'blur(107px)',
+//   position: 'absolute',
+//   zIndex: '-10',
+//   right: 0,
+//   top: '63px'
+// });
 
-const Vector = styled('img')({
-  display: 'block',
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-});
+// const Vector = styled('img')({
+//   display: 'block',
+//   position: 'absolute',
+//   width: '100%',
+//   height: '100%',
+// });
 
-const FirstVector = styled(Vector)({
-  maxWidth: '340.545px',
-  maxHeight: '387.16px',
-  fill: '#3D32F9',
-  top: '0',
-  right: '81.98px'
-});
+// const FirstVector = styled(Vector)({
+//   maxWidth: '340.545px',
+//   maxHeight: '387.16px',
+//   fill: '#3D32F9',
+//   top: '0',
+//   right: '81.98px'
+// });
 
-const SecondVector = styled(Vector)({
-  maxWidth: '370.666px',
-  maxHeight: '352.619px',
-  fill: '#391F6F',
-  bottom: 0,
-  right: 0,
-});
+// const SecondVector = styled(Vector)({
+//   maxWidth: '370.666px',
+//   maxHeight: '352.619px',
+//   fill: '#391F6F',
+//   bottom: 0,
+//   right: 0,
+// });
 
-const ThirdVector = styled(Vector)({
-  maxWidth: '364.973px',
-  maxHeight: '390.004px',
-  fill: '#CE1AFE',
-  bottom: 0,
-  left: 0,
-});
+// const ThirdVector = styled(Vector)({
+//   maxWidth: '364.973px',
+//   maxHeight: '390.004px',
+//   fill: '#CE1AFE',
+//   bottom: 0,
+//   left: 0,
+// });
 
 const Hero: FC = () => {
   return (

@@ -4,9 +4,9 @@ import { CustomContainer, Title, Overview } from './CustomElements';
 import circleImg from '../assets/pictures/solution/main-picture.png';
 import lightningImg from '../assets/pictures/solution/lightning.png';
 import diamondImg from '../assets/pictures/solution/diamond.png';
-import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
-import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
-import thirdVector from '../assets/backgroundFigures/solution/3-vector.svg';
+// import firstVector from '../assets/backgroundFigures/solution/1-vector.svg';
+// import secondVector from '../assets/backgroundFigures/solution/2-vector.svg';
+// import thirdVector from '../assets/backgroundFigures/solution/3-vector.svg';
 import { rotate, reverseRotate } from '../assets/keyframes/keyframes';
 
 const SolutionUI = styled('section')({
@@ -207,56 +207,56 @@ const Healthcare = styled(SolutionFeature)(({ theme }) => ({
   },
 }));
 
-const GradientsBlock = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  zIndex: '-10',
-  top: '-100px',
-  left: '55%',
-  maxWidth: '692.442px',
-  maxHeight: '675.338px',
-  width: '100%',
-  height: '100%',
-  transform: 'rotate(-55.229deg)',
-  [theme.breakpoints.down('lg')]: {
-    maxWidth: '659px',
-    maxHeight: '631px',
-  },
-  [theme.breakpoints.down('md')]: {
-    maxWidth: '359px',
-    maxHeight: '331px',
-  },
-}));
+// const GradientsBlock = styled('div')(({ theme }) => ({
+//   position: 'absolute',
+//   zIndex: '-10',
+//   top: '-100px',
+//   left: '55%',
+//   maxWidth: '692.442px',
+//   maxHeight: '675.338px',
+//   width: '100%',
+//   height: '100%',
+//   transform: 'rotate(-55.229deg)',
+//   [theme.breakpoints.down('lg')]: {
+//     maxWidth: '659px',
+//     maxHeight: '631px',
+//   },
+//   [theme.breakpoints.down('md')]: {
+//     maxWidth: '359px',
+//     maxHeight: '331px',
+//   },
+// }));
 
-const RepeatedBlurBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(103px)'
-}));
+// const RepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(103px)'
+// }));
 
-const Vector = styled('img')({
-  display: 'block',
-  position: 'absolute',
-});
+// const Vector = styled('img')({
+//   display: 'block',
+//   position: 'absolute',
+// });
 
-const FirstVector = styled(Vector)({
-  fill: "#3D32F9",
-  bottom: '15%',
-  right: '10%'
-});
+// const FirstVector = styled(Vector)({
+//   fill: "#3D32F9",
+//   bottom: '15%',
+//   right: '10%'
+// });
 
-const SecondVector = styled(Vector)({
-  fill: '#391F6F',
-  width: '560.633px',
-  height: '533.336px',
-  bottom: 0,
-  right: 0,
-});
+// const SecondVector = styled(Vector)({
+//   fill: '#391F6F',
+//   width: '560.633px',
+//   height: '533.336px',
+//   bottom: 0,
+//   right: 0,
+// });
 
-const ThirdVector = styled(Vector)({
-  fill: '#CE1AFE',
-  bottom: '-10%',
-  left: 0,
-});
+// const ThirdVector = styled(Vector)({
+//   fill: '#CE1AFE',
+//   bottom: '-10%',
+//   left: 0,
+// });
 
 const Solution: FC = () => {
   return (

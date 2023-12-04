@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { styled, Link } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
-import firstVector from '../assets/backgroundFigures/contacts/1-vector.svg';
-import secondVector from '../assets/backgroundFigures/contacts/2-vector.svg';
-import thirdVector from '../assets/backgroundFigures/contacts/3-vector.svg';
 import abstractImg from '../assets/pictures/contacts/abstract-img.png';
+// import firstVector from '../assets/backgroundFigures/contacts/1-vector.svg';
+// import secondVector from '../assets/backgroundFigures/contacts/2-vector.svg';
+// import thirdVector from '../assets/backgroundFigures/contacts/3-vector.svg';
 
 const ContactsUI = styled('section')(({ }) => ({
   width: '100%',
@@ -79,54 +79,54 @@ const CustomLink = styled(Link)(({ }) => ({
   color: '#E2E2E2',
 }));
 
-const GradientsBlock = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  zIndex: '-10',
-  top: '-239px',
-  right: '-178px',
-  width: '692.442px',
-  height: '675.338px',
-  transform: 'rotate(-55.229deg)',
-  [theme.breakpoints.down('lg')]: {
-    width: '659px',
-    height: '631px',
-  },
-  [theme.breakpoints.down('md')]: {
-    width: '359px',
-    height: '331px',
-  },
-}));
+// const GradientsBlock = styled('div')(({ theme }) => ({
+//   position: 'absolute',
+//   zIndex: '-10',
+//   top: '-239px',
+//   right: '-178px',
+//   width: '692.442px',
+//   height: '675.338px',
+//   transform: 'rotate(-55.229deg)',
+//   [theme.breakpoints.down('lg')]: {
+//     width: '659px',
+//     height: '631px',
+//   },
+//   [theme.breakpoints.down('md')]: {
+//     width: '359px',
+//     height: '331px',
+//   },
+// }));
 
-const RepeatedBlurBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(87px)'
-}));
+// const RepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(87px)'
+// }));
 
-const Vector = styled('img')({
-  display: 'block',
-  position: 'absolute',
-});
-const FirstVector = styled(Vector)({
-  top: '0',
-  right: '-182px',
-  width: '515.075px',
-  height: '585.58px',
-});
+// const Vector = styled('img')({
+//   display: 'block',
+//   position: 'absolute',
+// });
+// const FirstVector = styled(Vector)({
+//   top: '0',
+//   right: '-182px',
+//   width: '515.075px',
+//   height: '585.58px',
+// });
 
-const SecondVector = styled(Vector)({
-  bottom: '-411px',
-  right: '-411px',
-  width: '560.633px',
-  height: '533.336px',
-});
+// const SecondVector = styled(Vector)({
+//   bottom: '-411px',
+//   right: '-411px',
+//   width: '560.633px',
+//   height: '533.336px',
+// });
 
-const ThirdVector = styled(Vector)({
-  bottom: '-45%',
-  left: 0,
-  width: '552.022px',
-  height: '589.882px',
-});
+// const ThirdVector = styled(Vector)({
+//   bottom: '-45%',
+//   left: 0,
+//   width: '552.022px',
+//   height: '589.882px',
+// });
 
 const AbstractImage = styled('img')(({ theme }) => ({
   position: 'absolute',

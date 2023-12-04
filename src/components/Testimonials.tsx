@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
 import { CustomContainer, Title } from './CustomElements';
-import backgroundGradient from '../assets/backgroundFigures/features/3-vector.svg';
 import Slider from './Slider';
+// import backgroundGradient from '../assets/backgroundFigures/features/3-vector.svg';
 
 const SliderUI = styled('div')(({ }) => ({
   width: '100%'
@@ -15,23 +15,23 @@ const MainWrapper = styled('div')(({ }) => ({
   position: 'relative',
 }));
 
-const BackgroundBlock = styled('div')(({ }) => ({
-  display: 'block',
-  position: 'absolute',
-  zIndex: '-10',
-  maxWidth: '588.737px',
-  maxHeight: '569.293px',
-  width: '100%',
-  height: '100%',
-  left: '38px',
-  top: '-177px',
-}));
+// const BackgroundBlock = styled('div')(({ }) => ({
+//   display: 'block',
+//   position: 'absolute',
+//   zIndex: '-10',
+//   maxWidth: '588.737px',
+//   maxHeight: '569.293px',
+//   width: '100%',
+//   height: '100%',
+//   left: '38px',
+//   top: '-177px',
+// }));
 
-const RepeatedBlurBlock = styled('div')(({ }) => ({
-  width: '100%',
-  height: '100%',
-  filter: 'blur(105px)'
-}));
+// const RepeatedBlurBlock = styled('div')(({ }) => ({
+//   width: '100%',
+//   height: '100%',
+//   filter: 'blur(105px)'
+// }));
 
 const Testimonials: FC = () => {
   return (
