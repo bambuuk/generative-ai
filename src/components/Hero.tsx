@@ -17,7 +17,11 @@ const HeroWrapper = styled('div')(({ theme }) => ({
   gap: '20px',
   paddingTop: '140px',
   [theme.breakpoints.down(1024)]: {
-    flexDirection: 'column'
+    flexDirection: 'column',
+    paddingTop: '100px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    paddingTop: '50px',
   },
 }));
 

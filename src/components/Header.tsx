@@ -10,8 +10,6 @@ import ModalWindow from './ModalWindow';
 import BurgerMenu from './BurgerMenu';
 
 const HeaderUI = styled('header')(({ theme }) => ({
-  position: 'fixed',
-  zIndex: '1000',
   width: '100%',
   height: '100px',
   overflow: 'hidden',

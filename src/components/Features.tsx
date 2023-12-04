@@ -212,7 +212,7 @@ const StarImg = styled('img')(({ theme }) => ({
 const Features: FC = () => {
   return (
     <FeaturesUI id="features">
-      <CustomContainer sx={{ position: 'relative', overflow: { xs: 'hidden', sm: 'visible' }, }}>
+      <CustomContainer sx={{ position: 'relative' }}>
         <FeaturesWrapper>
           <CustomTitle>How&nbsp;<GradientTitle>AI GENIUS</GradientTitle>&nbsp;improve your business?</CustomTitle>
           <Overview>
