@@ -2,9 +2,11 @@ import { useState, SyntheticEvent } from "react";
 
 const useSnackbarControl = () => {
   const [isOpenSnackbar, setIsOpenSnackbar] = useState(false);
+  const [actionType, setActionType] = useState("");
 
-  const openSnackbar = () => {
+  const openSnackbar = (type: string) => {
     setIsOpenSnackbar(true);
+    setActionType(type);
   };
 
   const closeSnackbar = (_event?: SyntheticEvent | Event, reason?: string) => {
@@ -14,7 +16,7 @@ const useSnackbarControl = () => {
 
     setIsOpenSnackbar(false);
   };
-  return { isOpenSnackbar, openSnackbar, closeSnackbar };
+  return { isOpenSnackbar, openSnackbar, closeSnackbar, actionType };
 };
 
 export default useSnackbarControl;

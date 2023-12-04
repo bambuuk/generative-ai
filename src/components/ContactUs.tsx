@@ -1,7 +1,13 @@
 import { FC } from 'react';
 import { styled, Box } from '@mui/material';
-import { CustomContainer, FullToTransparentBtn, Title, Overview } from './CustomElements';
-import useGetValidationInfo from '../hooks/useGetValidationInfo';
+import {
+  CustomContainer,
+  FullToTransparentBtn,
+  Title,
+  Overview,
+  ValidationErrorMessage
+} from './CustomElements';
+import { useGetValidationInfo } from '../hooks/useGetValidationInfo';
 import useSnackbarControl from '../hooks/useSnackbarControl';
 import CustomSnackbar from './CustomSnackbar';
 import abstractImg from '../assets/pictures/contactUs/abstract-img.png';
@@ -152,24 +158,6 @@ const Image = styled('img')(({ theme }) => ({
   },
 }));
 
-const ValidationErrorMessage = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  maxWidth: '300px',
-  width: '100%',
-  margin: '5px 20px 0 20px',
-  color: '#EB5757',
-  fontFamily: 'Work Sans',
-  fontSize: '16px',
-  fontWeight: '400',
-  lineHeight: '16px',
-  [theme.breakpoints.down(768)]: {
-    maxWidth: 'none',
-  },
-  [theme.breakpoints.down('sm')]: {
-    width: 'calc(100% - 20px)',
-  },
-}));
-
 const ContactUs: FC = () => {
   const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
 
@@ -233,7 +221,11 @@ const ContactUs: FC = () => {
             <SubmitButton type="submit" disabled={isSubmitting}>Send</SubmitButton>
           </CustomForm>
           <Image src={abstractImg} alt="Abstract image" />
-          <CustomSnackbar isOpenSnackbar={isOpenSnackbar} closeSnackbar={closeSnackbar} message={'Sent Successfully'} />
+          <CustomSnackbar
+            isOpenSnackbar={isOpenSnackbar}
+            closeSnackbar={closeSnackbar}
+            message={'Sent Successfully'}
+          />
         </MainWrapper>
       </CustomContainer>
     </ContactUsUI>

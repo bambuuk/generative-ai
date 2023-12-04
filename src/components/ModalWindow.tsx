@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { styled, IconButton, Divider, Box, Backdrop, Fade, Modal } from '@mui/material';
 import { CloseIcon } from './ImgComponents';
-import { FullToTransparentBtn } from './CustomElements';
+import { FullToTransparentBtn, ValidationErrorMessage } from './CustomElements';
 import { IModalType } from "../types/IModalType";
 
 import google from '../assets/icons/google-icon.svg';
 import facebook from '../assets/icons/facebook-icon.svg';
+import { useGetValidationLogin, useGetValidationSignUp } from '../hooks/useGetValidationInfo';
 
 const MainWrapper = styled(Box)(({ theme }) => ({
   '&::-webkit-scrollbar': {
@@ -202,9 +203,42 @@ interface IModalWindowProps {
   closeModal: () => void;
   modalType: string;
   changeModalType: (type: IModalType) => void;
+  openSnackbar: (type: string) => void;
 }
 
-const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType, changeModalType }) => {
+const ModalWindow: FC<IModalWindowProps> = ({
+  isModalOpen,
+  closeModal,
+  modalType,
+  changeModalType,
+  openSnackbar
+}) => {
+  const {
+    handleSubmit: logInHandleSubmit,
+    handleBlur: logInHandleBlur,
+    handleChange: logInHandleChange,
+    values: logInValues,
+    errors: logInErrors,
+    touched: logInTouched,
+    isSubmitting: logInIsSubmitting
+  } = useGetValidationLogin({
+    openSnackbar,
+    closeModal,
+  });
+
+  const {
+    handleSubmit: signUpHandleSubmit,
+    handleBlur: signUpHandleBlur,
+    handleChange: signUpHandleChange,
+    values: signUpValues,
+    errors: signUpErrors,
+    touched: signUpTouched,
+    isSubmitting: signUpIsSubmitting
+  } = useGetValidationSignUp({
+    openSnackbar,
+    closeModal,
+  });
+
   return (
     <div>
       <Modal
@@ -234,11 +268,81 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType
                 {`Enter your information below to ${modalType === 'logIn' ? 'log in' : 'sign up'}`}
               </Subtitle>
 
-              <Form>
-                <CustomInput type='email' placeholder='Email' />
-                <CustomInput type='password' placeholder='Password' sx={{ marginTop: '24px' }} />
-                <FillButton>{modalType === 'logIn' ? "Log In" : 'Sign Up'}</FillButton>
-              </Form>
+              {modalType === 'logIn' ? (
+                <Form onSubmit={logInHandleSubmit} autoComplete="off">
+                  <Box>
+                    <CustomInput
+                      type='email'
+                      placeholder='Email'
+                      autoComplete="off"
+                      role="presentation"
+                      name='loginEmail'
+                      value={logInValues.loginEmail}
+                      onChange={logInHandleChange}
+                      onBlur={logInHandleBlur}
+                    />
+                    {logInErrors.loginEmail && logInTouched.loginEmail ? (
+                      <ValidationErrorMessage>{logInErrors.loginEmail}</ValidationErrorMessage>
+                    ) : null}
+                  </Box>
+                  <Box>
+                    <CustomInput
+                      type='password'
+                      placeholder='Password'
+                      sx={{ marginTop: '34px' }}
+                      autoComplete="off"
+                      role="presentation"
+                      name='loginPassword'
+                      value={logInValues.loginPassword}
+                      onChange={logInHandleChange}
+                      onBlur={logInHandleBlur}
+                    />
+                    {logInErrors.loginPassword && logInTouched.loginPassword ? (
+                      <ValidationErrorMessage>{logInErrors.loginPassword}</ValidationErrorMessage>
+                    ) : null}
+                  </Box>
+                  <FillButton type="submit" disabled={logInIsSubmitting}>
+                    {modalType === 'logIn' ? "Log In" : 'Sign Up'}
+                  </FillButton>
+                </Form>
+              ) : (
+                <Form onSubmit={signUpHandleSubmit} autoComplete="off">
+                  <Box>
+                    <CustomInput
+                      type='email'
+                      placeholder='Email'
+                      autoComplete="off"
+                      role="presentation"
+                      name='signUpEmail'
+                      value={signUpValues.signUpEmail}
+                      onChange={signUpHandleChange}
+                      onBlur={signUpHandleBlur}
+                    />
+                    {signUpErrors.signUpEmail && signUpTouched.signUpEmail ? (
+                      <ValidationErrorMessage>{signUpErrors.signUpEmail}</ValidationErrorMessage>
+                    ) : null}
+                  </Box>
+                  <Box>
+                    <CustomInput
+                      type='password'
+                      placeholder='Password'
+                      sx={{ marginTop: '34px' }}
+                      autoComplete="off"
+                      role="presentation"
+                      name='signUpPassword'
+                      value={signUpValues.signUpPassword}
+                      onChange={signUpHandleChange}
+                      onBlur={signUpHandleBlur}
+                    />
+                    {signUpErrors.signUpPassword && signUpTouched.signUpPassword ? (
+                      <ValidationErrorMessage>{signUpErrors.signUpPassword}</ValidationErrorMessage>
+                    ) : null}
+                  </Box>
+                  <FillButton type="submit" disabled={signUpIsSubmitting}>
+                    {modalType === 'logIn' ? "Log In" : 'Sign Up'}
+                  </FillButton>
+                </Form>
+              )}
 
               <CustomDivider>or continue with</CustomDivider>
 

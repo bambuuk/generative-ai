@@ -1,4 +1,4 @@
-import { styled, Button } from "@mui/material";
+import { styled } from "@mui/material";
 
 export const CustomContainer = styled("div")({
   margin: "0 auto",
@@ -8,7 +8,7 @@ export const CustomContainer = styled("div")({
   padding: "0 20px",
 });
 
-export const TransparentToFullBtn = styled(Button)(({}) => ({
+export const TransparentToFullBtn = styled("button")(({}) => ({
   textTransform: "none",
   WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
   padding: "20px 69px",
@@ -40,12 +40,9 @@ export const TransparentToFullBtn = styled(Button)(({}) => ({
       background: "transparent",
     },
   },
-  // "&:hover::before": {
-  //   background: "transparent",
-  // },
 }));
 
-export const FullToTransparentBtn = styled(Button)(({}) => ({
+export const FullToTransparentBtn = styled("button")(({}) => ({
   textTransform: "none",
   WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
   padding: "20px 69px",
@@ -107,5 +104,23 @@ export const Overview = styled("p")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     fontSize: "18px",
     lineHeight: "24px",
+  },
+}));
+
+export const ValidationErrorMessage = styled("div")(({ theme }) => ({
+  position: "absolute",
+  maxWidth: "300px",
+  width: "100%",
+  margin: "5px 20px 0 20px",
+  color: "#EB5757",
+  fontFamily: "Work Sans",
+  fontSize: "16px",
+  fontWeight: "400",
+  lineHeight: "16px",
+  [theme.breakpoints.down(768)]: {
+    maxWidth: "none",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "calc(100% - 20px)",
   },
 }));

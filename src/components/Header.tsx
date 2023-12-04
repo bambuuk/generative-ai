@@ -8,6 +8,8 @@ import { scrollToSection } from '../utils/scrollToSection';
 import useModalControl from '../hooks/useModalControl';
 import ModalWindow from './ModalWindow';
 import BurgerMenu from './BurgerMenu';
+import CustomSnackbar from './CustomSnackbar';
+import useSnackbarControl from '../hooks/useSnackbarControl';
 
 const HeaderUI = styled('header')(({ theme }) => ({
   width: '100%',
@@ -68,10 +70,6 @@ const LinkUI = styled('button')(({ theme }) => ({
     height: '1px',
     transition: 'all 0.7s',
   },
-  // '&:active:after': {
-  //   width: '100%',
-  //   left: 0,
-  // }
   [theme.breakpoints.down(1550)]: {
     fontSize: '18px',
     lineHeight: '20px',
@@ -108,6 +106,8 @@ const Header: FC = () => {
     setIsBurgerMenuOpen(true);
   }
 
+  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
+
   return (
     <HeaderUI id="header">
       <BurgerMenu isBurgerMenuOpen={isBurgerMenuOpen} closeBurgerMenu={closeBurgerMenu} />
@@ -138,6 +138,12 @@ const Header: FC = () => {
         closeModal={closeModal}
         modalType={modalType}
         changeModalType={changeModalType}
+        openSnackbar={openSnackbar}
+      />
+      <CustomSnackbar
+        isOpenSnackbar={isOpenSnackbar}
+        closeSnackbar={closeSnackbar}
+        message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
       />
     </HeaderUI>
   )
