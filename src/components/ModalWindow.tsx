@@ -272,8 +272,6 @@ const ModalWindow: FC<IModalWindowProps> = ({ isModalOpen, closeModal, modalType
                   )
                 }
               </AlternativeAction>
-
-              {/* <BackgroundGradient src={backgroundGradient} /> */}
             </ContentWrapper>
           </MainWrapper>
         </Fade>

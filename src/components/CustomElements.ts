@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { styled, Button } from "@mui/material";
 
 export const CustomContainer = styled("div")({
   margin: "0 auto",
@@ -8,7 +8,9 @@ export const CustomContainer = styled("div")({
   padding: "0 20px",
 });
 
-export const TransparentToFullBtn = styled("button")(({}) => ({
+export const TransparentToFullBtn = styled(Button)(({}) => ({
+  textTransform: "none",
+  WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
   padding: "20px 69px",
   borderRadius: "20px",
   background: `linear-gradient(100deg, #391F6F 15.2%, #CE1AFE 104.12%)`,
@@ -38,7 +40,9 @@ export const TransparentToFullBtn = styled("button")(({}) => ({
   },
 }));
 
-export const FullToTransparentBtn = styled("button")(({}) => ({
+export const FullToTransparentBtn = styled(Button)(({}) => ({
+  textTransform: "none",
+  WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
   padding: "20px 69px",
   borderRadius: "20px",
   background: `linear-gradient(100deg, #391F6F 15.2%, #CE1AFE 104.12%)`,
