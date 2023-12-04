@@ -116,7 +116,9 @@ const CustomInput = styled('input')(({ theme }) => ({
   },
 
   '&:hover': {
-    border: '1px solid #CE1AFE',
+    "@media (hover: hover) and (pointer: fine)": {
+      border: '1px solid #CE1AFE',
+    },
   },
   '&:focus': {
     border: '1px solid #E2E2E2',
@@ -165,7 +167,9 @@ const AuthButton = styled(IconButton)(({ }) => ({
   border: '1px solid transparent',
   transition: 'all 0.3s',
   '&:hover': {
-    border: '1px solid #CE1AFE',
+    "@media (hover: hover) and (pointer: fine)": {
+      border: '1px solid #CE1AFE',
+    },
   }
 }));
 

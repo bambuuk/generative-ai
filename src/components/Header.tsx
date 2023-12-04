@@ -53,7 +53,9 @@ const LinkUI = styled('button')(({ theme }) => ({
   lineHeight: '24px',
   transition: 'color 0.3s',
   '&:hover': {
-    color: '#CE1AFE',
+    "@media (hover: hover) and (pointer: fine)": {
+      color: '#CE1AFE',
+    },
   },
   '&:after': {
     content: '""',

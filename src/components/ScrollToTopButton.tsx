@@ -10,10 +10,16 @@ const CustomButton = styled(Fab)(({ }) => ({
   right: '30px',
   background: '#13171d',
   border: '1px solid #CE1AFE',
+  transition: 'all 0.4s',
   '&:hover': {
-    transition: 'all 0.4s',
-    background: '#971bc8',
-    border: '1px solid #CE1AFE'
+    "@media (hover: hover)": {
+      background: '#971bc8',
+      border: '1px solid #CE1AFE',
+    },
+    "@media (hover: none)": {
+      background: '#13171d',
+      border: '1px solid #CE1AFE',
+    },
   },
   '&.fadeIn': {
     animation: `${fadeIn} 0.3s ease-in both`,

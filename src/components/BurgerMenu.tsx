@@ -36,7 +36,9 @@ const Sidebar = styled('div')({
 const SidebarLink = styled(ListItem)({
   color: '#fff',
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    "@media (hover: hover) and (pointer: fine)": {
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    },
   },
 });
 

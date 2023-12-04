@@ -45,6 +45,7 @@ const SliderWrapper = styled('div')(({ theme }) => ({
     backgroundColor: '#333333',
   },
   '.prevBtn, .nextBtn': {
+    WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
     zIndex: 99,
     position: 'absolute',
     top: 0,
@@ -57,6 +58,7 @@ const SliderWrapper = styled('div')(({ theme }) => ({
     background: 'linear-gradient(214deg, rgba(72, 43, 141, 0.20) 5.44%, rgba(24, 12, 51, 0.04) 94.54%)',
     transition: "500ms",
     "&::before": {
+      WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
       opacity: 0,
       content: '""',
       position: "absolute",
@@ -70,10 +72,14 @@ const SliderWrapper = styled('div')(({ theme }) => ({
       transition: "500ms",
     },
     "&:hover::before": {
-      opacity: 1,
+      "@media (hover: hover) and (pointer: fine)": {
+        opacity: "1",
+      },
     },
     '&:hover': {
-      backgroundColor: 'transparent'
+      "@media (hover: hover) and (pointer: fine)": {
+        backgroundColor: 'transparent'
+      },
     }
   },
   '.nextBtn': {

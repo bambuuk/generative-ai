@@ -56,7 +56,10 @@ const CustomInput = styled('input')(({ theme }) => ({
   // },
 
   '&:hover': {
-    border: '1px solid #CE1AFE',
+    "@media (hover: hover) and (pointer: fine)": {
+      border: '1px solid #CE1AFE',
+    },
+
   },
   '&:focus': {
     border: '1px solid #E2E2E2',
@@ -96,7 +99,9 @@ const CustomTextarea = styled('textarea')(({ theme }) => ({
   // },
 
   '&:hover': {
-    border: '1px solid #CE1AFE',
+    "@media (hover: hover) and (pointer: fine)": {
+      border: '1px solid #CE1AFE',
+    },
   },
   '&:focus': {
     border: '1px solid #E2E2E2',

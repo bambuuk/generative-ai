@@ -60,7 +60,9 @@ const Author = styled(Link)(({ theme }) => ({
   transition: 'all 0.3s',
   textDecoration: 'none',
   '&:hover': {
-    color: '#CE1AFE'
+    "@media (hover: hover) and (pointer: fine)": {
+      color: '#CE1AFE',
+    },
   },
   [theme.breakpoints.down('sm')]: {
     fontSize: '16px',
@@ -119,7 +121,9 @@ const LinkUI = styled('button')(({ theme }) => ({
   lineHeight: '24px',
   transition: 'color 0.3s',
   '&:hover': {
-    color: '#CE1AFE',
+    "@media (hover: hover) and (pointer: fine)": {
+      color: '#CE1AFE',
+    },
   },
   '&:after': {
     content: '""',

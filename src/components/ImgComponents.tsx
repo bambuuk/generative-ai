@@ -450,8 +450,10 @@ const SocialNetworkPath = styled('svg')(({ }) => ({
   borderRadius: '50%',
   border: '2px solid transparent',
   '&:hover': {
-    border: '2px solid #CE1AFE',
-    transition: 'all 1s',
+    "@media (hover: hover) and (pointer: fine)": {
+      border: '2px solid #CE1AFE',
+      transition: 'all 1s',
+    },
   }
 }));
 
@@ -540,7 +542,9 @@ const CustomCloseIconSVG = styled('svg')(({ }) => ({
     transition: 'all 0.2s linear',
   },
   '&:hover path': {
-    stroke: 'red',
+    "@media (hover: hover) and (pointer: fine)": {
+      stroke: 'red',
+    },
   }
 }));
 
