@@ -178,7 +178,6 @@ const ContactUs: FC = () => {
             <Box>
               <CustomInput
                 autoComplete="off"
-                role="presentation"
                 name='name'
                 placeholder='Name'
                 type='text'
@@ -197,7 +196,6 @@ const ContactUs: FC = () => {
             <Box>
               <CustomInput
                 autoComplete="off"
-                role="presentation"
                 name='email'
                 placeholder='Email'
                 type='email'

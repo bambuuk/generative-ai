@@ -3,7 +3,11 @@ import { styled } from '@mui/material';
 import { nanoid } from 'nanoid';
 import { CustomContainer, Title } from './CustomElements';
 import PriceCard from './PriceCard';
-import { ITariffPlane } from '../types/ITariffPlane';
+import ContactUsModalWindow from './ContactModalWindow';
+import CustomSnackbar from './CustomSnackbar';
+import { priceList } from '../constants';
+import useSnackbarControl from '../hooks/useSnackbarControl';
+import useModalControl from '../hooks/useModalControl';
 
 const PriceUI = styled('section')({
   width: '100%',
@@ -86,42 +90,9 @@ const SecondVector = styled(Vector)({
 });
 
 const PriceCardList: FC = () => {
-  const priceList: ITariffPlane[] = [
-    {
-      tariffPlaneTitle: 'Free plan',
-      tariffPlanePrice: '00',
-      tariffFeatures: [
-        'Access to unlimited dynamic custom prompts ',
-        'Open chat with AI',
-        'Access to latest technology GPT4',
-        'Custom domain',
-      ],
-      cardType: 'simple',
-    },
-    {
-      tariffPlaneTitle: 'Premium plan',
-      tariffPlanePrice: '290',
-      tariffFeatures: [
-        'Access to unlimited dynamic custom prompts',
-        'Open chat with AI',
-        'Access to latest technology GPT4',
-        'Custom domain',
-        'Priority email support'
-      ],
-      cardType: 'premium',
-    },
-    {
-      tariffPlaneTitle: 'Starter plan',
-      tariffPlanePrice: '190',
-      tariffFeatures: [
-        'Custom domain',
-        'Multilingual support',
-        'Choose between different themes',
-        'Custom chat bots',
-      ],
-      cardType: 'simple',
-    },
-  ];
+  const { isModalOpen, openModal, closeModal } = useModalControl();
+  const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
+
   return (
     <PriceUI id="price">
       <CustomContainer>
@@ -136,6 +107,7 @@ const PriceCardList: FC = () => {
                   tariffPlanePrice={tariffPlanePrice}
                   tariffFeatures={tariffFeatures}
                   cardType={cardType}
+                  openModal={openModal}
                 />
               );
             })}
@@ -148,6 +120,16 @@ const PriceCardList: FC = () => {
           </SecondBackgroundBlock>
         </MainWrapper>
       </CustomContainer>
+      <ContactUsModalWindow
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        openSnackbar={openSnackbar}
+      />
+      <CustomSnackbar
+        isOpenSnackbar={isOpenSnackbar}
+        closeSnackbar={closeSnackbar}
+        message={'Sent Successfully'}
+      />
     </PriceUI>
   )
 }

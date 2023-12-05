@@ -139,7 +139,7 @@ const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
 }));
 
 const CustomTextarea = styled('textarea')(({ theme }) => ({
-  marginTop: '34px',
+  marginTop: '45px',
   width: '100%',
   height: '146px',
   padding: '8px 20px',
@@ -238,19 +238,20 @@ const ContactUsModalWindow: FC<IContactUsModalWindowProps> = ({
                 <CloseIcon />
               </CloseIconButton>
 
-              <Title>Contact us</Title>
+              <Title>Get Started</Title>
 
               <Subtitle>
                 Enter your information below to sending message for us
               </Subtitle>
 
               <Form onSubmit={handleSubmit} autoComplete="off">
+                {/* <input style={{ display: "none" }} />
+                <input type="email" style={{ display: "none" }} /> */}
                 <Box>
                   <CustomInput
                     type='text'
                     placeholder='Name'
                     autoComplete="off"
-                    role="presentation"
                     name='name'
                     value={values.name}
                     onChange={handleChange}
@@ -269,13 +270,12 @@ const ContactUsModalWindow: FC<IContactUsModalWindowProps> = ({
                     type='email'
                     placeholder='Email'
                     autoComplete="off"
-                    role="presentation"
                     name='email'
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     sx={{
-                      marginTop: '34px',
+                      marginTop: '45px',
                       border: (errors.email && touched.email) ?
                         '1px solid #EB5757' : '1px solid #333',
                     }}
@@ -287,7 +287,6 @@ const ContactUsModalWindow: FC<IContactUsModalWindowProps> = ({
                 <Box>
                   <CustomTextarea
                     autoComplete="false"
-                    role="presentation"
                     placeholder='Message'
                     value={values.message}
                     name='message'

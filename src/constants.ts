@@ -1,5 +1,6 @@
 import { IDescriptionItem } from "./types/IDescriptionItem";
 import { IReviewerInfo } from "./types/IReviewerInfo";
+import { ITariffPlane } from "./types/ITariffPlane";
 
 export const descriptionList: IDescriptionItem[] = [
   {
@@ -102,6 +103,43 @@ export const reviewersList: IReviewerInfo[] = [
     of our projects.`,
     rating: 4,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQawggBFH6tqdn-xy6Y2Trloee7GTBsIQgZZg&usqp=CAU",
+  },
+];
+
+export const priceList: ITariffPlane[] = [
+  {
+    tariffPlaneTitle: "Free plan",
+    tariffPlanePrice: "00",
+    tariffFeatures: [
+      "Access to unlimited dynamic custom prompts ",
+      "Open chat with AI",
+      "Access to latest technology GPT4",
+      "Custom domain",
+    ],
+    cardType: "simple",
+  },
+  {
+    tariffPlaneTitle: "Premium plan",
+    tariffPlanePrice: "290",
+    tariffFeatures: [
+      "Access to unlimited dynamic custom prompts",
+      "Open chat with AI",
+      "Access to latest technology GPT4",
+      "Custom domain",
+      "Priority email support",
+    ],
+    cardType: "premium",
+  },
+  {
+    tariffPlaneTitle: "Starter plan",
+    tariffPlanePrice: "190",
+    tariffFeatures: [
+      "Custom domain",
+      "Multilingual support",
+      "Choose between different themes",
+      "Custom chat bots",
+    ],
+    cardType: "simple",
   },
 ];
 

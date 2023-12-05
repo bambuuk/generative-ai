@@ -196,9 +196,11 @@ const FillButton = styled(FullToTransparentBtn)(({ theme }) => ({
   }
 }));
 
-interface PriceCardProps extends ITariffPlane { };
+interface PriceCardProps extends ITariffPlane {
+  openModal: (value: string) => void;
+};
 
-const PriceCard: FC<PriceCardProps> = ({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType }) => {
+const PriceCard: FC<PriceCardProps> = ({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType, openModal }) => {
   return (
     <>
       {
@@ -224,7 +226,7 @@ const PriceCard: FC<PriceCardProps> = ({ tariffPlaneTitle, tariffPlanePrice, tar
               ))}
             </TariffFeaturesList>
 
-            <TransparentButton>Start now</TransparentButton>
+            <TransparentButton onClick={() => openModal('')}>Start now</TransparentButton>
           </PriceCardUI>
         ) : (
           <PremiumPriceCardUI>
@@ -248,7 +250,7 @@ const PriceCard: FC<PriceCardProps> = ({ tariffPlaneTitle, tariffPlanePrice, tar
               ))}
             </TariffFeaturesList>
 
-            <FillButton>Start now</FillButton>
+            <FillButton onClick={() => openModal('')}>Start now</FillButton>
           </PremiumPriceCardUI>
         )
       }
