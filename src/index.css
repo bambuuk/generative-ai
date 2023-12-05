@@ -98,3 +98,23 @@ h6 {
 body {
 	background-color: #13171d;
 }
+
+/* width */
+::-webkit-scrollbar {
+	width: 17px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #555;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(214deg, #482b8d 5.44%, #180c33 94.54%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(214deg, #482b8d 5.44%, #180c33 94.54%);
+}

@@ -26,6 +26,7 @@ const HeroWrapper = styled('div')(({ theme }) => ({
 	},
 	[theme.breakpoints.down('sm')]: {
 		paddingTop: '50px',
+		gap: '50px',
 	},
 }));
 
@@ -39,6 +40,9 @@ const OverviewBlock = styled('div')(({ theme }) => ({
 	},
 	[theme.breakpoints.down(1024)]: {
 		maxWidth: '900px',
+	},
+	[theme.breakpoints.down('sm')]: {
+		justifyContent: 'center',
 	},
 }));
 
