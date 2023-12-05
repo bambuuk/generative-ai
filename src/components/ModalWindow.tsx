@@ -280,6 +280,10 @@ const ModalWindow: FC<IModalWindowProps> = ({
                       value={logInValues.loginEmail}
                       onChange={logInHandleChange}
                       onBlur={logInHandleBlur}
+                      sx={{
+                        border: (logInErrors.loginEmail && logInTouched.loginEmail) ?
+                          '1px solid #EB5757' : '1px solid #333',
+                      }}
                     />
                     {logInErrors.loginEmail && logInTouched.loginEmail ? (
                       <ValidationErrorMessage>{logInErrors.loginEmail}</ValidationErrorMessage>
@@ -289,13 +293,17 @@ const ModalWindow: FC<IModalWindowProps> = ({
                     <CustomInput
                       type='password'
                       placeholder='Password'
-                      sx={{ marginTop: '34px' }}
                       autoComplete="off"
                       role="presentation"
                       name='loginPassword'
                       value={logInValues.loginPassword}
                       onChange={logInHandleChange}
                       onBlur={logInHandleBlur}
+                      sx={{
+                        marginTop: '34px',
+                        border: (logInErrors.loginPassword && logInTouched.loginPassword) ?
+                          '1px solid #EB5757' : '1px solid #333',
+                      }}
                     />
                     {logInErrors.loginPassword && logInTouched.loginPassword ? (
                       <ValidationErrorMessage>{logInErrors.loginPassword}</ValidationErrorMessage>
@@ -317,6 +325,10 @@ const ModalWindow: FC<IModalWindowProps> = ({
                       value={signUpValues.signUpEmail}
                       onChange={signUpHandleChange}
                       onBlur={signUpHandleBlur}
+                      sx={{
+                        border: (signUpErrors.signUpEmail && signUpTouched.signUpEmail) ?
+                          '1px solid #EB5757' : '1px solid #333',
+                      }}
                     />
                     {signUpErrors.signUpEmail && signUpTouched.signUpEmail ? (
                       <ValidationErrorMessage>{signUpErrors.signUpEmail}</ValidationErrorMessage>
@@ -326,13 +338,17 @@ const ModalWindow: FC<IModalWindowProps> = ({
                     <CustomInput
                       type='password'
                       placeholder='Password'
-                      sx={{ marginTop: '34px' }}
                       autoComplete="off"
                       role="presentation"
                       name='signUpPassword'
                       value={signUpValues.signUpPassword}
                       onChange={signUpHandleChange}
                       onBlur={signUpHandleBlur}
+                      sx={{
+                        marginTop: '34px',
+                        border: (signUpErrors.signUpPassword && signUpTouched.signUpPassword) ?
+                          '1px solid #EB5757' : '1px solid #333',
+                      }}
                     />
                     {signUpErrors.signUpPassword && signUpTouched.signUpPassword ? (
                       <ValidationErrorMessage>{signUpErrors.signUpPassword}</ValidationErrorMessage>
