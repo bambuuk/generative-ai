@@ -185,6 +185,10 @@ const ContactUs: FC = () => {
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                sx={{
+                  border: (errors.name && touched.name) ?
+                    '1px solid #EB5757' : '1px solid #333',
+                }}
               />
               {errors.name && touched.name ? (
                 <ValidationErrorMessage>{errors.name}</ValidationErrorMessage>
@@ -200,6 +204,10 @@ const ContactUs: FC = () => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                sx={{
+                  border: (errors.email && touched.email) ?
+                    '1px solid #EB5757' : '1px solid #333',
+                }}
               />
               {errors.email && touched.email ? (
                 <ValidationErrorMessage>{errors.email}</ValidationErrorMessage>
@@ -213,6 +221,10 @@ const ContactUs: FC = () => {
                 name='message'
                 onChange={handleChange}
                 onBlur={handleBlur}
+                sx={{
+                  border: (errors.message && touched.message) ?
+                    '1px solid #EB5757' : '1px solid #333',
+                }}
               />
               {errors.message && touched.message ? (
                 <ValidationErrorMessage>{errors.message}</ValidationErrorMessage>
