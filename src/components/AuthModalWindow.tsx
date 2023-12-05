@@ -77,7 +77,7 @@ const Subtitle = styled('div')(({ theme }) => ({
   fontSize: '20px',
   fontWeight: '400',
   [theme.breakpoints.down(1550)]: {
-    marginTop: '20px',
+    marginTop: '18px',
     fontSize: '18px',
   },
 }));

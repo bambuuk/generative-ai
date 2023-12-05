@@ -105,6 +105,12 @@ export const reviewersList: IReviewerInfo[] = [
   },
 ];
 
+export const initialContactUsValue = {
+  name: "",
+  message: "",
+  email: "",
+};
+
 export const initialLogInValue = {
   loginEmail: "",
   loginPassword: "",

@@ -3,18 +3,17 @@ import * as Yup from "yup";
 
 interface IUseGetValidationInfo {
   openSnackbar: (type: string) => void;
+  closeModal?: () => void;
 }
 
 export const useGetValidationInfo = ({
   openSnackbar,
+  closeModal,
 }: IUseGetValidationInfo) => {
   const initialValue = {
     name: "",
     message: "",
-    loginEmail: "",
-    loginPassword: "",
-    signUpEmail: "",
-    signUpPassword: "",
+    email: "",
   };
 
   const {
@@ -25,11 +24,14 @@ export const useGetValidationInfo = ({
     errors,
     touched,
     isSubmitting,
+    setValues,
+    setErrors,
+    setTouched,
   } = useFormik({
     enableReinitialize: true,
     initialValues: initialValue,
     validationSchema: Yup.object().shape({
-      loginEmail: Yup.string()
+      email: Yup.string()
         .email("Invalid email")
         .matches(
           /^[A-Z0-9_%+-]+(\.[A-Z0-9_%+-]+)*@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
@@ -37,8 +39,8 @@ export const useGetValidationInfo = ({
         )
         .required("Required"),
       name: Yup.string()
-        .min(2, "Enter a message of 2 characters or more")
-        .max(20, "The message should not contain more than 20 characters")
+        .min(2, "Minimum 2 characters")
+        .max(20, "Maximum 20 characters")
         .matches(
           /^((?:([a-zA-Z]+[\s'.-]*)+))$/,
           "Latin, space, hyphen, apostrophe, period allowed"
@@ -53,6 +55,9 @@ export const useGetValidationInfo = ({
       console.log("Sent message");
       actions.resetForm();
       openSnackbar("sendMessage");
+      if (closeModal !== undefined) {
+        closeModal();
+      }
     },
   });
   return {
@@ -63,6 +68,9 @@ export const useGetValidationInfo = ({
     errors,
     touched,
     isSubmitting,
+    setValues,
+    setErrors,
+    setTouched,
   };
 };
 
@@ -103,8 +111,8 @@ export const useGetValidationLogin = ({
         )
         .required("Required"),
       loginPassword: Yup.string()
-        .min(8, "Minimum 8 symbols")
-        .max(15, "Maximum 15 symbols")
+        .min(8, "Minimum 8 characters")
+        .max(15, "Maximum 15 characters")
         .required("Required"),
     }),
     onSubmit: (_, actions) => {
@@ -162,8 +170,8 @@ export const useGetValidationSignUp = ({
         )
         .required("Required"),
       signUpPassword: Yup.string()
-        .min(8, "Minimum 8 symbols")
-        .max(15, "Maximum 15 symbols")
+        .min(8, "Minimum 8 characters")
+        .max(15, "Maximum 15 characters")
         .required("Required"),
     }),
     onSubmit: (_, actions) => {

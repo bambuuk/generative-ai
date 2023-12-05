@@ -5,6 +5,10 @@ import { FullToTransparentBtn } from './CustomElements';
 import picture from '../assets/pictures/hero/hero-picture.png';
 import wave from '../assets/pictures/hero/wave-pattern.png';
 import { rotate, zeroRotate } from '../assets/keyframes/keyframes';
+import useModalControl from '../hooks/useModalControl';
+import useSnackbarControl from '../hooks/useSnackbarControl';
+import ContactUsModalWindow from './ContactModalWindow';
+import CustomSnackbar from './CustomSnackbar';
 
 const HeroUI = styled('section')({
   width: '100%',
@@ -171,6 +175,9 @@ const ThirdVector = styled(Vector)({
 });
 
 const Hero: FC = () => {
+  const { isModalOpen, openModal, closeModal } = useModalControl();
+  const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
+
   return (
     <HeroUI id="home">
       <CustomContainer sx={{ position: "relative" }}>
@@ -193,6 +200,7 @@ const Hero: FC = () => {
               sx={{
                 marginTop: '36px',
               }}
+              onClick={() => openModal('')}
             >
               Get started
             </FullToTransparentBtn>
@@ -207,8 +215,17 @@ const Hero: FC = () => {
           <SecondVector />
           <ThirdVector />
         </GradientsBlock>
-
       </CustomContainer>
+      <ContactUsModalWindow
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        openSnackbar={openSnackbar}
+      />
+      <CustomSnackbar
+        isOpenSnackbar={isOpenSnackbar}
+        closeSnackbar={closeSnackbar}
+        message={'Sent Successfully'}
+      />
     </HeroUI>
   )
 }

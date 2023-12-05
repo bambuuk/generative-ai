@@ -194,15 +194,15 @@ const ContactUs: FC = () => {
               <CustomInput
                 autoComplete="off"
                 role="presentation"
-                name='loginEmail'
+                name='email'
                 placeholder='Email'
                 type='email'
-                value={values.loginEmail}
+                value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              {errors.loginEmail && touched.loginEmail ? (
-                <ValidationErrorMessage>{errors.loginEmail}</ValidationErrorMessage>
+              {errors.email && touched.email ? (
+                <ValidationErrorMessage>{errors.email}</ValidationErrorMessage>
               ) : null}
             </Box>
             <TextareaWrapper>

@@ -95,8 +95,9 @@ const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
 }));
 
 const Header: FC = () => {
-  const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
+  const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
+  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
 
   const closeBurgerMenu = () => {
     setIsBurgerMenuOpen(false);
@@ -106,7 +107,6 @@ const Header: FC = () => {
     setIsBurgerMenuOpen(true);
   }
 
-  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
 
   return (
     <HeaderUI id="header">
