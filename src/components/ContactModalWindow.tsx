@@ -110,6 +110,9 @@ const CustomInput = styled('input')(({ theme }) => ({
   fontSize: '20px',
   fontWeight: '500',
   lineHeight: '15px',
+  '&:-webkit-autofill, &:-webkit-autofill:focus': {
+    transition: 'all 600000s 0.3s, all 600000s 0.3s',
+  },
   [theme.breakpoints.down(1550)]: {
     fontSize: '16px',
   },
@@ -161,10 +164,6 @@ const CustomTextarea = styled('textarea')(({ theme }) => ({
     lineHeight: '24px',
     padding: '15px 20px',
   },
-
-  // '&:-webkit-autofill, &:-webkit-autofill:focus': {
-  //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
-  // },
 
   '&:hover': {
     "@media (hover: hover) and (pointer: fine)": {
@@ -245,8 +244,6 @@ const ContactUsModalWindow: FC<IContactUsModalWindowProps> = ({
               </Subtitle>
 
               <Form onSubmit={handleSubmit} autoComplete="off">
-                {/* <input style={{ display: "none" }} />
-                <input type="email" style={{ display: "none" }} /> */}
                 <Box>
                   <CustomInput
                     type='text'

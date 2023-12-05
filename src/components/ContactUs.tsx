@@ -50,16 +50,15 @@ const CustomInput = styled('input')(({ theme }) => ({
   fontWeight: '500',
   lineHeight: '48px',
   transition: 'all 0.3s ease-in-out',
+  '&:-webkit-autofill, &:-webkit-autofill:focus': {
+    transition: 'all 600000s 0.3s, color 600000s 0.3s',
+  },
 
   [theme.breakpoints.down(1550)]: {
     fontSize: '18px',
     lineHeight: '24px',
     padding: '15px 20px',
   },
-
-  // '&:-webkit-autofill, &:-webkit-autofill:focus': {
-  //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
-  // },
 
   '&:hover': {
     "@media (hover: hover) and (pointer: fine)": {
@@ -99,10 +98,6 @@ const CustomTextarea = styled('textarea')(({ theme }) => ({
     lineHeight: '24px',
     padding: '15px 20px',
   },
-
-  // '&:-webkit-autofill, &:-webkit-autofill:focus': {
-  //   transition: 'all 600000s 0.3s, color 600000s 0.3s',
-  // },
 
   '&:hover': {
     "@media (hover: hover) and (pointer: fine)": {
