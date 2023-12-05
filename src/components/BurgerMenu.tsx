@@ -9,146 +9,159 @@ import CustomSnackbar from './CustomSnackbar';
 import useSnackbarControl from '../hooks/useSnackbarControl';
 
 const Wrapper = styled('div')({
-  position: 'fixed',
-  width: '100%',
-  minHeight: '100vh',
-  backgroundColor: 'rgba(206, 206, 206, 0.60)',
-  top: 0,
-  left: 0,
-  zIndex: 1000,
+	position: 'fixed',
+	width: '100%',
+	minHeight: '100vh',
+	backgroundColor: 'rgba(206, 206, 206, 0.60)',
+	top: 0,
+	left: 0,
+	zIndex: 1000,
 });
 
 const Sidebar = styled('div')({
-  width: '250px',
-  height: '100%',
-  backgroundColor: '#13171D',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  padding: '20px',
-  transition: 'transform 0.3s',
-  zIndex: 1100,
-  transform: 'translateX(-250px)',
-  overflow: 'hidden'
+	width: '250px',
+	height: '100%',
+	backgroundColor: '#13171D',
+	position: 'fixed',
+	top: 0,
+	left: 0,
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'flex-start',
+	padding: '20px',
+	transition: 'transform 0.3s',
+	zIndex: 1100,
+	transform: 'translateX(-250px)',
+	overflow: 'hidden',
 });
 
 const SidebarLink = styled(ListItem)({
-  color: '#fff',
-  '&:hover': {
-    "@media (hover: hover) and (pointer: fine)": {
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    },
-  },
+	color: '#fff',
+	'&:hover': {
+		'@media (hover: hover) and (pointer: fine)': {
+			backgroundColor: 'rgba(255, 255, 255, 0.1)',
+		},
+	},
 });
 
 const TransparentButton = styled(TransparentToFullBtn)(({ theme }) => ({
-  width: '100%',
-  [theme.breakpoints.down(1550)]: {
-    fontSize: '18px',
-    padding: '15px 30px',
-  },
+	width: '100%',
+	[theme.breakpoints.down(1550)]: {
+		fontSize: '18px',
+		padding: '15px 30px',
+	},
 }));
 
 interface BurgerMenuProps {
-  isBurgerMenuOpen: boolean;
-  closeBurgerMenu: () => void;
+	isBurgerMenuOpen: boolean;
+	closeBurgerMenu: () => void;
 }
 
 const BurgerMenu: FC<BurgerMenuProps> = ({ isBurgerMenuOpen, closeBurgerMenu }) => {
-  const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
-  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
+	const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
+	const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
 
-  return (
-    <Box>
-      <Sidebar sx={{ transform: isBurgerMenuOpen ? 'translateX(0)' : 'translateX(-250px)' }}>
-        <CloseIcon
-          sx={{ color: '#fff', position: 'absolute', left: '210px' }}
-          onClick={closeBurgerMenu}
-        />
-        <List sx={{ flex: 1 }}>
-          <SidebarLink onClick={() => {
-            closeBurgerMenu();
-            scrollToSection('home');
-          }}>
-            <ListItemText>Home</ListItemText>
-          </SidebarLink>
-          <SidebarLink onClick={() => {
-            closeBurgerMenu();
-            scrollToSection('features')
-          }}>
-            <ListItemText>Features</ListItemText>
-          </SidebarLink>
-          <SidebarLink onClick={() => {
-            closeBurgerMenu();
-            scrollToSection('solution')
-          }}
-          >
-            <ListItemText>Solution</ListItemText>
-          </SidebarLink>
-          <SidebarLink onClick={() => {
-            closeBurgerMenu();
-            scrollToSection('price')
-          }}
-          >
-            <ListItemText>Price</ListItemText>
-          </SidebarLink>
-          <SidebarLink onClick={() => {
-            closeBurgerMenu();
-            scrollToSection('testimonials')
-          }}
-          >
-            <ListItemText>Testimonials</ListItemText>
-          </SidebarLink>
-          <SidebarLink onClick={() => {
-            closeBurgerMenu();
-            scrollToSection('contacts');
-          }}
-          >
-            <ListItemText>Contacts</ListItemText>
-          </SidebarLink>
-        </List>
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px',
-          width: '100%'
-        }}>
-          <TransparentButton
-            onClick={() => {
-              closeBurgerMenu();
-              openModal('logIn')
-            }}
-          >
-            Log In
-          </TransparentButton>
-          <TransparentButton
-            onClick={() => {
-              closeBurgerMenu();
-              openModal('signUp')
-            }}
-          >
-            Sign Up
-          </TransparentButton>
-        </Box>
-      </Sidebar>
-      <Wrapper sx={{ transform: isBurgerMenuOpen ? 'translateX(0)' : 'translateX(-100%)' }} onClick={closeBurgerMenu} />
-      <AuthModalWindow
-        isModalOpen={isModalOpen}
-        closeModal={closeModal}
-        modalType={modalType}
-        changeModalType={changeModalType}
-        openSnackbar={openSnackbar}
-      />
-      <CustomSnackbar
-        isOpenSnackbar={isOpenSnackbar}
-        closeSnackbar={closeSnackbar}
-        message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
-      />
-    </Box>
-  );
+	return (
+		<Box>
+			<Sidebar sx={{ transform: isBurgerMenuOpen ? 'translateX(0)' : 'translateX(-250px)' }}>
+				<CloseIcon
+					sx={{ color: '#fff', position: 'absolute', left: '210px' }}
+					onClick={closeBurgerMenu}
+				/>
+				<List sx={{ flex: 1 }}>
+					<SidebarLink
+						onClick={() => {
+							closeBurgerMenu();
+							scrollToSection('home');
+						}}
+					>
+						<ListItemText>Home</ListItemText>
+					</SidebarLink>
+					<SidebarLink
+						onClick={() => {
+							closeBurgerMenu();
+							scrollToSection('features');
+						}}
+					>
+						<ListItemText>Features</ListItemText>
+					</SidebarLink>
+					<SidebarLink
+						onClick={() => {
+							closeBurgerMenu();
+							scrollToSection('solution');
+						}}
+					>
+						<ListItemText>Solution</ListItemText>
+					</SidebarLink>
+					<SidebarLink
+						onClick={() => {
+							closeBurgerMenu();
+							scrollToSection('price');
+						}}
+					>
+						<ListItemText>Price</ListItemText>
+					</SidebarLink>
+					<SidebarLink
+						onClick={() => {
+							closeBurgerMenu();
+							scrollToSection('testimonials');
+						}}
+					>
+						<ListItemText>Testimonials</ListItemText>
+					</SidebarLink>
+					<SidebarLink
+						onClick={() => {
+							closeBurgerMenu();
+							scrollToSection('contacts');
+						}}
+					>
+						<ListItemText>Contacts</ListItemText>
+					</SidebarLink>
+				</List>
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						gap: '10px',
+						width: '100%',
+					}}
+				>
+					<TransparentButton
+						onClick={() => {
+							closeBurgerMenu();
+							openModal('logIn');
+						}}
+					>
+						Log In
+					</TransparentButton>
+					<TransparentButton
+						onClick={() => {
+							closeBurgerMenu();
+							openModal('signUp');
+						}}
+					>
+						Sign Up
+					</TransparentButton>
+				</Box>
+			</Sidebar>
+			<Wrapper
+				sx={{ transform: isBurgerMenuOpen ? 'translateX(0)' : 'translateX(-100%)' }}
+				onClick={closeBurgerMenu}
+			/>
+			<AuthModalWindow
+				isModalOpen={isModalOpen}
+				closeModal={closeModal}
+				modalType={modalType}
+				changeModalType={changeModalType}
+				openSnackbar={openSnackbar}
+			/>
+			<CustomSnackbar
+				isOpenSnackbar={isOpenSnackbar}
+				closeSnackbar={closeSnackbar}
+				message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
+			/>
+		</Box>
+	);
 };
 
 export default BurgerMenu;

@@ -1,5 +1,5 @@
 export interface IDescriptionItem {
-  title: string;
-  number: string;
-  text: string;
+	title: string;
+	number: string;
+	text: string;
 }

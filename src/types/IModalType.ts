@@ -1,1 +1,1 @@
-export type IModalType = "logIn" | "signUp";
+export type IModalType = 'logIn' | 'signUp';
