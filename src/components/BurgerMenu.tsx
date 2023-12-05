@@ -4,7 +4,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import { scrollToSection } from '../utils/scrollToSection';
 import { TransparentToFullBtn } from './CustomElements';
 import useModalControl from '../hooks/useModalControl';
-import ModalWindow from './ModalWindow';
+import AuthModalWindow from './AuthModalWindow';
+import CustomSnackbar from './CustomSnackbar';
+import useSnackbarControl from '../hooks/useSnackbarControl';
 
 const Wrapper = styled('div')({
   position: 'fixed',
@@ -57,6 +59,8 @@ interface BurgerMenuProps {
 
 const BurgerMenu: FC<BurgerMenuProps> = ({ isBurgerMenuOpen, closeBurgerMenu }) => {
   const { isModalOpen, openModal, closeModal, modalType, changeModalType } = useModalControl();
+  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
+
   return (
     <Box>
       <Sidebar sx={{ transform: isBurgerMenuOpen ? 'translateX(0)' : 'translateX(-250px)' }}>
@@ -131,11 +135,17 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ isBurgerMenuOpen, closeBurgerMenu }) 
         </Box>
       </Sidebar>
       <Wrapper sx={{ transform: isBurgerMenuOpen ? 'translateX(0)' : 'translateX(-100%)' }} onClick={closeBurgerMenu} />
-      <ModalWindow
+      <AuthModalWindow
         isModalOpen={isModalOpen}
         closeModal={closeModal}
         modalType={modalType}
         changeModalType={changeModalType}
+        openSnackbar={openSnackbar}
+      />
+      <CustomSnackbar
+        isOpenSnackbar={isOpenSnackbar}
+        closeSnackbar={closeSnackbar}
+        message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
       />
     </Box>
   );

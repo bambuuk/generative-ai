@@ -6,7 +6,7 @@ import { TransparentToFullBtn } from './CustomElements';
 import Logo from './Logo';
 import { scrollToSection } from '../utils/scrollToSection';
 import useModalControl from '../hooks/useModalControl';
-import ModalWindow from './ModalWindow';
+import AuthModalWindow from './AuthModalWindow';
 import BurgerMenu from './BurgerMenu';
 import CustomSnackbar from './CustomSnackbar';
 import useSnackbarControl from '../hooks/useSnackbarControl';
@@ -133,7 +133,7 @@ const Header: FC = () => {
           <TransparentButton onClick={() => openModal('logIn')}>Log In</TransparentButton>
         </HeaderWrapper>
       </CustomContainer>
-      <ModalWindow
+      <AuthModalWindow
         isModalOpen={isModalOpen}
         closeModal={closeModal}
         modalType={modalType}

@@ -4,7 +4,9 @@ import { CustomContainer, FullToTransparentBtn } from './CustomElements';
 import cube from '../assets/pictures/cta/cube.png';
 import backgroundImg from '../assets/pictures/cta/background-img.png';
 import useModalControl from '../hooks/useModalControl';
-import ModalWindow from './ModalWindow';
+import AuthModalWindow from './AuthModalWindow';
+import CustomSnackbar from './CustomSnackbar';
+import useSnackbarControl from '../hooks/useSnackbarControl';
 
 const CTA_UI = styled('section')(({ }) => ({
   width: '100%',
@@ -130,6 +132,7 @@ const Vector = styled('div')({
 
 const FirstCTA: FC = () => {
   const { openModal, isModalOpen, closeModal, modalType, changeModalType } = useModalControl();
+  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
 
   return (
     <CTA_UI>
@@ -146,11 +149,17 @@ const FirstCTA: FC = () => {
             <FillButton onClick={() => openModal('signUp')}>Sign Up</FillButton>
           </DescriptionWrapper>
 
-          <ModalWindow
+          <AuthModalWindow
             isModalOpen={isModalOpen}
             closeModal={closeModal}
             modalType={modalType}
             changeModalType={changeModalType}
+            openSnackbar={openSnackbar}
+          />
+          <CustomSnackbar
+            isOpenSnackbar={isOpenSnackbar}
+            closeSnackbar={closeSnackbar}
+            message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
           />
 
           <BackgroundBlock>

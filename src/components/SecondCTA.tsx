@@ -4,8 +4,10 @@ import { CustomContainer, FullToTransparentBtn } from './CustomElements';
 import heart from '../assets/pictures/cta/heart.svg';
 import abstractImg from '../assets/pictures/cta/abstract-img.png';
 import useModalControl from '../hooks/useModalControl';
-import ModalWindow from './ModalWindow';
+import AuthModalWindow from './AuthModalWindow';
 import { beat } from '../assets/keyframes/keyframes';
+import CustomSnackbar from './CustomSnackbar';
+import useSnackbarControl from '../hooks/useSnackbarControl';
 
 
 const SecondCTA_UI = styled('section')(({ }) => ({
@@ -107,6 +109,7 @@ const AbstractImage = styled('img')(({ theme }) => ({
 
 const SecondCTA: FC = () => {
   const { openModal, isModalOpen, closeModal, modalType, changeModalType } = useModalControl();
+  const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
 
   return (
     <SecondCTA_UI>
@@ -123,11 +126,17 @@ const SecondCTA: FC = () => {
           <HeartImg src={heart} />
           <AbstractImage src={abstractImg} />
 
-          <ModalWindow
+          <AuthModalWindow
             isModalOpen={isModalOpen}
             closeModal={closeModal}
             modalType={modalType}
             changeModalType={changeModalType}
+            openSnackbar={openSnackbar}
+          />
+          <CustomSnackbar
+            isOpenSnackbar={isOpenSnackbar}
+            closeSnackbar={closeSnackbar}
+            message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
           />
         </MainWrapper>
       </CustomContainer>

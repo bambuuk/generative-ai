@@ -207,7 +207,7 @@ interface IModalWindowProps {
   openSnackbar: (type: string) => void;
 }
 
-const ModalWindow: FC<IModalWindowProps> = ({
+const AuthModalWindow: FC<IModalWindowProps> = ({
   isModalOpen,
   closeModal,
   modalType,
@@ -421,4 +421,4 @@ const ModalWindow: FC<IModalWindowProps> = ({
   );
 }
 
-export default ModalWindow;
+export default AuthModalWindow;
