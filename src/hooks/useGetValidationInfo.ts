@@ -88,6 +88,9 @@ export const useGetValidationLogin = ({
     errors,
     touched,
     isSubmitting,
+    setValues,
+    setErrors,
+    setTouched,
   } = useFormik({
     enableReinitialize: true,
     initialValues: initialValue,
@@ -121,6 +124,9 @@ export const useGetValidationLogin = ({
     errors,
     touched,
     isSubmitting,
+    setValues,
+    setErrors,
+    setTouched,
   };
 };
 
@@ -141,6 +147,9 @@ export const useGetValidationSignUp = ({
     errors,
     touched,
     isSubmitting,
+    setValues,
+    setErrors,
+    setTouched,
   } = useFormik({
     enableReinitialize: true,
     initialValues: initialValue,
@@ -174,5 +183,8 @@ export const useGetValidationSignUp = ({
     errors,
     touched,
     isSubmitting,
+    setValues,
+    setErrors,
+    setTouched,
   };
 };

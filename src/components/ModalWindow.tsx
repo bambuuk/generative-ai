@@ -1,12 +1,13 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { styled, IconButton, Divider, Box, Backdrop, Fade, Modal } from '@mui/material';
 import { CloseIcon } from './ImgComponents';
 import { FullToTransparentBtn, ValidationErrorMessage } from './CustomElements';
+import { useGetValidationLogin, useGetValidationSignUp } from '../hooks/useGetValidationInfo';
+import { initialLogInValue, initialSignUpValue } from '../constants';
 import { IModalType } from "../types/IModalType";
 
 import google from '../assets/icons/google-icon.svg';
 import facebook from '../assets/icons/facebook-icon.svg';
-import { useGetValidationLogin, useGetValidationSignUp } from '../hooks/useGetValidationInfo';
 
 const MainWrapper = styled(Box)(({ theme }) => ({
   '&::-webkit-scrollbar': {
@@ -220,7 +221,10 @@ const ModalWindow: FC<IModalWindowProps> = ({
     values: logInValues,
     errors: logInErrors,
     touched: logInTouched,
-    isSubmitting: logInIsSubmitting
+    isSubmitting: logInIsSubmitting,
+    setValues: logInSetValues,
+    setErrors: logInSetErrors,
+    setTouched: logInSetTouched,
   } = useGetValidationLogin({
     openSnackbar,
     closeModal,
@@ -233,11 +237,24 @@ const ModalWindow: FC<IModalWindowProps> = ({
     values: signUpValues,
     errors: signUpErrors,
     touched: signUpTouched,
-    isSubmitting: signUpIsSubmitting
+    isSubmitting: signUpIsSubmitting,
+    setValues: signUpSetValues,
+    setErrors: signUpSetErrors,
+    setTouched: signUpSetTouched,
   } = useGetValidationSignUp({
     openSnackbar,
     closeModal,
   });
+
+  useEffect(() => {
+    logInSetValues(initialLogInValue);
+    logInSetErrors({});
+    logInSetTouched({});
+    signUpSetValues(initialSignUpValue);
+    signUpSetErrors({});
+    signUpSetTouched({});
+  }, [isModalOpen, modalType])
+
 
   return (
     <div>

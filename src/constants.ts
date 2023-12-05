@@ -104,3 +104,13 @@ export const reviewersList: IReviewerInfo[] = [
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQawggBFH6tqdn-xy6Y2Trloee7GTBsIQgZZg&usqp=CAU",
   },
 ];
+
+export const initialLogInValue = {
+  loginEmail: "",
+  loginPassword: "",
+};
+
+export const initialSignUpValue = {
+  signUpEmail: "",
+  signUpPassword: "",
+};
