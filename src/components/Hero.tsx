@@ -1,14 +1,15 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
+import { motion } from 'framer-motion';
 import { CustomContainer } from './CustomElements';
 import { FullToTransparentBtn } from './CustomElements';
-import picture from '../assets/pictures/hero/hero-picture.png';
-import wave from '../assets/pictures/hero/wave-pattern.png';
 import { rotate, zeroRotate } from '../assets/keyframes/keyframes';
 import useModalControl from '../hooks/useModalControl';
 import useSnackbarControl from '../hooks/useSnackbarControl';
 import ContactUsModalWindow from './ContactModalWindow';
 import CustomSnackbar from './CustomSnackbar';
+import picture from '../assets/pictures/hero/hero-picture.png';
+import wave from '../assets/pictures/hero/wave-pattern.png';
 
 const HeroUI = styled('section')({
 	width: '100%',
@@ -178,6 +179,31 @@ const ThirdVector = styled(Vector)({
 	left: 0,
 });
 
+const leftShowing = {
+	hidden: {
+		x: -100,
+		opacity: 0,
+	},
+	visible: {
+		x: 0,
+		opacity: 1,
+	},
+};
+
+const rightShowing = {
+	hidden: {
+		x: 100,
+		opacity: 0,
+	},
+	visible: {
+		x: 0,
+		opacity: 1,
+	},
+};
+
+const LeftMotionShowing = motion(OverviewBlock);
+const RightMotionShowing = motion(ImageBlock);
+
 const Hero: FC = () => {
 	const { isModalOpen, openModal, closeModal } = useModalControl();
 	const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
@@ -186,33 +212,47 @@ const Hero: FC = () => {
 		<HeroUI id="home">
 			<CustomContainer sx={{ position: 'relative' }}>
 				<HeroWrapper>
-					<OverviewBlock>
-						<Title>
-							Start your
-							<br />
-							<GradientTitle>Generative AI</GradientTitle>
-							Business in Minutes
-						</Title>
-						<Description>
-							Create AI-driven content generation tools that assist content creators is generating
-							articles, product descriptions, or marketing copy.
-							<br />
-							This can be offered as a SaaS solution where users pay for the number of words or
-							content pieces generated.
-						</Description>
-						<FullToTransparentBtn
-							sx={{
-								marginTop: '36px',
-							}}
-							onClick={() => openModal('')}
-						>
-							Get started
-						</FullToTransparentBtn>
-					</OverviewBlock>
-					<ImageBlock>
-						<Picture src={picture} />
-						<WaveImg src={wave} />
-					</ImageBlock>
+					<LeftMotionShowing
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={leftShowing}
+					>
+						<OverviewBlock>
+							<Title>
+								Start your
+								<br />
+								<GradientTitle>Generative AI</GradientTitle>
+								Business in Minutes
+							</Title>
+							<Description>
+								Create AI-driven content generation tools that assist content creators is generating
+								articles, product descriptions, or marketing copy.
+								<br />
+								This can be offered as a SaaS solution where users pay for the number of words or
+								content pieces generated.
+							</Description>
+							<FullToTransparentBtn
+								sx={{
+									marginTop: '36px',
+								}}
+								onClick={() => openModal('')}
+							>
+								Get started
+							</FullToTransparentBtn>
+						</OverviewBlock>
+					</LeftMotionShowing>
+					<RightMotionShowing
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={rightShowing}
+					>
+						<ImageBlock>
+							<Picture src={picture} />
+							<WaveImg src={wave} />
+						</ImageBlock>
+					</RightMotionShowing>
 				</HeroWrapper>
 				<GradientsBlock>
 					<FirstVector />

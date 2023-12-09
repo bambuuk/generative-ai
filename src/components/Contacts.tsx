@@ -3,11 +3,11 @@ import { styled, Link } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
 import abstractImg from '../assets/pictures/contacts/abstract-img.png';
 
-const ContactsUI = styled('section')(({ }) => ({
+const ContactsUI = styled('section')(({}) => ({
 	width: '100%',
 }));
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	position: 'relative',
@@ -67,12 +67,12 @@ const ContactInfo = styled('li')(({ theme }) => ({
 	},
 }));
 
-const AddressInfo = styled(ContactInfo)(({ }) => ({
+const AddressInfo = styled(ContactInfo)(({}) => ({
 	listStyle: 'none',
 	marginLeft: 0,
 }));
 
-const CustomLink = styled(Link)(({ }) => ({
+const CustomLink = styled(Link)(({}) => ({
 	color: '#E2E2E2',
 }));
 

@@ -1,6 +1,14 @@
 import { IDescriptionItem } from './types/IDescriptionItem';
 import { IReviewerInfo } from './types/IReviewerInfo';
 import { ITariffPlane } from './types/ITariffPlane';
+import {
+	CPUImage,
+	CardImage,
+	ChatImage,
+	PlantImage,
+	ScopImage,
+	TeamImage,
+} from './components/ImgComponents';
 
 export const descriptionList: IDescriptionItem[] = [
 	{
@@ -140,6 +148,39 @@ export const priceList: ITariffPlane[] = [
 			'Custom chat bots',
 		],
 		cardType: 'simple',
+	},
+];
+
+export const featuresList = [
+	{
+		img: () => <ChatImage />,
+		title: 'Chat playground',
+		text: `Have full engaging conversation with AI, without topic restrictions, in our chat playground`,
+	},
+	{
+		img: () => <CPUImage />,
+		title: 'Dynamic tools',
+		text: `Build and configure your own prompts and tools dynamically for a personalized AI experience`,
+	},
+	{
+		img: () => <TeamImage />,
+		title: 'Support',
+		text: `Go global and connect with users worldwide with our multilingual support`,
+	},
+	{
+		img: () => <PlantImage />,
+		title: 'Workspace',
+		text: `Your customers can form teams and shared workspace to collaborate seamlessly`,
+	},
+	{
+		img: () => <CardImage />,
+		title: 'Easy Payment',
+		text: `Production ready and hassle-free payments with using powerful tools`,
+	},
+	{
+		img: () => <ScopImage />,
+		title: 'Easy Scalability',
+		text: `We constantly upgrade our platform for the latest AI tools and features`,
 	},
 ];
 
