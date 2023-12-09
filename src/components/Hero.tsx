@@ -187,6 +187,7 @@ const leftShowing = {
 	visible: {
 		x: 0,
 		opacity: 1,
+		transition: { duration: 0.3 },
 	},
 };
 
@@ -198,6 +199,7 @@ const rightShowing = {
 	visible: {
 		x: 0,
 		opacity: 1,
+		transition: { duration: 0.3 },
 	},
 };
 

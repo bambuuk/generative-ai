@@ -1,16 +1,18 @@
 import { FC } from 'react';
 import { styled } from '@mui/material';
+import { nanoid } from 'nanoid';
+import { motion } from 'framer-motion';
 import { CustomContainer, Title, Overview } from './CustomElements';
 import { featuresList } from '../constants';
-import star from '../assets/backgroundFigures/star.png';
-import { nanoid } from 'nanoid';
 import FeatureItem from './FeatureItem';
+import star from '../assets/backgroundFigures/star.png';
+import { textAnimation } from '../assets/animation';
 
 const FeaturesUI = styled('section')({
 	width: '100%',
 });
 
-const FeaturesWrapper = styled('div')(({}) => ({
+const FeaturesWrapper = styled('div')(({ }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
@@ -158,25 +160,68 @@ const StarImg = styled('img')(({ theme }) => ({
 	},
 }));
 
+const MCustomTitle = motion(CustomTitle);
+const MOverview = motion(Overview);
+const MFeaturesCardList = motion(FeaturesCardList);
+
+const featuresContainer = {
+	hidden: {
+		y: 100,
+		opacity: 0,
+	},
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: { delay: 1.5, duration: 0.3 },
+	}
+};
+
 const Features: FC = () => {
 	return (
-		<FeaturesUI id="features">
+		<FeaturesUI
+			id="features"
+		>
 			<CustomContainer sx={{ position: 'relative' }}>
 				<FeaturesWrapper>
-					<CustomTitle>
+					<MCustomTitle
+						variants={textAnimation}
+						custom={1}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>
 						How&nbsp;<GradientTitle>AI GENIUS</GradientTitle>&nbsp;improve your business?
-					</CustomTitle>
-					<Overview>
+					</MCustomTitle>
+					<MOverview
+						variants={textAnimation}
+						custom={2}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>
 						Discover how we simplify the process of creating your own AI-as-a-service platform with
 						its advanced, user friendly features
-					</Overview>
-					<FeaturesCardList>
+					</MOverview>
+					<MFeaturesCardList
+						variants={featuresContainer}
+						initial="hidden"
+						animate="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>
 						<StarImg src={star} />
 						{featuresList.map(({ img, title, text }) => {
-							return <FeatureItem key={nanoid()} img={img} title={title} text={text} />;
+							return (
+								<FeatureItem
+									key={nanoid()}
+									img={img}
+									title={title}
+									text={text}
+								/>
+							);
 						})}
-					</FeaturesCardList>
+					</MFeaturesCardList>
 				</FeaturesWrapper>
+
 				<GradientsBlock>
 					<FirstVector />
 					<SecondVector />
