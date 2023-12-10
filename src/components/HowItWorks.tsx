@@ -67,7 +67,6 @@ const DescriptionText = styled('p')(({ theme }) => ({
 
 const MTitle = motion(Title);
 const MOverview = motion(Overview);
-const MDescriptionList = motion(DescriptionList);
 const MDescriptionItem = motion(DescriptionItem);
 
 const descriptionItemAnimation = {
@@ -106,11 +105,7 @@ const HowItWorks: FC = () => {
 						Understanding the inner workings of our AI service is key to realizing its potential.
 						Here's a step-by-step guide to demystify the magic behind our cutting-edge technology
 					</MOverview>
-					<MDescriptionList
-						initial="hidden"
-						animate="visible"
-						viewport={{ amount: 0.9, }}
-					>
+					<DescriptionList>
 						{descriptionList.map(({ title, number, text }, i) => {
 							return (
 								<MDescriptionItem
@@ -119,7 +114,7 @@ const HowItWorks: FC = () => {
 									initial="hidden"
 									animate="visible"
 									custom={+i + 3}
-									viewport={{ amount: 0.9, }}
+									viewport={{ once: true }}
 								>
 									<DescriptionTitle>
 										<PinkDescrTitle>{number} /&nbsp;</PinkDescrTitle>
@@ -129,7 +124,7 @@ const HowItWorks: FC = () => {
 								</MDescriptionItem>
 							);
 						})}
-					</MDescriptionList>
+					</DescriptionList>
 				</MainWrapper>
 			</CustomContainer>
 		</HowItWorksUI>

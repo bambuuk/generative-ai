@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { styled } from '@mui/material';
 import { nanoid } from 'nanoid';
 import { CustomContainer, Title } from './CustomElements';
-import MPriceCard from './PriceCard';
+import PriceCard from './PriceCard';
 import ContactUsModalWindow from './ContactModalWindow';
 import CustomSnackbar from './CustomSnackbar';
 import { priceList } from '../constants';
@@ -94,24 +94,16 @@ const SecondVector = styled(Vector)({
 const MTitle = motion(Title);
 const MPriceCardListUI = motion(PriceCardListUI);
 
-const container = {
-	hidden: { opacity: 1, scale: 0 },
-	visible: {
-		opacity: 1,
-		scale: 1,
-		transition: {
-			delayChildren: 0.3,
-			staggerChildren: 0.2
-		}
-	}
-}
-
 const item = {
-	hidden: { y: 20, opacity: 0 },
-	visible: {
+	hidden: {
+		opacity: 0,
+		y: 100
+	},
+	visible: (custom: number = 0) => ({
 		y: 0,
-		opacity: 1
-	}
+		opacity: 1,
+		transition: { delay: custom * 0.4, duration: 0.3 },
+	}),
 }
 
 const PriceCardList: FC = () => {
@@ -134,13 +126,16 @@ const PriceCardList: FC = () => {
 					<MPriceCardListUI
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true }}
-						variants={container}
+						viewport={{ once: true }}
 					>
-						{priceList.map(({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType }) => {
+						{priceList.map(({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType }, i) => {
 							return (
-								<MPriceCard
+								<PriceCard
+									initial="hidden"
+									whileInView="visible"
 									variants={item}
+									custom={+i + 1}
+									viewport={{ once: true }}
 									key={nanoid()}
 									tariffPlaneTitle={tariffPlaneTitle}
 									tariffPlanePrice={tariffPlanePrice}

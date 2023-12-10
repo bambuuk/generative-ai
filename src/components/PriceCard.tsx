@@ -237,7 +237,7 @@ const PriceCard: FC<PriceCardProps> = forwardRef<HTMLDivElement, PriceCardProps>
 					<TransparentButton onClick={() => openModal('')}>Start now</TransparentButton>
 				</PriceCardUI>
 			) : (
-				<PremiumPriceCardUI>
+				<PremiumPriceCardUI ref={ref}>
 					<TariffPlaneBlock>
 						<PremiumTariffPlaneTitle>{tariffPlaneTitle}</PremiumTariffPlaneTitle>
 						<TariffPlanePriceBlock>
@@ -265,6 +265,4 @@ const PriceCard: FC<PriceCardProps> = forwardRef<HTMLDivElement, PriceCardProps>
 	);
 });
 
-const MPriceCard = motion(PriceCard);
-
-export default MPriceCard;
+export default motion(PriceCard);
