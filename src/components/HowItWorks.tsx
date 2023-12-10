@@ -114,7 +114,7 @@ const HowItWorks: FC = () => {
 									initial="hidden"
 									animate="visible"
 									custom={+i + 3}
-									viewport={{ once: true }}
+									viewport={{ once: true, amount: 0.1 }}
 								>
 									<DescriptionTitle>
 										<PinkDescrTitle>{number} /&nbsp;</PinkDescrTitle>
