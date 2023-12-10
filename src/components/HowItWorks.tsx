@@ -78,7 +78,7 @@ const descriptionItemAnimation = {
 	visible: (custom: number = 0) => ({
 		y: 0,
 		opacity: 1,
-		transition: { delay: custom * 0.7, duration: 1.5 },
+		transition: { delay: custom * 0.7, duration: 0.8 },
 	}),
 }
 
