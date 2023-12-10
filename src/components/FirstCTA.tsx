@@ -146,7 +146,7 @@ const FirstCTA: FC = () => {
 					variants={showAllBlock}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ amount: 0.2, }}
+					viewport={{ amount: 0.2, once: true }}
 				>
 					<BackgroundImg src={backgroundImg} />
 					<CubeImage src={cube} alt="Cube" />
