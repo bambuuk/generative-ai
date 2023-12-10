@@ -162,19 +162,6 @@ const StarImg = styled('img')(({ theme }) => ({
 
 const MCustomTitle = motion(CustomTitle);
 const MOverview = motion(Overview);
-const MFeaturesCardList = motion(FeaturesCardList);
-
-const featuresContainer = {
-	hidden: {
-		y: 100,
-		opacity: 0,
-	},
-	visible: {
-		y: 0,
-		opacity: 1,
-		transition: { delay: 1.5, duration: 0.3 },
-	}
-};
 
 const Features: FC = () => {
 	return (
@@ -202,12 +189,7 @@ const Features: FC = () => {
 						Discover how we simplify the process of creating your own AI-as-a-service platform with
 						its advanced, user friendly features
 					</MOverview>
-					<MFeaturesCardList
-						variants={featuresContainer}
-						initial="hidden"
-						animate="visible"
-						viewport={{ amount: 0.2, once: true }}
-					>
+					<FeaturesCardList>
 						<StarImg src={star} />
 						{featuresList.map(({ img, title, text }) => {
 							return (
@@ -219,7 +201,7 @@ const Features: FC = () => {
 								/>
 							);
 						})}
-					</MFeaturesCardList>
+					</FeaturesCardList>
 				</FeaturesWrapper>
 
 				<GradientsBlock>

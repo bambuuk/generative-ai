@@ -15,12 +15,19 @@ const HeroUI = styled('section')({
 	width: '100%',
 	minHeight: 'calc(100vh - 100px)',
 	height: '100%',
+	display: 'flex',
+	alignItems: 'center',
 });
 
 const HeroWrapper = styled('div')(({ theme }) => ({
+	paddingTop: '20px',
 	display: 'flex',
 	gap: '20px',
-	paddingTop: '140px',
+	// justifyContent: 'center',
+	// alignItems: 'center',
+	[theme.breakpoints.down('xl')]: {
+		paddingTop: '40px',
+	},
 	[theme.breakpoints.down(1024)]: {
 		flexDirection: 'column',
 		paddingTop: '100px',
@@ -102,6 +109,14 @@ const Title = styled('h1')(({ theme }) => ({
 	fontSize: '88px',
 	fontWeight: '400',
 	lineHeight: '96px',
+	[theme.breakpoints.down('xl')]: {
+		fontSize: '70px',
+		lineHeight: '78px',
+	},
+	[theme.breakpoints.down('lg')]: {
+		fontSize: '60px',
+		lineHeight: '68px',
+	},
 	[theme.breakpoints.down('sm')]: {
 		fontSize: '30px',
 		lineHeight: '35px',
@@ -117,6 +132,14 @@ const GradientTitle = styled('div')(({ theme }) => ({
 	fontSize: '88px',
 	fontWeight: '400',
 	lineHeight: '96px',
+	[theme.breakpoints.down('xl')]: {
+		fontSize: '70px',
+		lineHeight: '78px',
+	},
+	[theme.breakpoints.down('lg')]: {
+		fontSize: '60px',
+		lineHeight: '68px',
+	},
 	[theme.breakpoints.down('sm')]: {
 		fontSize: '30px',
 		lineHeight: '35px',

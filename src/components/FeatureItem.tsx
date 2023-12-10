@@ -56,6 +56,20 @@ const CardDescrText = styled('p')(({ }) => ({
   lineHeight: '24px',
 }));
 
+const featureAnimation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 1.5, duration: 0.3 },
+  }
+};
+
+const MFeatureCard = motion(FeatureCard);
+
 interface IFeatureItemProps {
   img: () => JSX.Element;
   title: string;
@@ -64,13 +78,18 @@ interface IFeatureItemProps {
 
 const FeatureItem: FC<IFeatureItemProps> = ({ img, title, text }) => {
   return (
-    <FeatureCard>
+    <MFeatureCard
+      variants={featureAnimation}
+      initial="hidden"
+      animate="visible"
+      viewport={{ amount: 0.2, once: true }}
+    >
       <ImageWrapper>{img()}</ImageWrapper>
       <CardDescription>
         <CardTitle>{title}</CardTitle>
         <CardDescrText>{text}</CardDescrText>
       </CardDescription>
-    </FeatureCard>
+    </MFeatureCard>
   );
 };
 
