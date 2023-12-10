@@ -8,8 +8,10 @@ import AuthModalWindow from './AuthModalWindow';
 import { beat } from '../assets/keyframes/keyframes';
 import CustomSnackbar from './CustomSnackbar';
 import useSnackbarControl from '../hooks/useSnackbarControl';
+import { motion } from 'framer-motion';
+import { showAllBlock } from '../assets/animation';
 
-const SecondCTA_UI = styled('section')(({}) => ({
+const SecondCTA_UI = styled('section')(({ }) => ({
 	width: '100%',
 }));
 
@@ -40,7 +42,7 @@ const MainWrapper = styled('div')(({ theme }) => ({
 	},
 }));
 
-const SubscriptionWrapper = styled('div')(({}) => ({
+const SubscriptionWrapper = styled('div')(({ }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	width: '100%',
@@ -107,6 +109,8 @@ const AbstractImage = styled('img')(({ theme }) => ({
 	},
 }));
 
+const MMainWrapper = motion(MainWrapper);
+
 const SecondCTA: FC = () => {
 	const { openModal, isModalOpen, closeModal, modalType, changeModalType } = useModalControl();
 	const { isOpenSnackbar, openSnackbar, closeSnackbar, actionType } = useSnackbarControl();
@@ -114,7 +118,12 @@ const SecondCTA: FC = () => {
 	return (
 		<SecondCTA_UI>
 			<CustomContainer>
-				<MainWrapper>
+				<MMainWrapper
+					variants={showAllBlock}
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ amount: 0.2, once: true }}
+				>
 					<SubscriptionWrapper>
 						<Subtitle>Be a part of the AI Genius community</Subtitle>
 						<Overview>
@@ -138,7 +147,7 @@ const SecondCTA: FC = () => {
 						closeSnackbar={closeSnackbar}
 						message={actionType === 'signUp' ? 'Sign Up is successful' : 'Log In is successful'}
 					/>
-				</MainWrapper>
+				</MMainWrapper>
 			</CustomContainer>
 		</SecondCTA_UI>
 	);
