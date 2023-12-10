@@ -2,12 +2,14 @@ import { FC } from 'react';
 import { styled, Link } from '@mui/material';
 import { CustomContainer, Title, Overview } from './CustomElements';
 import abstractImg from '../assets/pictures/contacts/abstract-img.png';
+import { motion } from 'framer-motion';
+import { showAllBlock, textAnimation } from '../assets/animation';
 
-const ContactsUI = styled('section')(({}) => ({
+const ContactsUI = styled('section')(({ }) => ({
 	width: '100%',
 }));
 
-const MainWrapper = styled('div')(({}) => ({
+const MainWrapper = styled('div')(({ }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	position: 'relative',
@@ -67,12 +69,12 @@ const ContactInfo = styled('li')(({ theme }) => ({
 	},
 }));
 
-const AddressInfo = styled(ContactInfo)(({}) => ({
+const AddressInfo = styled(ContactInfo)(({ }) => ({
 	listStyle: 'none',
 	marginLeft: 0,
 }));
 
-const CustomLink = styled(Link)(({}) => ({
+const CustomLink = styled(Link)(({ }) => ({
 	color: '#E2E2E2',
 }));
 
@@ -139,18 +141,41 @@ const AbstractImage = styled('img')(({ theme }) => ({
 	},
 }));
 
+const MTitle = motion(Title);
+const MOverview = motion(Overview);
+const MDepartmentsContactsList = motion(DepartmentsContactsList);
+
 const Contacts: FC = () => {
 	return (
 		<ContactsUI id="contacts">
 			<CustomContainer>
 				<MainWrapper>
-					<Title>Our contacts</Title>
-					<Overview>
+					<MTitle
+						variants={textAnimation}
+						custom={1}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true, }}
+					>
+						Our contacts
+					</MTitle>
+					<MOverview
+						variants={textAnimation}
+						custom={2}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true, }}
+					>
 						Connect with us via email or phone. We're available to assist you with any questions,
 						provide personalized consultations, and help you get the most out of our AI service.
 						Join us on the journey toward data-driven success!
-					</Overview>
-					<DepartmentsContactsList>
+					</MOverview>
+					<MDepartmentsContactsList
+						variants={showAllBlock}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true, }}
+					>
 						<ContactItem>
 							<ContactSubtitle>Customer Support:</ContactSubtitle>
 							<ul>
@@ -195,7 +220,7 @@ const Contacts: FC = () => {
 								<AddressInfo>United States</AddressInfo>
 							</ul>
 						</ContactItem>
-					</DepartmentsContactsList>
+					</MDepartmentsContactsList>
 
 					<GradientsBlock>
 						<FirstVector />
