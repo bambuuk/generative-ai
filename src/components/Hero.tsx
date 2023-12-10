@@ -23,8 +23,6 @@ const HeroWrapper = styled('div')(({ theme }) => ({
 	paddingTop: '20px',
 	display: 'flex',
 	gap: '20px',
-	// justifyContent: 'center',
-	// alignItems: 'center',
 	[theme.breakpoints.down('xl')]: {
 		paddingTop: '40px',
 	},
@@ -109,7 +107,7 @@ const Title = styled('h1')(({ theme }) => ({
 	fontSize: '88px',
 	fontWeight: '400',
 	lineHeight: '96px',
-	[theme.breakpoints.down('xl')]: {
+	[theme.breakpoints.down(1550)]: {
 		fontSize: '70px',
 		lineHeight: '78px',
 	},
