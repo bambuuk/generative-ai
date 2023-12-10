@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, forwardRef } from 'react';
 import { styled } from '@mui/material';
 import { nanoid } from 'nanoid';
 import { TransparentToFullBtn, FullToTransparentBtn } from './CustomElements';
 import checkBox from '../assets/icons/check-box.svg';
 import { ITariffPlane } from '../types/ITariffPlane';
+import { motion } from 'framer-motion';
 
 const PriceCardUI = styled('div')(({ theme }) => ({
 	overflow: 'hidden',
@@ -25,7 +26,7 @@ const PriceCardUI = styled('div')(({ theme }) => ({
 	},
 }));
 
-const PremiumPriceCardUI = styled(PriceCardUI)(({}) => ({
+const PremiumPriceCardUI = styled(PriceCardUI)(({ }) => ({
 	gap: '60px',
 	maxWidth: '440px',
 	maxHeight: '951px',
@@ -82,7 +83,7 @@ const PremiumTariffPlaneTitle = styled(TariffPlaneTitle)(({ theme }) => ({
 	},
 }));
 
-const TariffPlanePriceBlock = styled('div')(({}) => ({
+const TariffPlanePriceBlock = styled('div')(({ }) => ({
 	display: 'flex',
 	marginTop: '28px',
 	alignItems: 'center',
@@ -104,7 +105,7 @@ const TariffPlanePrice = styled('div')(({ theme }) => ({
 	},
 }));
 
-const TariffPlanePricePeriod = styled('div')(({}) => ({
+const TariffPlanePricePeriod = styled('div')(({ }) => ({
 	color: '#E2E2E2',
 	fontFamily: 'Work Sans',
 	fontSize: '24px',
@@ -126,7 +127,7 @@ const TariffPlaneStart = styled('div')(({ theme }) => ({
 	},
 }));
 
-const TariffFeaturesList = styled('ul')(({}) => ({
+const TariffFeaturesList = styled('ul')(({ }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 }));
@@ -152,7 +153,7 @@ const TariffFeature = styled('li')(({ theme }) => ({
 	},
 }));
 
-const CheckImgWrapper = styled('div')(({}) => ({
+const CheckImgWrapper = styled('div')(({ }) => ({
 	width: '31px',
 	height: '31px',
 	padding: '9px 5px 7px 5px',
@@ -173,7 +174,7 @@ const CheckImgWrapper = styled('div')(({}) => ({
 	},
 }));
 
-const CheckBoxImg = styled('img')(({}) => ({
+const CheckBoxImg = styled('img')(({ }) => ({
 	position: 'relative',
 	zIndex: 2,
 }));
@@ -202,17 +203,17 @@ interface PriceCardProps extends ITariffPlane {
 	openModal: (value: string) => void;
 }
 
-const PriceCard: FC<PriceCardProps> = ({
+const PriceCard: FC<PriceCardProps> = forwardRef<HTMLDivElement, PriceCardProps>(({
 	tariffPlaneTitle,
 	tariffPlanePrice,
 	tariffFeatures,
 	cardType,
 	openModal,
-}) => {
+}, ref) => {
 	return (
 		<>
 			{cardType === 'simple' ? (
-				<PriceCardUI>
+				<PriceCardUI ref={ref}>
 					<TariffPlaneBlock>
 						<TariffPlaneTitle>{tariffPlaneTitle}</TariffPlaneTitle>
 						<TariffPlanePriceBlock>
@@ -262,6 +263,8 @@ const PriceCard: FC<PriceCardProps> = ({
 			)}
 		</>
 	);
-};
+});
 
-export default PriceCard;
+const MPriceCard = motion(PriceCard);
+
+export default MPriceCard;

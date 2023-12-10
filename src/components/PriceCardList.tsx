@@ -2,12 +2,14 @@ import { FC } from 'react';
 import { styled } from '@mui/material';
 import { nanoid } from 'nanoid';
 import { CustomContainer, Title } from './CustomElements';
-import PriceCard from './PriceCard';
+import MPriceCard from './PriceCard';
 import ContactUsModalWindow from './ContactModalWindow';
 import CustomSnackbar from './CustomSnackbar';
 import { priceList } from '../constants';
 import useSnackbarControl from '../hooks/useSnackbarControl';
 import useModalControl from '../hooks/useModalControl';
+import { motion } from 'framer-motion';
+import { textAnimation } from '../assets/animation';
 
 const PriceUI = styled('section')({
 	width: '100%',
@@ -89,6 +91,29 @@ const SecondVector = styled(Vector)({
 	backgroundColor: '#391F6F',
 });
 
+const MTitle = motion(Title);
+const MPriceCardListUI = motion(PriceCardListUI);
+
+const container = {
+	hidden: { opacity: 1, scale: 0 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			delayChildren: 0.3,
+			staggerChildren: 0.2
+		}
+	}
+}
+
+const item = {
+	hidden: { y: 20, opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1
+	}
+}
+
 const PriceCardList: FC = () => {
 	const { isModalOpen, openModal, closeModal } = useModalControl();
 	const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
@@ -97,11 +122,25 @@ const PriceCardList: FC = () => {
 		<PriceUI id="price">
 			<CustomContainer>
 				<MainWrapper>
-					<Title>Customized prices for you</Title>
-					<PriceCardListUI>
+					<MTitle
+						variants={textAnimation}
+						custom={1}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>
+						Customized prices for you
+					</MTitle>
+					<MPriceCardListUI
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+						variants={container}
+					>
 						{priceList.map(({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType }) => {
 							return (
-								<PriceCard
+								<MPriceCard
+									variants={item}
 									key={nanoid()}
 									tariffPlaneTitle={tariffPlaneTitle}
 									tariffPlanePrice={tariffPlanePrice}
@@ -111,7 +150,7 @@ const PriceCardList: FC = () => {
 								/>
 							);
 						})}
-					</PriceCardListUI>
+					</MPriceCardListUI>
 					<FirstBackgroundBlock>
 						<FirstVector />
 					</FirstBackgroundBlock>

@@ -265,28 +265,15 @@ const MEducation = motion(Education);
 const MFinance = motion(Finance);
 const MECommerce = motion(ECommerce);
 const MHealthcare = motion(Healthcare);
-
-const circlesAnimation = {
-	hidden: {
-		scale: 0,
-		opacity: 1,
-	},
-	visible: {
-		opacity: 1,
-		scale: 1,
-		transition: { delay: 0.2 },
-	},
-}
+const MCirclesWrapper = motion(CirclesWrapper);
 
 const solutionsAnimation = {
 	hidden: {
-		scale: 0,
 		opacity: 0,
 	},
 	visible: {
 		opacity: 1,
-		scale: 1,
-		transition: { delay: 0.6 },
+		transition: { delay: 1 },
 	},
 }
 
@@ -301,8 +288,10 @@ const Solution: FC = () => {
 						custom={1}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true }}
-					>Solution</MTitle>
+						viewport={{ once: true }}
+					>
+						Solution
+					</MTitle>
 					<MOverview
 						variants={textAnimation}
 						custom={2}
@@ -314,31 +303,25 @@ const Solution: FC = () => {
 						challenges. Whether you're in healthcare, e-commerce, finance, or any other sector, our
 						technology offers tailored solutions to meet your unique needs
 					</MOverview>
-					<CirclesWrapper>
-						<MFirstCircle
-							variants={circlesAnimation}
-							custom={1}
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ amount: 0.2, once: true }}
-						>
+					<MCirclesWrapper
+						variants={solutionsAnimation}
+						custom={1}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>
+						<MFirstCircle>
 							<SecondCircle>
 								<CircleImg src={circleImg} />
 							</SecondCircle>
 						</MFirstCircle>
-						<motion.div
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, amount: 0.2 }}
-						>
-							<MAgriculture variants={solutionsAnimation}>Agriculture</MAgriculture>
-							<MManufacturing variants={solutionsAnimation}>Manufacturing</MManufacturing>
-							<MEducation variants={solutionsAnimation}>Education</MEducation>
-							<MFinance variants={solutionsAnimation}>Finance</MFinance>
-							<MECommerce variants={solutionsAnimation}>E-commerce</MECommerce>
-							<MHealthcare variants={solutionsAnimation}>Healthcare</MHealthcare>
-						</motion.div>
-					</CirclesWrapper>
+						<MAgriculture>Agriculture</MAgriculture>
+						<MManufacturing>Manufacturing</MManufacturing>
+						<MEducation>Education</MEducation>
+						<MFinance>Finance</MFinance>
+						<MECommerce>E-commerce</MECommerce>
+						<MHealthcare>Healthcare</MHealthcare>
+					</MCirclesWrapper>
 					<GradientsBlock>
 						<FirstVector />
 						<SecondVector />
