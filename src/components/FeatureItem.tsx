@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, forwardRef } from 'react';
 import { styled } from '@mui/material';
 import { motion } from 'framer-motion';
 
@@ -76,9 +76,10 @@ interface IFeatureItemProps {
   text: string;
 }
 
-const FeatureItem: FC<IFeatureItemProps> = ({ img, title, text }) => {
+const FeatureItem: FC<IFeatureItemProps> = forwardRef<HTMLDivElement, IFeatureItemProps>(({ img, title, text }, ref) => {
   return (
     <MFeatureCard
+      ref={ref}
       variants={featureAnimation}
       initial="hidden"
       animate="visible"
@@ -91,6 +92,6 @@ const FeatureItem: FC<IFeatureItemProps> = ({ img, title, text }) => {
       </CardDescription>
     </MFeatureCard>
   );
-};
+});
 
 export default motion(FeatureItem);

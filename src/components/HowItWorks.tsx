@@ -82,7 +82,6 @@ const descriptionItemAnimation = {
 	}),
 }
 
-
 const HowItWorks: FC = () => {
 	return (
 		<HowItWorksUI>

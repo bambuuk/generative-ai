@@ -5,13 +5,15 @@ import circleImg from '../assets/pictures/solution/main-picture.png';
 import lightningImg from '../assets/pictures/solution/lightning.png';
 import diamondImg from '../assets/pictures/solution/diamond.png';
 import { rotate, reverseRotate } from '../assets/keyframes/keyframes';
+import { motion } from 'framer-motion';
+import { textAnimation } from '../assets/animation';
 
 const SolutionUI = styled('section')({
 	width: '100%',
 	position: 'relative',
 });
 
-const MainWrapper = styled('div')(({}) => ({
+const MainWrapper = styled('div')(({ }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignContent: 'center',
@@ -254,31 +256,88 @@ const ThirdVector = styled(Vector)({
 	left: 0,
 });
 
+const MTitle = motion(Title);
+const MOverview = motion(Overview);
+const MFirstCircle = motion(FirstCircle);
+const MAgriculture = motion(Agriculture);
+const MManufacturing = motion(Manufacturing);
+const MEducation = motion(Education);
+const MFinance = motion(Finance);
+const MECommerce = motion(ECommerce);
+const MHealthcare = motion(Healthcare);
+
+const circlesAnimation = {
+	hidden: {
+		scale: 0,
+		opacity: 1,
+	},
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: { delay: 0.2 },
+	},
+}
+
+const solutionsAnimation = {
+	hidden: {
+		scale: 0,
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: { delay: 0.6 },
+	},
+}
+
 const Solution: FC = () => {
 	return (
 		<SolutionUI id="solution">
 			<LightningImage src={lightningImg} />
 			<CustomContainer>
 				<MainWrapper>
-					<Title>Solution</Title>
-					<Overview>
+					<MTitle
+						variants={textAnimation}
+						custom={1}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>Solution</MTitle>
+					<MOverview
+						variants={textAnimation}
+						custom={2}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true }}
+					>
 						Our AI Service is designed to revolutionize a variety of industries and solve critical
 						challenges. Whether you're in healthcare, e-commerce, finance, or any other sector, our
 						technology offers tailored solutions to meet your unique needs
-					</Overview>
+					</MOverview>
 					<CirclesWrapper>
-						<FirstCircle>
+						<MFirstCircle
+							variants={circlesAnimation}
+							custom={1}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ amount: 0.2, once: true }}
+						>
 							<SecondCircle>
 								<CircleImg src={circleImg} />
 							</SecondCircle>
-						</FirstCircle>
-
-						<Agriculture>Agriculture</Agriculture>
-						<Manufacturing>Manufacturing</Manufacturing>
-						<Education>Education</Education>
-						<Finance>Finance</Finance>
-						<ECommerce>E-commerce</ECommerce>
-						<Healthcare>Healthcare</Healthcare>
+						</MFirstCircle>
+						<motion.div
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, amount: 0.2 }}
+						>
+							<MAgriculture variants={solutionsAnimation}>Agriculture</MAgriculture>
+							<MManufacturing variants={solutionsAnimation}>Manufacturing</MManufacturing>
+							<MEducation variants={solutionsAnimation}>Education</MEducation>
+							<MFinance variants={solutionsAnimation}>Finance</MFinance>
+							<MECommerce variants={solutionsAnimation}>E-commerce</MECommerce>
+							<MHealthcare variants={solutionsAnimation}>Healthcare</MHealthcare>
+						</motion.div>
 					</CirclesWrapper>
 					<GradientsBlock>
 						<FirstVector />
