@@ -11,12 +11,14 @@ import { useGetValidationInfo } from '../hooks/useGetValidationInfo';
 import useSnackbarControl from '../hooks/useSnackbarControl';
 import CustomSnackbar from './CustomSnackbar';
 import abstractImg from '../assets/pictures/contactUs/abstract-img.png';
+import { motion } from 'framer-motion';
+import { showAllBlock, textAnimation } from '../assets/animation';
 
-const ContactUsUI = styled('section')(({}) => ({
+const ContactUsUI = styled('section')(({ }) => ({
 	width: '100%',
 }));
 
-const MainWrapper = styled('div')(({}) => ({
+const MainWrapper = styled('div')(({ }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	position: 'relative',
@@ -152,6 +154,10 @@ const Image = styled('img')(({ theme }) => ({
 	},
 }));
 
+const MTitle = motion(Title);
+const MOverview = motion(Overview);
+const MCustomForm = motion(CustomForm);
+
 const ContactUs: FC = () => {
 	const { isOpenSnackbar, openSnackbar, closeSnackbar } = useSnackbarControl();
 
@@ -164,12 +170,33 @@ const ContactUs: FC = () => {
 		<ContactUsUI>
 			<CustomContainer>
 				<MainWrapper>
-					<Title>Contact us</Title>
-					<Overview>
+					<MTitle
+						variants={textAnimation}
+						custom={1}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true, }}
+					>
+						Contact us
+					</MTitle>
+					<MOverview
+						variants={textAnimation}
+						custom={2}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true, }}
+					>
 						Not quite ready? Have questions or need more information? Our team is here to assist
 						you. Contact us for a personalized consultation:
-					</Overview>
-					<CustomForm onSubmit={handleSubmit} autoComplete="off">
+					</MOverview>
+					<MCustomForm
+						onSubmit={handleSubmit}
+						autoComplete="off"
+						variants={showAllBlock}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ amount: 0.2, once: true, }}
+					>
 						<Box>
 							<CustomInput
 								autoComplete="off"
@@ -224,7 +251,7 @@ const ContactUs: FC = () => {
 						<SubmitButton type="submit" disabled={isSubmitting}>
 							Send
 						</SubmitButton>
-					</CustomForm>
+					</MCustomForm>
 					<Image src={abstractImg} alt="Abstract image" />
 					<CustomSnackbar
 						isOpenSnackbar={isOpenSnackbar}
