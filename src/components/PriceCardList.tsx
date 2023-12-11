@@ -102,7 +102,7 @@ const item = {
 	visible: (custom: number = 0) => ({
 		y: 0,
 		opacity: 1,
-		transition: { delay: custom * 0.4, duration: 0.3 },
+		transition: { delay: custom * 0.4, duration: 0.9 },
 	}),
 }
 

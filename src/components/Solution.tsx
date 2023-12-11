@@ -273,7 +273,7 @@ const solutionsAnimation = {
 	},
 	visible: {
 		opacity: 1,
-		transition: { delay: 0.5 },
+		transition: { delay: 0.5, duration: 1 },
 	},
 }
 

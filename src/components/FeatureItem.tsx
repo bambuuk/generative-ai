@@ -64,7 +64,7 @@ const featureAnimation = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { delay: 1.5, duration: 0.3 },
+    transition: { delay: 1.5, duration: 0.9 },
   }
 };
 
