@@ -10,19 +10,19 @@ const HowItWorksUI = styled('section')({
 	width: '100%',
 });
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 }));
 
-const DescriptionList = styled('div')(({ }) => ({
+const DescriptionList = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '40px',
 	marginTop: '73px',
 }));
 
-const DescriptionItem = styled('div')(({ }) => ({
+const DescriptionItem = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '12px',
@@ -79,7 +79,7 @@ const descriptionItemAnimation = {
 		opacity: 1,
 		transition: { delay: custom * 0.7, duration: 0.9 },
 	}),
-}
+};
 
 const HowItWorks: FC = () => {
 	return (
@@ -91,7 +91,7 @@ const HowItWorks: FC = () => {
 						custom={1}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						How it works?
 					</MTitle>

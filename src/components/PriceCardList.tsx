@@ -97,14 +97,14 @@ const MPriceCardListUI = motion(PriceCardListUI);
 const item = {
 	hidden: {
 		opacity: 0,
-		y: 100
+		y: 100,
 	},
 	visible: (custom: number = 0) => ({
 		y: 0,
 		opacity: 1,
 		transition: { delay: custom * 0.4, duration: 0.9 },
 	}),
-}
+};
 
 const PriceCardList: FC = () => {
 	const { isModalOpen, openModal, closeModal } = useModalControl();
@@ -123,28 +123,26 @@ const PriceCardList: FC = () => {
 					>
 						Customized prices for you
 					</MTitle>
-					<MPriceCardListUI
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true }}
-					>
-						{priceList.map(({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType }, i) => {
-							return (
-								<PriceCard
-									initial="hidden"
-									whileInView="visible"
-									variants={item}
-									custom={+i + 1}
-									viewport={{ once: true }}
-									key={nanoid()}
-									tariffPlaneTitle={tariffPlaneTitle}
-									tariffPlanePrice={tariffPlanePrice}
-									tariffFeatures={tariffFeatures}
-									cardType={cardType}
-									openModal={openModal}
-								/>
-							);
-						})}
+					<MPriceCardListUI initial="hidden" whileInView="visible" viewport={{ once: true }}>
+						{priceList.map(
+							({ tariffPlaneTitle, tariffPlanePrice, tariffFeatures, cardType }, i) => {
+								return (
+									<PriceCard
+										initial="hidden"
+										whileInView="visible"
+										variants={item}
+										custom={+i + 1}
+										viewport={{ once: true }}
+										key={nanoid()}
+										tariffPlaneTitle={tariffPlaneTitle}
+										tariffPlanePrice={tariffPlanePrice}
+										tariffFeatures={tariffFeatures}
+										cardType={cardType}
+										openModal={openModal}
+									/>
+								);
+							}
+						)}
 					</MPriceCardListUI>
 					<FirstBackgroundBlock>
 						<FirstVector />

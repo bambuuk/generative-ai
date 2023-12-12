@@ -5,11 +5,11 @@ import abstractImg from '../assets/pictures/contacts/abstract-img.png';
 import { motion } from 'framer-motion';
 import { showAllBlock, textAnimation } from '../assets/animation';
 
-const ContactsUI = styled('section')(({ }) => ({
+const ContactsUI = styled('section')(({}) => ({
 	width: '100%',
 }));
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	position: 'relative',
@@ -69,12 +69,12 @@ const ContactInfo = styled('li')(({ theme }) => ({
 	},
 }));
 
-const AddressInfo = styled(ContactInfo)(({ }) => ({
+const AddressInfo = styled(ContactInfo)(({}) => ({
 	listStyle: 'none',
 	marginLeft: 0,
 }));
 
-const CustomLink = styled(Link)(({ }) => ({
+const CustomLink = styled(Link)(({}) => ({
 	color: '#E2E2E2',
 }));
 
@@ -155,7 +155,7 @@ const Contacts: FC = () => {
 						custom={1}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						Our contacts
 					</MTitle>
@@ -164,7 +164,7 @@ const Contacts: FC = () => {
 						custom={2}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						Connect with us via email or phone. We're available to assist you with any questions,
 						provide personalized consultations, and help you get the most out of our AI service.
@@ -174,7 +174,7 @@ const Contacts: FC = () => {
 						variants={showAllBlock}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						<ContactItem>
 							<ContactSubtitle>Customer Support:</ContactSubtitle>

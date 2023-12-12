@@ -12,7 +12,7 @@ const FeaturesUI = styled('section')({
 	width: '100%',
 });
 
-const FeaturesWrapper = styled('div')(({ }) => ({
+const FeaturesWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
@@ -165,9 +165,7 @@ const MOverview = motion(Overview);
 
 const Features: FC = () => {
 	return (
-		<FeaturesUI
-			id="features"
-		>
+		<FeaturesUI id="features">
 			<CustomContainer sx={{ position: 'relative' }}>
 				<FeaturesWrapper>
 					<MCustomTitle
@@ -192,14 +190,7 @@ const Features: FC = () => {
 					<FeaturesCardList>
 						<StarImg src={star} />
 						{featuresList.map(({ img, title, text }) => {
-							return (
-								<FeatureItem
-									key={nanoid()}
-									img={img}
-									title={title}
-									text={text}
-								/>
-							);
+							return <FeatureItem key={nanoid()} img={img} title={title} text={text} />;
 						})}
 					</FeaturesCardList>
 				</FeaturesWrapper>

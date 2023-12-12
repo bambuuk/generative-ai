@@ -14,11 +14,11 @@ import abstractImg from '../assets/pictures/contactUs/abstract-img.png';
 import { motion } from 'framer-motion';
 import { showAllBlock, textAnimation } from '../assets/animation';
 
-const ContactUsUI = styled('section')(({ }) => ({
+const ContactUsUI = styled('section')(({}) => ({
 	width: '100%',
 }));
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	position: 'relative',
@@ -175,7 +175,7 @@ const ContactUs: FC = () => {
 						custom={1}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						Contact us
 					</MTitle>
@@ -184,7 +184,7 @@ const ContactUs: FC = () => {
 						custom={2}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						Not quite ready? Have questions or need more information? Our team is here to assist
 						you. Contact us for a personalized consultation:
@@ -195,7 +195,7 @@ const ContactUs: FC = () => {
 						variants={showAllBlock}
 						initial="hidden"
 						whileInView="visible"
-						viewport={{ amount: 0.2, once: true, }}
+						viewport={{ amount: 0.2, once: true }}
 					>
 						<Box>
 							<CustomInput

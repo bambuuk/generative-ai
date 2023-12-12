@@ -11,7 +11,7 @@ import useSnackbarControl from '../hooks/useSnackbarControl';
 import { motion } from 'framer-motion';
 import { showAllBlock } from '../assets/animation';
 
-const SecondCTA_UI = styled('section')(({ }) => ({
+const SecondCTA_UI = styled('section')(({}) => ({
 	width: '100%',
 }));
 
@@ -42,7 +42,7 @@ const MainWrapper = styled('div')(({ theme }) => ({
 	},
 }));
 
-const SubscriptionWrapper = styled('div')(({ }) => ({
+const SubscriptionWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	width: '100%',

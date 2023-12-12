@@ -5,18 +5,18 @@ import Slider from './Slider';
 import { motion } from 'framer-motion';
 import { textAnimation } from '../assets/animation';
 
-const SliderUI = styled('div')(({ }) => ({
+const SliderUI = styled('div')(({}) => ({
 	width: '100%',
 }));
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	gap: '16px',
 	position: 'relative',
 }));
 
-const BackgroundBlock = styled('div')(({ }) => ({
+const BackgroundBlock = styled('div')(({}) => ({
 	display: 'block',
 	position: 'absolute',
 	zIndex: '-10',

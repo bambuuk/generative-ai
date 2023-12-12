@@ -10,7 +10,7 @@ import useSnackbarControl from '../hooks/useSnackbarControl';
 import { motion } from 'framer-motion';
 import { showAllBlock } from '../assets/animation';
 
-const CTA_UI = styled('section')(({ }) => ({
+const CTA_UI = styled('section')(({}) => ({
 	width: '100%',
 }));
 
@@ -51,7 +51,7 @@ const CubeImage = styled('img')(({ theme }) => ({
 	},
 }));
 
-const DescriptionWrapper = styled('div')(({ }) => ({
+const DescriptionWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	maxWidth: '630px',

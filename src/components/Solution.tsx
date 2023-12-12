@@ -13,7 +13,7 @@ const SolutionUI = styled('section')({
 	position: 'relative',
 });
 
-const MainWrapper = styled('div')(({ }) => ({
+const MainWrapper = styled('div')(({}) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignContent: 'center',
@@ -275,7 +275,7 @@ const solutionsAnimation = {
 		opacity: 1,
 		transition: { delay: 0.5, duration: 1 },
 	},
-}
+};
 
 const Solution: FC = () => {
 	return (
